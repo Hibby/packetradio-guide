@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://packetradio.debian.net/software/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>What are my choices? - Hibby's Packet Radio Guide</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "What are my choices?";
+        var mkdocs_page_input_path = "software.md";
+        var mkdocs_page_url = "/software/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Hibby's Packet Radio Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Radios</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../radios/">Radios</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modems</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../modems/ninotnc/">NinoTNC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modems/qtsm/">QtSoundModem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modems/direwolf/">Direwolf</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Clients</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../clients/qtttcp/">QtTermTCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software Setup</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">What are my choices?</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#linbpq">LinBPQ</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xrouter">XROUTER</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#linux-native-stack">Linux Native Stack</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install/bpq/">BPQ</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Node Configuration</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../config/bpq/">BPQ</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../glossary/">Glossary</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Hibby's Packet Radio Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Software Setup</li>
+      <li class="breadcrumb-item active">What are my choices?</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="what-are-my-choices">What are my choices?</h1>
+<p>Currently the choices for software boil down to 3 major stacks</p>
+<h2 id="linbpq">LinBPQ</h2>
+<p>LinBPQ is written by John G8BPQ and allows a computer to act as a node in a NET/ROM and AX.25 network.
+It is being actively developed with both new features and bugfixes being rolled out on a regular basis.</p>
+<p>It offers the following applications:</p>
+<ul>
+<li>BBS</li>
+<li>Chat</li>
+</ul>
+<p>For details on how to use it:</p>
+<ul>
+<li>Installation information can be found <a href="../install/bpq/">here</a>.</li>
+<li>Configuration can be found <a href="../config/bpq/">here</a>.</li>
+<li>The project website can be found <a href="https://www.cantab.net/users/john.wiseman/Documents/">here</a></li>
+</ul>
+<h2 id="xrouter">XROUTER</h2>
+<p>XROUTER is written by Paula G8PZT and allows a computer to act as a node in a NET/ROM and AX.25 network.
+It is being actively developed with new features and bug fixes.</p>
+<p>It offers the following applications:</p>
+<ul>
+<li>Chat</li>
+<li>Personal Message Server</li>
+</ul>
+<p>For details on how to use it:</p>
+<ul>
+<li>Installation information can be found <a href="install/xrouter.md">here</a>.</li>
+<li>Configuration can be found <a href="config/xrouter.md">here</a>.</li>
+<li>The project website can be found <a href="https://groups.io/g/xrouter/topics">here</a></li>
+</ul>
+<h2 id="linux-native-stack">Linux Native Stack</h2>
+<p>The Linux native AX.25 stack has been authored by many over the years, and is shipped as a standard part of Debian.</p>
+<p>It comprises kernel modules and userland code, and is not bundled as a single big monolithic application.</p>
+<p>The system offers the following applications:</p>
+<ul>
+<li>Node frontend via Uronode</li>
+<li>BBS via FBB</li>
+<li>Bash or any other terminal with axspawn</li>
+<li>Many applications with axwrapper</li>
+</ul>
+<p>For details on how to use it:</p>
+<ul>
+<li>Installation information can be found <a href="install/linux.md">here</a>.</li>
+<li>Configuration can be found <a href="config/linux.md">here</a>.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../clients/qtttcp/" class="btn btn-neutral float-left" title="QtTermTCP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../install/bpq/" class="btn btn-neutral float-right" title="BPQ">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../clients/qtttcp/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../install/bpq/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

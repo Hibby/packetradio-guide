@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://packetradio.debian.net/modems/ninotnc/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>NinoTNC - Hibby's Packet Radio Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "NinoTNC";
+        var mkdocs_page_input_path = "modems/ninotnc.md";
+        var mkdocs_page_url = "/modems/ninotnc/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Hibby's Packet Radio Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Radios</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../radios/">Radios</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modems</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">NinoTNC</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#buying-one">Buying one</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#build">Build</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#operation">Operation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mode-switch">Mode Switch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#signals-switch">Signals Switch</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#switch-1-transmit-audio-range-selection-datamic">Switch 1 - Transmit audio range selection - DATA/MIC</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#switch-2-receive-audio-sensitivity-1x11x">Switch 2 - Receive audio sensitivity - 1x/11x</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#switch-3-transmit-audio-coupling-control-dcac">Switch 3 - Transmit audio coupling control - DC/AC</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#switch-4-external-carrier-detect-encd">Switch 4 - External carrier detect - EN/CD</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../qtsm/">QtSoundModem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../direwolf/">Direwolf</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Clients</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../clients/qtttcp/">QtTermTCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software Setup</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/">What are my choices?</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../install/bpq/">BPQ</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Node Configuration</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../config/bpq/">BPQ</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Glossary</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Hibby's Packet Radio Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Modems</li>
+      <li class="breadcrumb-item active">NinoTNC</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ninotnc">NinoTNC</h1>
+<p>The NinoTNC is a modern hardware modem that can come in either kit form or assembled.
+It connects to a computer by USB, and to a radio by a cable that is usually custom built buy the operator.</p>
+<p>It supports traditional 300, 1200 and 9600 baud packet modes as well as some more modern experimental modes designed to be more efficient that also include forward error correction. The NinoTNC has become an integral part of many new packet radio deployments in the UK and further afield.</p>
+<h2 id="buying-one">Buying one</h2>
+<p>Information is available on the <a href="https://tarpn.net/t/nino-tnc/n9600a/n9600a_info.html">TARPN Website Ordering Page</a>.</p>
+<p>For the UK &amp; Ireland, boards are are available from <a href="https://ko-fi.com/s/981d919ea3">Tom, M0LTE</a>.</p>
+<h2 id="build">Build</h2>
+<p>The build gide for the NinoTNC is available on the <a href="https://tarpn.net/t/nino-tnc/nino-tnc.html">TARPN Website</a>.</p>
+<h2 id="operation">Operation</h2>
+<p>The Through Hole NinoTNC has 2 banks of switches: Mode and Signals, explanation below.</p>
+<p>USB is always 57600 baud</p>
+<h3 id="mode-switch">Mode Switch</h3>
+<p>Current modes as of firmware release 3.3.1:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Baud</th>
+<th>bps</th>
+<th>Mod</th>
+<th>Protocol</th>
+<th>Intended mode</th>
+<th>BW</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0010</td>
+<td>9600</td>
+<td>9600</td>
+<td>GFSK</td>
+<td>IL2P+CRC</td>
+<td>FM</td>
+<td>25k</td>
+<td>Current recommended mode for new 70cm (25kHz) links where both ends are compatible</td>
+</tr>
+<tr>
+<td>0100</td>
+<td>4800</td>
+<td>4800</td>
+<td>GFSK</td>
+<td>IL2P+CRC</td>
+<td>FM</td>
+<td>12.5k</td>
+<td>Current recommended mode for new 2m (12.5kHz) links where both ends are compatible</td>
+</tr>
+<tr>
+<td>0101</td>
+<td>2400</td>
+<td>2400</td>
+<td>DPSK</td>
+<td>IL2P</td>
+<td>FM</td>
+<td>12.5k</td>
+<td>For situations where only a speaker/mic connection is available but &gt; 1200 baud is desired</td>
+</tr>
+<tr>
+<td>1011</td>
+<td>1200</td>
+<td>2400</td>
+<td>QPSK</td>
+<td>IL2P+CRC</td>
+<td>SSB/FM</td>
+<td>2.4kHz</td>
+<td>HF - quadrature version of 1200 BPSK, twice the throughput for +3dB SNR.</td>
+</tr>
+<tr>
+<td>1010</td>
+<td>1200</td>
+<td>1200</td>
+<td>BPSK</td>
+<td>IL2P+CRC</td>
+<td>SSB/FM</td>
+<td>2.4kHz</td>
+<td>HF - use for circuits where wider transmission is acceptable.</td>
+</tr>
+<tr>
+<td>1001</td>
+<td>300</td>
+<td>600</td>
+<td>QPSK</td>
+<td>IL2P+CRC</td>
+<td>SSB</td>
+<td>500Hz</td>
+<td>HF - quadrature version of 300 BPSK, twice the throughput for +3dB SNR</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>300</td>
+<td>300</td>
+<td>BPSK</td>
+<td>IL2P+CRC</td>
+<td>SSB</td>
+<td>500Hz</td>
+<td>HF - slowest but best performing mode. ~7dB better than classic 300 baud FSK AX.25</td>
+</tr>
+<tr>
+<td>1110</td>
+<td>300</td>
+<td>300</td>
+<td>AFSK</td>
+<td>IL2P+CRC</td>
+<td>SSB</td>
+<td>500Hz</td>
+<td>CRC improvement of IL2P 300 baud AX.25. Recommended if you can't do BPSK / QPSK on HF.</td>
+</tr>
+</tbody>
+</table>
+<p>Superseded (but still supported) modes:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Baud</th>
+<th>bps</th>
+<th>Mod</th>
+<th>Protocol</th>
+<th>Superseded By</th>
+<th>Intended mode</th>
+<th>BW</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0000</td>
+<td>9600</td>
+<td>9600</td>
+<td>GFSK</td>
+<td>AX.25</td>
+<td>9600 GFSK IL2P</td>
+<td>FM</td>
+<td>25k</td>
+<td>Backwards compatibility with legacy G3RUH modems</td>
+</tr>
+<tr>
+<td>0001</td>
+<td>9600</td>
+<td>9600</td>
+<td>GFSK</td>
+<td>IL2P</td>
+<td>9600 GFSK IL2P+CRC</td>
+<td>FM</td>
+<td>25k</td>
+<td>Backwards compatibility. Obsoleted by 9600 GFSK IL2P+CRC</td>
+</tr>
+<tr>
+<td>0011</td>
+<td>4800</td>
+<td>4800</td>
+<td>GFSK</td>
+<td>IL2P</td>
+<td>4800 GFSK IL2P+CRC</td>
+<td>FM</td>
+<td>12.5k</td>
+<td>Debugging against 4800 GFSK IL2P+CRC in case of issues with the CRC mode</td>
+</tr>
+<tr>
+<td>1111</td>
+<td>1200</td>
+<td>1200</td>
+<td>BPSK</td>
+<td>IL2P</td>
+<td>1200 BPSK IL2P+CRC</td>
+<td>SSB/FM</td>
+<td>2.4kHz</td>
+<td>Backwards compatibility</td>
+</tr>
+<tr>
+<td>0111</td>
+<td>1200</td>
+<td>1200</td>
+<td>AFSK</td>
+<td>IL2P</td>
+<td>4800 GFSK IL2P+CRC</td>
+<td>FM</td>
+<td>12.5k</td>
+<td>Improvement over 1200 AFSK IL2P, where none of the GFSK modes are possible</td>
+</tr>
+<tr>
+<td>0110</td>
+<td>1200</td>
+<td>1200</td>
+<td>AFSK</td>
+<td>AX.25</td>
+<td>1200 AFSK IL2P</td>
+<td>FM</td>
+<td>12.5k</td>
+<td>VHF APRS, backwards compatibility with classic / legacy TNCs like PK232</td>
+</tr>
+<tr>
+<td>1100</td>
+<td>300</td>
+<td>300</td>
+<td>AFSK</td>
+<td>AX.25</td>
+<td>300 AFSK IL2P</td>
+<td>SSB</td>
+<td>500Hz</td>
+<td>Backwards compatibility with legacy HF packet modems. Modulation invented c. 1962!</td>
+</tr>
+<tr>
+<td>1101</td>
+<td>300</td>
+<td>300</td>
+<td>AFSK</td>
+<td>IL2P</td>
+<td>300 AFSK IL2P+CRC</td>
+<td>SSB</td>
+<td>500Hz</td>
+<td>IL2P improvement of AFSK 300 baud AX.25.</td>
+</tr>
+</tbody>
+</table>
+<p>Prefer:
+  * QPSK &gt; BPSK &gt; DPSK &gt; AFSK
+  * IL2P+CRC &gt; IL2P &gt; IL2P &gt; AX.25
+  * SSB &gt; FM</p>
+<h3 id="signals-switch">Signals Switch</h3>
+<h4 id="switch-1-transmit-audio-range-selection-datamic">Switch 1 - Transmit audio range selection - DATA/MIC</h4>
+<p>The data / on / up position increases the TXA level so the TX-LEVEL potentiometer adjustment is in the range needed by the Data radio.</p>
+<p>The mic / off / down position reduces transmit audio to the range needed by a microphone-level-input radio.</p>
+<h4 id="switch-2-receive-audio-sensitivity-1x11x">Switch 2 - Receive audio sensitivity - 1x/11x</h4>
+<p>The on / up / 1x position is about the right level for a speaker output, and is also appropriate for a data radio output.</p>
+<p>The off / down / 11x position is used for radios which have a very low level of receive audio, e.g. perhaps when taken from a speaker mic connection.</p>
+<h4 id="switch-3-transmit-audio-coupling-control-dcac">Switch 3 - Transmit audio coupling control - DC/AC</h4>
+<p>Leave in the off / down / AC position unless you have a rare case where having the voltage into the modulator track the TNC’s output, exactly, is required (DC coupling).</p>
+<h4 id="switch-4-external-carrier-detect-encd">Switch 4 - External carrier detect - EN/CD</h4>
+<p>Leave in the off / down / CD position unless you want to provide external transmit inhibit using pin 2 of the DB9 connector.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../radios/" class="btn btn-neutral float-left" title="Radios"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../qtsm/" class="btn btn-neutral float-right" title="QtSoundModem">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../radios/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../qtsm/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
