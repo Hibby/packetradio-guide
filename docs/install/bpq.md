@@ -16,7 +16,7 @@ sudo apt install linbpq
 ## Configure
 
 ```
-sudo mv /usr/share/doc/linbpq/examples/bpq32.cfg /etc/bpq32.cfg
+sudo cp /usr/share/doc/linbpq/examples/bpq32.cfg /etc/bpq32.cfg
 sudo nano /etc/bpq32.cfg
 sudo chown :linbpq /etc/bpq32.cfg
 sudo chmod 644 /etc/bpq32.cfg

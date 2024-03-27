@@ -1,28 +1,30 @@
 site_name: Hibby's Packet Radio Guide
 site_url: https://packetradio.debian.net
 nav:
-  - Home: "index.md"
-  - About: "about.md"
-  - Glossary: "glossary.md"
+  - Home: index.md
+  - About: about.md
+  - Glossary: glossary.md
   - Radios: 
-    - "radios/index.md"
+    - radios/index.md
   - Modems:
-    - NinoTNC: "modems/ninotnc.md"
-    - QtSoundModem: "modems/qtsm.md"
-    - Direwolf: "modems/direwolf.md"
+    - modems/ninotnc.md
+    - modems/qtsm.md
+    - modems/direwolf.md
   - Clients:
-    - QtTermTCP: "clients/qtttcp.md"
+    - clients/qtttcp.md
   - Software Setup:
-    - "software.md"
-    - BPQ: "install/bpq.md"
-    - Linux: "install/linux.md"
+    - software.md
+    - install/bpq.md
+    - install/linux.md
   - Node Configuration:
-    - BPQ: "config/bpq.md"
+    - config/bpq.md
   - Misc:
-    - Repo Setup: "repo.md"
+    - repo.md
 theme: 
   name: readthedocs
   navigation_depth: 5
   collapse_navigation: False 
-  sticky_navigation: False
+  sticky_navigation: True
   highlightjs: True
+plugins:
+    - search
