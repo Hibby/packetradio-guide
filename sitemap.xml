@@ -21,6 +21,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://packetradio.debian.net/repo/</loc>
+         <lastmod>2024-03-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://packetradio.debian.net/software/</loc>
          <lastmod>2024-03-27</lastmod>
          <changefreq>daily</changefreq>
@@ -41,6 +46,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://packetradio.debian.net/install/linux/</loc>
+         <lastmod>2024-03-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://packetradio.debian.net/modems/direwolf/</loc>
          <lastmod>2024-03-27</lastmod>
          <changefreq>daily</changefreq>
@@ -57,6 +67,16 @@
     </url>
     <url>
          <loc>https://packetradio.debian.net/radios/</loc>
+         <lastmod>2024-03-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://packetradio.debian.net/radios/ft-7900/</loc>
+         <lastmod>2024-03-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://packetradio.debian.net/radios/ft-891/</loc>
          <lastmod>2024-03-27</lastmod>
          <changefreq>daily</changefreq>
     </url>

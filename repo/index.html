@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://packetradio.debian.net/about/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://packetradio.debian.net/repo/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>About - Hibby's Packet Radio Guide</title>
+    <title>Repo Setup - Hibby's Packet Radio Guide</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "About";
-        var mkdocs_page_input_path = "about.md";
-        var mkdocs_page_url = "/about/";
+        var mkdocs_page_name = "Repo Setup";
+        var mkdocs_page_input_path = "repo.md";
+        var mkdocs_page_url = "/repo/";
       </script>
     
     <!--[if lt IE 9]>
@@ -53,9 +53,9 @@
     </ul>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">About</a>
-    <ul class="current">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+    <ul>
     </ul>
                 </li>
               </ul>
@@ -165,14 +165,14 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Misc</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../repo/">Repo Setup</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../repo/#install-signing-key">Install Signing Key</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Repo Setup</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#install-signing-key">Install Signing Key</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="../repo/#set-up-repo">Set up Repo</a>
+    <li class="toctree-l2"><a class="reference internal" href="#set-up-repo">Set up Repo</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="../repo/#update">Update</a>
+    <li class="toctree-l2"><a class="reference internal" href="#update">Update</a>
     </li>
     </ul>
                   </li>
@@ -191,7 +191,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">About</li>
+          <li class="breadcrumb-item">Misc</li>
+      <li class="breadcrumb-item active">Repo Setup</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -200,16 +201,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="about">About</h1>
-<p>Hello, I'm Hibby MM0RFN and I have compiled this to the best of my ability.</p>
-<p>I work on the Debian project and can be emailed via hibby at debian.org</p>
-<p>The things I love include Scottish Consulate &amp; 57North &amp; Bikes &amp; Hacking &amp; Debian &amp; Radio &amp; Curling &amp; 🏳️‍🌈 &amp; 🦊</p>
+                <h1 id="hibbys-repo">Hibby's Repo</h1>
+<h2 id="install-signing-key">Install Signing Key</h2>
+<p>First, you need tell your machine to trust the signature I verify the packages with:</p>
+<pre><code>wget -q https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key
+sudo mv hibby.key /etc/apt/trusted.gpg.d/hibby.asc
+</code></pre>
+<p>You can trust this key - it is contained in <a href="https://salsa.debian.org/debian-keyring/keyring/-/blob/master/debian-keyring-gpg/0x03A1FB7A1904771B?ref_type=heads">Debian</a> and signed as trusted by other developers in the project.</p>
+<h2 id="set-up-repo">Set up Repo</h2>
+<p>Then you need to add the repo for your OS:</p>
+<pre><code># Ubuntu 22.04 LTS amd64
+sudo sh -c 'echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages jammy main&quot; &gt;&gt; /etc/apt/sources.list'
+
+# Raspberry Pi OS 12 - 'Bookworm'
+sudo sh -c 'echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main&quot; &gt;&gt; /etc/apt/sources.list'
+
+# Raspberry Pi OS 11 - 'Bullseye'
+sudo sh -c 'echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bullseye main&quot; &gt;&gt; /etc/apt/sources.list'
+
+# Debian 13 amd64
+sudo sh -c 'echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages testing main&quot; &gt;&gt; /etc/apt/sources.list'
+
+# Debian 12 amd64
+sudo sh -c 'echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main&quot; &gt;&gt; /etc/apt/sources.list'
+</code></pre>
+<h2 id="update">Update</h2>
+<p>Once the repo is setup, refresh your package lists and we're good to go:</p>
+<pre><code>sudo apt update
+</code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../glossary/" class="btn btn-neutral float-right" title="Glossary">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../config/bpq/" class="btn btn-neutral float-left" title="BPQ"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -232,10 +256,8 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../config/bpq/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
-    
-      <span><a href="../glossary/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
