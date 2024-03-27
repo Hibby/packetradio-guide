@@ -3,6 +3,7 @@ site_url: https://packetradio.debian.net
 nav:
   - Home: "index.md"
   - About: "about.md"
+  - Glossary: "glossary.md"
   - Radios: 
     - "radios/index.md"
   - Modems:
@@ -14,7 +15,14 @@ nav:
   - Software Setup:
     - "software.md"
     - BPQ: "install/bpq.md"
+    - Linux: "install/linux.md"
   - Node Configuration:
     - BPQ: "config/bpq.md"
-  - Glossary: "glossary.md"
-theme: readthedocs
+  - Misc:
+    - Repo Setup: "repo.md"
+theme: 
+  name: readthedocs
+  navigation_depth: 5
+  collapse_navigation: False 
+  sticky_navigation: False
+  highlightjs: True
