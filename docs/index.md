@@ -26,6 +26,12 @@ The key things you will need are:
 
 ### Recommended first setup
 
-A tried and true first setup is to use a [proven radio](radios/index.md) with [QtSoundModem](modems/qtsm.md) and [QtTermTCP](clients/qtttcp.md) on VHF or UHF at 1200bd to access someone else's node.
+If you don't want to spend a lot of money to dip your toe in, you don't have to. The only things you'll need are a radio, a computer and a cable to interface between the two. Everything else can run as software.
+
+Have a look to see if you have a [proven radio](radios/index.md) and install [QtSoundModem](modems/qtsm.md) and [QtTermTCP](clients/qtttcp.md) to access someone else's node.
+
+I'd recommend trying 1200bd on VHF or UHF first, but slower modes on HF are perfectly do-able as well if you're on an island or stuck in a ditch,
+
+Take a look at the [beginner's guide](beginners-guide.md) to see more detail about how to get started with this.
 
 

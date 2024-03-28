@@ -3,7 +3,7 @@ site_url: https://packetradio.debian.net
 nav:
   - Home: index.md
   - About: about.md
-  - Glossary: glossary.md
+  - Beginner's Guide: beginners-guide.md
   - Radios: 
     - radios/index.md
   - Modems:
@@ -20,11 +20,13 @@ nav:
     - config/bpq.md
   - Misc:
     - repo.md
+    - Glossary: glossary.md
 theme: 
   name: readthedocs
   navigation_depth: 5
   collapse_navigation: False 
   sticky_navigation: True
-  highlightjs: True
+  prev_next_buttons_location: none
+
 plugins:
     - search
