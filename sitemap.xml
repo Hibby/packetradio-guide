@@ -2,87 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://packetradio.debian.net/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/about/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://packetradio.debian.net/beginners-guide/</loc>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/glossary/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/hardware/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/repo/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/software/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/clients/qtttcp/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/config/bpq/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/install/bpq/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/install/linux/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/modems/direwolf/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/modems/ninotnc/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/modems/qtsm/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/radios/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/radios/ft-7900/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/radios/ft-891/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://packetradio.debian.net/radios/gm340/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
