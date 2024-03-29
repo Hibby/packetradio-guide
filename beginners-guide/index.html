@@ -213,6 +213,84 @@
     <ul>
     </ul>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../config/linux/">Linux Native AX.25 Stack</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#axports">axports</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#kissattach">kissattach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#axcall">axcall</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#ax25ipd">ax25ipd</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#socat">socat</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#ax25ipdconf">ax25ipd.conf</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#running-ax25ipd">Running ax25ipd</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#kissattach_1">kissattach</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#netrom">NET/ROM</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#nrports">nrports</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#nrbroadcast">nrbroadcast</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#nrattach">nrattach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#netromd">netromd</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#ax25d">ax25d</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#running-ax25d">Running ax25d</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#uronode-frontend">Uronode Frontend</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#uronodeconf">uronode.conf</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#other-uronode-config-files">Other Uronode Config Files</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="../config/linux/#uronodeperms">uronode.perms</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../config/linux/#uronodeannounce">uronode.announce</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../config/linux/#uronodeinfo">uronode.info</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../config/linux/#uronodemotd">uronode.motd</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../config/linux/#uronodeusers">uronode.users</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#uronode-as-a-local-interface">Uronode as a local interface</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="../config/linux/#xinetd-config">xinetd config</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#fbb-bbs">FBB BBS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#portssys">ports.sys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#bbssys-forwardsys">bbs.sys, forward.sys</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#running-everything">Running Everything</a>
+    </li>
+    </ul>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Misc</span></p>
               <ul>
@@ -254,22 +332,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="beginners-guide">Beginner's Guide</h1>
-<h2 id="key-concepts">Key Concepts</h2>
+                <h1 id="beginners-guide">Beginner's Guide<a class="headerlink" href="#beginners-guide" title="Permanent link">&para;</a></h1>
+<h2 id="key-concepts">Key Concepts<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
 <p>In packet radio, we connect our computers together over the air to transmit data wirelessly. As it's not as polished as Wifi (but much more fun), there are a few things you'll need to be familiar with before you can get stuck in to the network.</p>
-<h3 id="equipment">Equipment</h3>
+<h3 id="equipment">Equipment<a class="headerlink" href="#equipment" title="Permanent link">&para;</a></h3>
 <p>You'll need a Radio, and a computer with a cable to connect them together. Sometimes these are easy to buy online, and the moreadventurous can make them. If you've done <a href="https://en.wikipedia.org/wiki/FT8">FT-8</a> or another datamode, you might already have this cable.</p>
-<h3 id="modem">Modem</h3>
+<h3 id="modem">Modem<a class="headerlink" href="#modem" title="Permanent link">&para;</a></h3>
 <p>You'll need a modem of some variety. For more advanced users this of often a piece of hardware such as a <a href="../modems/ninotnc/">NinoTNC</a>, but as a beginner you're better suited to a piece of software such as <a href="../modems/qtsm/">QtSoundModem</a>. As the software costs nothing and takes no time to be delivered, it's quicker to get started with!</p>
-<h3 id="client-software">Client Software</h3>
+<h3 id="client-software">Client Software<a class="headerlink" href="#client-software" title="Permanent link">&para;</a></h3>
 <p>You'll need a client of some form to be able to connect to the network. I would recommend <a href="clients/qttcp.md">QtTermTCP</a> to start with. Again, it's free and it works with QtSoundModem, a NinoTNC and other hardware &amp; software offerings too.</p>
-<h3 id="addresses">Addresses</h3>
+<h3 id="addresses">Addresses<a class="headerlink" href="#addresses" title="Permanent link">&para;</a></h3>
 <p>Every station on the network has an address. The Government issued yours when you passed your ham exam (or if you've not sat it, they will do once you pass!). My station, as an example, is MM0RFN on the air.</p>
 <p>Sometimes, when we want to offer a service from our computer, such as a messageboard or chatroom, we will add a number afterwards. We call this an SSID, a Service Set IDentifier. Due to the limitations of AX.25, we can have from number 1 to 15. </p>
 <p>If you want to connect to my messageboard, you can tell your client to connect straight to MM0RFN-1, or if you want to connect to my chatroom it might be MM0RFN-4. </p>
 <p>SSIDs are not necessary - some stations have a frontend that will let you choose what service you want to use when you connect.</p>
 <p>When you call your local node or a nearby station, it is most likely they will have an SSID and you will have to call that.</p>
-<h3 id="modes">Modes</h3>
+<h3 id="modes">Modes<a class="headerlink" href="#modes" title="Permanent link">&para;</a></h3>
 <p>Similar to normal radio, we have different Modes too. </p>
 <p>Instead of AM, FM, etc, we break to them down to 3 categories:</p>
 <ul>
@@ -278,16 +356,16 @@
 <li>Modulation: what manner of sound we generate to achieve communication. </li>
 </ul>
 <p>Both stations must use the same protocol, speed and modulation to communicate on a shared frequency.</p>
-<h4 id="protocol">Protocol</h4>
+<h4 id="protocol">Protocol<a class="headerlink" href="#protocol" title="Permanent link">&para;</a></h4>
 <p>We use two main protocols: AX.25 (legacy) and IL2P (modern).</p>
-<h5 id="ax25">AX.25</h5>
+<h5 id="ax25">AX.25<a class="headerlink" href="#ax25" title="Permanent link">&para;</a></h5>
 <p>AX.25 is an umbrella term often used for all packet radio, but really it refers to the specification written between the 70s and 90s that defines the basics of packet.</p>
 <p>It has a long legacy and is rather simple, but is reliable, embedded in a lot of old hardware and will likely be in use until the heat death of the universe.</p>
 <p>Learn more <a href="detail/ax25.md">here</a>.</p>
-<h5 id="il2p">IL2P</h5>
+<h5 id="il2p">IL2P<a class="headerlink" href="#il2p" title="Permanent link">&para;</a></h5>
 <p>IL2P, the 'Improved Layer 2 Protocol' is by Nino KK4HEJ and is an evolution of AX.25. It includes nice things such as error correction of data and allows for, theoretically, more reliable communications but isn't compatible with AX.25.</p>
 <p>There are a number of varieties of IL2P in the wild too - learn more <a href="detail/il2p.md">here</a>.</p>
-<h4 id="speeds">Speeds</h4>
+<h4 id="speeds">Speeds<a class="headerlink" href="#speeds" title="Permanent link">&para;</a></h4>
 <p>We often use '1200', '1200bd' or similar as shorthand for how fast our data is sending and received. The 'bd' is baud, or the number of symbols a second. For most of our communications, 1 baud is equivalent to 1 bit per second. </p>
 <p>We 3 broad speed categories at the moment:</p>
 <ul>
@@ -295,7 +373,7 @@
 <li>1200bd - used on VHF</li>
 <li>9600bd - used on UHF and beyond</li>
 </ul>
-<h4 id="modulation">Modulation</h4>
+<h4 id="modulation">Modulation<a class="headerlink" href="#modulation" title="Permanent link">&para;</a></h4>
 <p>Modulation is a little more complicated than the others as there are many ways to modulate a signal!</p>
 <p>If you've played with datamodes on a radio already, you will have a reasonable feeling for this already.</p>
 <p>The key modulations we use are:</p>
@@ -305,27 +383,27 @@
 <p>Frequency Shift Keying - Multiple tones, not necessarily audible. Commonly found on UHF, FM 9600bd links.</p>
 <p><strong>PSK</strong></p>
 <p>Phase Shift Keying - Data encoded into changes of phase. Often found on HF links.</p>
-<h2 id="radio-set-up">Radio Set Up</h2>
+<h2 id="radio-set-up">Radio Set Up<a class="headerlink" href="#radio-set-up" title="Permanent link">&para;</a></h2>
 <p>Find out your local packet radio frequency first, and tune your radio to see if you can hear any activity. This will be a good indicator as to whether you need to think about HF instead of VHF/UHF.</p>
 <p>If you're in the UK, this will be listed at <a href="https://nodes.ukpacketradio.network/packet-network-map.html">ukpacketradio.network</a> or  <a href="https://ukrepeater.net/packetlist.html">UKRepeater</a>.</p>
 <p>If information is available online, also take note of the details of the mode as this will come in handy setting up your modem</p>
-<h2 id="software-set-up">Software Set Up</h2>
-<h3 id="installation">Installation</h3>
+<h2 id="software-set-up">Software Set Up<a class="headerlink" href="#software-set-up" title="Permanent link">&para;</a></h2>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
 <p>If you're using Debian, Ubuntu or a Raspberry Pi it will be easiest if you install <a href="../repo/">hibby's repo</a>.</p>
 <p>Once you have done that you can install the prerequisites:</p>
 <p><code>sudo apt install qtsoundmodem qttermtcp</code></p>
-<h3 id="configure-qtsoundmodem">Configure QtSoundModem</h3>
+<h3 id="configure-qtsoundmodem">Configure QtSoundModem<a class="headerlink" href="#configure-qtsoundmodem" title="Permanent link">&para;</a></h3>
 <p>We shall set up QtSoundModem to understand the type of signal we are trying to receive. </p>
 <p>If you have details of the mode as suggested above, QtSoundModem allows easy configuration of the key details.</p>
-<h3 id="configure-qttermtcp">Configure QtTermTCP</h3>
+<h3 id="configure-qttermtcp">Configure QtTermTCP<a class="headerlink" href="#configure-qttermtcp" title="Permanent link">&para;</a></h3>
 <p>Open QtTermTCP and set up a Kiss Connection to your Modem. This will work for QtSoundModem or a physical modem.</p>
-<h4 id="set-up-kiss-connection">Set up Kiss Connection</h4>
+<h4 id="set-up-kiss-connection">Set up Kiss Connection<a class="headerlink" href="#set-up-kiss-connection" title="Permanent link">&para;</a></h4>
 <p>Click Setup then KISS Configuration.</p>
 <p>Ensure 'Enable Kiss Interface' is selected, put your callsign in MYCALL and put select your modem from the 'Serial TNC' dropdown. If using a NinoTNC, the speed will be 57600.</p>
 <p>Press OK to save setting.</p>
 <p>At this stage, I recommend Monitoring the frequency to see if you can decode any information. Local stations will likely be beaconing and this is a good way to test you have set up correctly without interfering with other users transmissions.</p>
 <p>Decoded data shall look like:</p>
-<h2 id="connect">Connect</h2>
+<h2 id="connect">Connect<a class="headerlink" href="#connect" title="Permanent link">&para;</a></h2>
 <p>Press Connect and select 'xxx'</p>
 <p>You should be presented with some choices in the bottom pane. </p>
 <p>Congratulations, you are on the air!</p>

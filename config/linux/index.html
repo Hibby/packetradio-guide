@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://packetradio.debian.net/config/linux/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Linux Native AX.25 Stack - Hibby's Packet Radio Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Linux Native AX.25 Stack";
+        var mkdocs_page_input_path = "config/linux.md";
+        var mkdocs_page_url = "/config/linux/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Hibby's Packet Radio Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../..#what-is-packet-radio">What is Packet Radio?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../..#taking-your-first-steps">Taking Your First Steps</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../..#recommended-first-setup">Recommended first setup</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+    <ul>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../beginners-guide/">Beginner's Guide</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../beginners-guide/#key-concepts">Key Concepts</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#equipment">Equipment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#modem">Modem</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#client-software">Client Software</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#addresses">Addresses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#modes">Modes</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="../../beginners-guide/#protocol">Protocol</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="../../beginners-guide/#ax25">AX.25</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="../../beginners-guide/#il2p">IL2P</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../../beginners-guide/#speeds">Speeds</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../../beginners-guide/#modulation">Modulation</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../beginners-guide/#radio-set-up">Radio Set Up</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../beginners-guide/#software-set-up">Software Set Up</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#installation">Installation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#configure-qtsoundmodem">Configure QtSoundModem</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#configure-qttermtcp">Configure QtTermTCP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="../../beginners-guide/#set-up-kiss-connection">Set up Kiss Connection</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../beginners-guide/#connect">Connect</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Radios</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../radios/">Radios</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../radios/#known-good-beginner-radios">Known good Beginner Radios</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../radios/#vhfuhf-radios">VHF/UHF Radios</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../radios/#hf-radios">HF Radios</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modems</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modems/ninotnc/">NinoTNC</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../modems/ninotnc/#buying-one">Buying one</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../modems/ninotnc/#build">Build</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../modems/ninotnc/#operation">Operation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../modems/ninotnc/#mode-switch">Mode Switch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../modems/ninotnc/#signals-switch">Signals Switch</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="../../modems/ninotnc/#switch-1-transmit-audio-range-selection-datamic">Switch 1 - Transmit audio range selection - DATA/MIC</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../../modems/ninotnc/#switch-2-receive-audio-sensitivity-1x11x">Switch 2 - Receive audio sensitivity - 1x/11x</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../../modems/ninotnc/#switch-3-transmit-audio-coupling-control-dcac">Switch 3 - Transmit audio coupling control - DC/AC</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../../modems/ninotnc/#switch-4-external-carrier-detect-encd">Switch 4 - External carrier detect - EN/CD</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modems/qtsm/">QtSoundModem</a>
+    <ul>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modems/direwolf/">Direwolf</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Clients</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../clients/qtttcp/">QtTermTCP</a>
+    <ul>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software Setup</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/">What are my choices?</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../software/#linbpq">LinBPQ</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../software/#xrouter">XROUTER</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../software/#linux-native-stack">Linux Native Stack</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../install/bpq/">BPQ</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../install/bpq/#set-up-repo">Set Up Repo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../install/bpq/#install">Install</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../install/bpq/#configure">Configure</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../install/linux/">Linux Native Stack</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../install/linux/#install">Install</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../install/linux/#bbs">BBS</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../install/linux/#basic-config">Basic Config</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../install/linux/#ax25-ports">ax25 ports</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../install/linux/#ax25d">ax25d</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Node Configuration</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bpq/">BPQ</a>
+    <ul>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Linux Native AX.25 Stack</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#axports">axports</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#kissattach">kissattach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#axcall">axcall</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ax25ipd">ax25ipd</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#socat">socat</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ax25ipdconf">ax25ipd.conf</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running-ax25ipd">Running ax25ipd</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kissattach_1">kissattach</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#netrom">NET/ROM</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#nrports">nrports</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nrbroadcast">nrbroadcast</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nrattach">nrattach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#netromd">netromd</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ax25d">ax25d</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#running-ax25d">Running ax25d</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uronode-frontend">Uronode Frontend</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#uronodeconf">uronode.conf</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-uronode-config-files">Other Uronode Config Files</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#uronodeperms">uronode.perms</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#uronodeannounce">uronode.announce</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#uronodeinfo">uronode.info</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#uronodemotd">uronode.motd</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#uronodeusers">uronode.users</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uronode-as-a-local-interface">Uronode as a local interface</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#xinetd-config">xinetd config</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fbb-bbs">FBB BBS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#portssys">ports.sys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bbssys-forwardsys">bbs.sys, forward.sys</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running-everything">Running Everything</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Misc</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../repo/">Hibby's Repo</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../repo/#install-signing-key">Install Signing Key</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../repo/#set-up-repo">Set up Repo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../repo/#update">Update</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Glossary</a>
+    <ul>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Hibby's Packet Radio Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Node Configuration</li>
+      <li class="breadcrumb-item active">Linux Native AX.25 Stack</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="linux-native-ax25-stack">Linux Native AX.25 Stack<a class="headerlink" href="#linux-native-ax25-stack" title="Permanent link">&para;</a></h1>
+<p>For Debian-alikes, see <a href="../../install/linux/">installation instructions</a>.</p>
+<p>Each of the below components are required to make the complete node, but they are (generally) not all interdependent, and most of the unique components will work to make a stripped down version.</p>
+<h2 id="axports">axports<a class="headerlink" href="#axports" title="Permanent link">&para;</a></h2>
+<p>Setting up basic AX.25 on Debian is relatively simple - the key file to edit here is <code>/etc/ax25/axports</code>. </p>
+<p>GB7HIB currently runs the following below config. Each port has been given an internal reference, I like to detail what connection they are providing. Other people map them out by number or other methods, but I find having a pretty consistent set of references to the radio/interface I'm using keeps my brain in check. </p>
+<p>The callsign&amp;SSID is, in this case, the physical address for the port, akin to a MAC address on ethernet. It shows under <code>ifconfig</code> as a mac address for the link.</p>
+<p>Speed is the speed of the serial port on the interface. In the case of the NinoTNC, this is 57600.</p>
+<p>Paclen is the packet length - for V/UHF links, 255 bytes is a nice length. For HF, 60-80 is more common. It means for shorter packets that aren't as likely to be impacted by changes in propagation.</p>
+<p>Window is the number of packets that can be sent in one burst. The more reliable the link,the higher the number. This is limited by the version of ax25 you're running - 2.0 has a lower window than 2.0. If you're running Linux, at the moment you're on ax25 2.0.</p>
+<pre><code>hibby@raspberrypi:~ $ cat /etc/ax25/axports
+# /etc/ax25/axports
+#
+# The format of this file is:
+#
+# name callsign speed paclen window description
+#
+uhf GB7HIB-10   57600   255 2   UHF 9600bd
+ip  GB7HIB-11   115200  255 7   IP
+</code></pre>
+<h3 id="kissattach">kissattach<a class="headerlink" href="#kissattach" title="Permanent link">&para;</a></h3>
+<p><code>kissattach</code> binds the axport to a physical kiss device.</p>
+<p>I attach my UHF port to my NinoTNC with:
+<code>kissattach /dev/ttyACM0 uhf</code></p>
+<h3 id="axcall">axcall<a class="headerlink" href="#axcall" title="Permanent link">&para;</a></h3>
+<p>With the basic port configured, you can use <code>axcall</code> to place a call. </p>
+<p><code>hibby@raspberrypi:~ $ axcall uhf gm0nrt-7</code> calls my neighbour bill over layer 2/ax.25 point to point.</p>
+<p>You can go via someone too as a digipeter, <code>axcall uhf gm0cqv-7 via gm0nrt</code> calls gm0cqv using gm0nrt as a digipeter!</p>
+<h2 id="ax25ipd">ax25ipd<a class="headerlink" href="#ax25ipd" title="Permanent link">&para;</a></h2>
+<p><code>ax25ipd</code> manages point to point links over the internet between myself and other stations. These can be UDP and TCP. In effect, we are creating a virtual modem to handle communication with other stations, just like we are doing with software or hardware modems when dealing with 'real radios'.</p>
+<p>There are a couple of parts needed to make this work as an interface on my system - <code>socat</code>, <code>ax25ipd</code> and <code>kissattach</code>. </p>
+<p>This can be a little abstract, but the mode of interaction as is follows:</p>
+<p>We create a virtual modem with <code>ax25ipd</code>, a virtual pipe with <code>socat</code> that lets us connect to it similar to a physically attached modem and then run <code>kissattach</code> to make that relationship.</p>
+<h3 id="socat">socat<a class="headerlink" href="#socat" title="Permanent link">&para;</a></h3>
+<p>I create a socket pair to connect <code>ax25ipd</code> and <code>kissattach</code> to connect the <code>ip</code> ax25 port to the axudp tunnel.</p>
+<p>The command I run for this is:
+<code>socat -d -d -ly pty,raw,echo=0,link=/var/ax25/pty/axip1 pty,raw,echo=0,link=/var/ax25/pty/axip2</code></p>
+<p>If you are copying this, you might need to make the <code>/var/ax25/pty</code> - <code>mkdir -p /var/ax25/pty</code></p>
+<p>This is brought up at boottime by systemd:</p>
+<pre><code>hibby@raspberrypi:~ $ cat /etc/systemd/system/kiss-socat-axip.service
+[Unit]
+Description=Socat interconnect for AX25 AXIP
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/var/ax25
+ExecStart=socat -d -d -ly pty,raw,echo=0,link=/var/ax25/pty/axip1 pty,raw,echo=0,link=/var/ax25/pty/axip2
+ExecStartPost=/usr/bin/bash -c 'while ! [ -h /var/ax25/pty/axip2 ]; do sleep 1 ; done'
+ExecStopPost=rm /var/ax25/pty/axip1 /var/ax25/pty/axip2
+
+[Install]
+WantedBy=multi-user.target 
+</code></pre>
+<h3 id="ax25ipdconf">ax25ipd.conf<a class="headerlink" href="#ax25ipdconf" title="Permanent link">&para;</a></h3>
+<p><code>ax25ipd.conf</code> is the core configuration file for this component. Below you can see that I connect to udp port 10095 of the remote station, and locally ax25ipd is in 'tnc' mode, binding to the previously created <code>axip1</code>. The route allows broadcasts <code>b</code> and is my default route <code>d</code>.</p>
+<p>I beacon what the station is periodically, and I also allow NET/ROM NODES broadcasts and FBB broadcasts to go over the link.</p>
+<pre><code>hibby@raspberrypi:~ $ cat /etc/ax25/ax25ipd.conf
+socket udp 10095
+mode tnc
+device /var/ax25/pty/axip1
+speed 115200
+loglevel 2
+beacon after 3600
+loglevel 2
+btext ax25ip -- hibby/GB7HIB-2 -- AXIP Interface
+broadcast QST-0 NODES-0 FBB-0
+route MM3NDH 10.13.37.2 bd
+</code></pre>
+<h3 id="running-ax25ipd">Running ax25ipd<a class="headerlink" href="#running-ax25ipd" title="Permanent link">&para;</a></h3>
+<p>This is run from the command line as follows:</p>
+<p><code>ax25ipd</code></p>
+<h3 id="kissattach_1">kissattach<a class="headerlink" href="#kissattach_1" title="Permanent link">&para;</a></h3>
+<p>We need to attach the axip port to the virtual modem we've created with ax25ipd once it's running, and this is a simple case of:</p>
+<p><code>kissattach /var/ax25/pty/axip2 axip</code></p>
+<h2 id="netrom">NET/ROM<a class="headerlink" href="#netrom" title="Permanent link">&para;</a></h2>
+<p>NET/ROM covers functionality analogous to OSI layer3/layer 4.</p>
+<p>What it means in reality is that my node has a knowledge of its neighbours and what their neighbours are, and automates routing calls. To use the earlier example, I can call directly to gm0cqv and my machine will know the best path - </p>
+<p><code>axcall nrnod GM0CQV-7</code></p>
+<p>Each NET/ROM sends a 'NODES' broadcast periodically. This details what systems it can hear, what the gateway to the remote nodes is and a 'quality' value.
+Nodes on the network can have an alias too - GM0CQV's node on -7 above is PTRNOD, so I can do the following -</p>
+<p><code>axcall nrnod PTRNOD</code></p>
+<p>and end up at the same location.</p>
+<p>NET/ROM ports are largely independent of ax25 ports in that a user can call any given nrport without going through a specific axport. You can essentially define per-application nrports, and as many as you wish (assuming you have free unique SSIDs to offer them as mac addresses).</p>
+<h3 id="nrports">nrports<a class="headerlink" href="#nrports" title="Permanent link">&para;</a></h3>
+<p><code>/etc/ax25/nrports</code>,similar to axports, defines the netrom ports the system has available. I expect primary incoming connections to be through netrom, so mine are lower numbered. </p>
+<p>netrom ports <strong>should not</strong> share SSID numbers with axports. This will make your system rather unstable. </p>
+<pre><code>hibby@raspberrypi:~ $ cat /etc/ax25/nrports
+# /etc/ax25/nrports
+#
+# The format of this file is:
+#
+# name callsign alias paclen description
+#
+nrnod   GB7HIB-1  HIBNOD        235     Netrom node Port
+nrbbs   GB7HIB-2  HIBBBS        235     Netrom BBS Port
+</code></pre>
+<p>I have a port for my service, the callsign and port, and an up to 6 letter alias for the service. The packet length is 20 bytes shorter than the ax25 packet to account for overheads, and then there's a wee description. </p>
+<h3 id="nrbroadcast">nrbroadcast<a class="headerlink" href="#nrbroadcast" title="Permanent link">&para;</a></h3>
+<p><code>/etc/ax25/nrbroadcast</code> defines how often <code>netromd</code> sends a NODES broadcast and what port it sends them over.</p>
+<p>It also defines the default quality of stations received directly over that port, the worst quality it will broadcast, how long without hearing a nodes broadcast the station will remain in your routing table. </p>
+<p>I have set some sensible defaults, things that come over the ip link are quite high, but I limit the worst quality so that my NODES table isn't too big.</p>
+<pre><code>hibby@raspberrypi:~ $ cat /etc/ax25/nrbroadcast
+# /etc/ax25/nrbroadcast
+#
+# The format of this file is:
+#
+# ax25_name min_obs def_qual worst_qual verbose
+#
+uhf     5       192     100     1
+ip      3       200     130     1
+</code></pre>
+<h3 id="nrattach">nrattach<a class="headerlink" href="#nrattach" title="Permanent link">&para;</a></h3>
+<p>Like AX.25, we need to attach the port to a device - our tool for this is <code>nrattach</code>.</p>
+<p><code>nrattach</code> is simple - you nrattach a port and that's it. </p>
+<p><code>nrattach nrnod</code>  </p>
+<h3 id="netromd">netromd<a class="headerlink" href="#netromd" title="Permanent link">&para;</a></h3>
+<p><code>netromd</code> handles incoming and outgoing broadcasts.</p>
+<p>I should really make this systemd unit come up after nrattach.</p>
+<p>I run it as <code>netromd -i -l -d -t 30</code>, which broadcasts almost immidiately, creates debug logs and broadcasts every 30 minutes.</p>
+<h2 id="ax25d">ax25d<a class="headerlink" href="#ax25d" title="Permanent link">&para;</a></h2>
+<p>ax25d is the Daemon that routes incoming connection requests and spins up a process for the caller.</p>
+<p>Interestingly, it isn't tied to the incoming port that the call is coming through, so you can have any port or interface handle calls to any callsign, alias or other word. </p>
+<p><code>/etc/ax25/ax25d.conf</code> is the config file that controls this, and it handles ax25 ports and netrom ports slightly differently. The default config we ship with debian is full of great examples, see online <a href="https://salsa.debian.org/debian-hamradio-team/ax25-tools/-/blob/master/ax25/ax25d.conf.in?ref_type=heads">here</a> - mine is configured as below. </p>
+<p>Reading it, you can see that GB7HIB is in [] and nrnod is in &lt;&gt;. They define the type of port. 
+This means if you connect to GB7HIB over ax25, you get uronode.
+If you connect to HIBNOD, or GB7HIB-1 over netrom, you get uronode! </p>
+<p>I am really interested in exploring some other applications, including <code>axspawn</code>, which lets you spawn a bash (or other) shell and effectively gives shell access over ax25/netrom to a user.</p>
+<p>There's lots of options here, and it's an incredibly flexible piece of software and is the core of why the Linux stack is so interesting to me. You can present any binary on your system to a connecting user!</p>
+<pre><code>hibby@raspberrypi:~ $ cat /etc/ax25/ax25d.conf
+# /etc/ax25/ax25d.conf
+#
+# ax25d Configuration File.
+#
+# AX.25 Ports begin with a '['.
+#
+[GB7HIB via uhf]
+NOCALL   * * * * * *  L
+default  * * * * * *  - root  /usr/sbin/uronode uronode
+#
+[GB7HIB via ip]
+NOCALL   * * * * * *  L
+default  * * * * * *  - root  /usr/sbin/uronode uronode
+#
+# NET/ROM Ports begin with a '&lt;'.
+#
+&lt;nrnod&gt;
+NOCALL  * * * * * *  L
+default * * * * * *  -  root  /usr/sbin/uronode uronode
+#
+</code></pre>
+<h3 id="running-ax25d">Running ax25d<a class="headerlink" href="#running-ax25d" title="Permanent link">&para;</a></h3>
+<p>This is an easy one to start - </p>
+<p><code>ax25d</code></p>
+<h2 id="uronode-frontend">Uronode Frontend<a class="headerlink" href="#uronode-frontend" title="Permanent link">&para;</a></h2>
+<p>I use uronode both as a frontend for users connecting and for me connecting to the node and to neighbouring stations, essentially over telnet. When someone connects to my system, Uronode generates the menu that they see.</p>
+<p>I also have it configured as my local client - i can run <code>uronode</code> in a terminal and be presented with a helpful control interface.</p>
+<h3 id="uronodeconf">uronode.conf<a class="headerlink" href="#uronodeconf" title="Permanent link">&para;</a></h3>
+<p>This is the core config file for uronode that details what uronode can do. I'm running mine very stripped back, and have cut a lot of the defaults out:</p>
+<p>You can see the BBS command is just a uronode call out to GB7HIB-2 over netrom, and there are external commands for netstat and the 'nodesearch' program I quite like. </p>
+<p>The rest is pretty much default.</p>
+<pre><code>hibby@raspberrypi:~ $ cat /etc/ax25/uronode.conf
+# /etc/ax25/uronode.conf - URONode example configuration file
+#
+# see uronode.conf(5)
+# &quot;Local&quot; network.
+# This is your local amprnet subnet in full. Do NOT use 44.0.0.0/8!
+
+LocalNet        10.66.66.0/24
+
+# Command aliases. See uronode.conf(5) for the meaning of the uppercase
+# letters in the name of the alias. Examples below:
+Alias           BBS     &quot;c GB7HIB-2&quot;
+# External commands. See uronode.conf(5) for the meaning of the uppercase
+# letters in the name of the extcmd.
+#
+# Flags:        1       Run command through pipe
+#               2       Reconnected flag
+#               3       Run through pipe and reconnect
+#
+ExtCmd          NEtstat 3       nobody  /bin/netstat netstat --ax25 --netrom
+ExtCmd          NSearch 3       root    /usr/local/bin/nodesearch nodesearch %1
+
+# Node ID.
+# This displays before all output texts when the user connects into
+# your node via NetRom. Set to &quot;&quot; to leave blank.
+# Note: This -must- be defined or will display as &quot;(null)&quot;. A space
+# is hardcoded in. Example: UROHUB:N1URO-2 do NOT add the bracket
+# afterwards &quot;}&quot; this is predefined in URONode.
+#
+NodeId          HIBNOD:GB7HIB-1
+
+# Ax25/Flex ID.
+# This displays before some strings and at logout to the end user when
+# they connect in via ax25 as defined in your ax25d.conf file. If
+# you don't define this &quot;(null)&quot; will be presented to the end user. Its
+# suggested you take this from your ax25d config which either faces a
+# flexnet system OR your 2-meter user interface. Note: do NOT make this
+# ssid the same as your NetRom SSID here or in ax25d.conf.
+
+FlexId          GB7HIB-10
+
+# Netrom port name. This port is used for outgoing netrom connects.
+
+NrPort          nrnod
+
+ReConnect on
+
+# Syslog Logging level - suggest leaving this at 3 for debugging. 0
+# halts logging.
+
+LogLevel        3
+
+PassPrompt &quot;yes&quot;
+
+# The default escape character (CTRL-T)
+#
+EscapeChar      ^T
+</code></pre>
+<h3 id="other-uronode-config-files">Other Uronode Config Files<a class="headerlink" href="#other-uronode-config-files" title="Permanent link">&para;</a></h3>
+<p>I have modified some other files that are worth highlighting -</p>
+<h4 id="uronodeperms">uronode.perms<a class="headerlink" href="#uronodeperms" title="Permanent link">&para;</a></h4>
+<p>I have added the below line which allows me to login without password from the localhost by starting from shell and gets me nice colours! </p>
+<p><code>mm0rfn  host    *       *       255</code></p>
+<h4 id="uronodeannounce">uronode.announce<a class="headerlink" href="#uronodeannounce" title="Permanent link">&para;</a></h4>
+<p>This has local announcements in it!</p>
+<h4 id="uronodeinfo">uronode.info<a class="headerlink" href="#uronodeinfo" title="Permanent link">&para;</a></h4>
+<p>This has information about the system in it</p>
+<h4 id="uronodemotd">uronode.motd<a class="headerlink" href="#uronodemotd" title="Permanent link">&para;</a></h4>
+<p>This is the welcome message displayed on every login</p>
+<h4 id="uronodeusers">uronode.users<a class="headerlink" href="#uronodeusers" title="Permanent link">&para;</a></h4>
+<p>This defines shell access for me as a sysop. I've never actually spawned a shell from uronode, but apparently it's possible?!</p>
+<h3 id="uronode-as-a-local-interface">Uronode as a local interface<a class="headerlink" href="#uronode-as-a-local-interface" title="Permanent link">&para;</a></h3>
+<p>I use uronode as my local packet radio terminal - instead of turning on and typing <code>axcall nrnod salbbs</code> to get to gm0nrt, I log in, type uronode, feed it my callsign and I am met with the uronode command interface, from which I can type <code>c salbbs</code>. It's a much nicer place to be!</p>
+<p>This required <code>xinetd</code> for me to set up easily.</p>
+<h4 id="xinetd-config">xinetd config<a class="headerlink" href="#xinetd-config" title="Permanent link">&para;</a></h4>
+<p>I think the below two config files are the only things required to make uronode listen on port 3964 - </p>
+<p><code>xinetd</code> must be enabled and started by systemd to be listening (<code>systemctl enable xinetd</code>, <code>systemctl start xinetd</code>)</p>
+<p>There is probably a systemd native way of doing this, but I couldn't see that in the docs.</p>
+<pre><code>hibby@raspberrypi:~ $ cat /etc/xinetd.d/uronode
+service uronode
+{
+        disable         = no
+        socket_type     = stream
+        protocol        = tcp
+        user            = root
+        server          = /usr/sbin/uronode
+        wait            = no
+        instances       = 20
+}
+</code></pre>
+<pre><code>hibby@raspberrypi:~ $ cat /etc/services | grep uronode
+uronode         3694/tcp                        # Uronode
+</code></pre>
+<h2 id="fbb-bbs">FBB BBS<a class="headerlink" href="#fbb-bbs" title="Permanent link">&para;</a></h2>
+<p><code>fbb</code> is my BBS software of choice! It is an oddity in that it binds directly to the ports you tell it exist, so it's listening on my ax25 and netrom ports without an entry in <code>ax25d.conf</code>. This mostly seems like magic to me and I am happy to let it run this way!</p>
+<p>It has a few config files - fbb.conf, which is populated by the first run, <code>ports.sys</code> which defines the ports available and then <code>bbs.sys</code> and <code>forward.sys</code> which defines how you route to the outside world. </p>
+<h3 id="portssys">ports.sys<a class="headerlink" href="#portssys" title="Permanent link">&para;</a></h3>
+<p>My reference for this file was <a href="https://www.febo.com/packet/linux-ax25/fbb-config.html">this website</a>, which was a helpful resource!</p>
+<p>I have incremented the number of TNCs where appropriate and added my ports as 1,2,3. I have left the COM 1 Interface 9 etc alone. </p>
+<pre><code>hibby@raspberrypi:~ $ cat /etc/ax25/fbb/port.sys
+# FBB7.0.11
+#
+#Ports TNCs
+ 1     3
+#
+#Com Interface Adress (Hex) Baud
+ 1   9         ****            9600
+#
+#TNC NbCh Com MultCh Pacln Maxfr NbFwd MxBloc M/P-Fwd Mode  Freq
+ 0   0    0   0     0     0     0     0      00/01   ----  File-fwd.
+ 1   8    1   uhf     250   2     1     10     00/15   XUWYL 433.6250
+ 2   8    1   ip    250   2     1     10     00/15   XUWYL ip port
+ 3   8    1   nrbbs    236   2     1     10     00/15   XUWYL netrom port
+#
+# End of file.
+#
+</code></pre>
+<h3 id="bbssys-forwardsys">bbs.sys, forward.sys<a class="headerlink" href="#bbssys-forwardsys" title="Permanent link">&para;</a></h3>
+<p><a href="https://web.archive.org/web/20230629033740/https://www.f6fbb.org/fbbdoc/fmtforwa.htm">The Documentation</a> is the best reference I've got for it, and I can't improve upon it.</p>
+<h2 id="running-everything">Running Everything<a class="headerlink" href="#running-everything" title="Permanent link">&para;</a></h2>
+<p>I used to use systemd to bring things up, but now I run it with a bash script run as root:</p>
+<pre><code>#!/bin/bash
+echo -n 'Creating socat sockets...'
+socat -d -d -ly pty,raw,echo=0,link=/var/ax25/pty/axip1 pty,raw,echo=0,link=/var/ax25/pty/axip2 &amp;
+sleep 1
+echo Done
+echo -n 'Starting ax25ipd'
+ax25ipd
+sleep 1
+kissattach /dev/ttyACM0 uhf
+kissattach /var/ax25/pty/axip2 ip
+kissparms -c 1 -p uhf
+kissparms -c 1 -p ip
+sleep 1
+echo 'Done'
+echo -n 'Bringing up NET/ROM runtime...'
+modprobe netrom
+nrattach nrnod
+nrattach nrbbs
+nrattach nrterm
+netromd -i -l -d -t 30
+echo -n Starting mheard daemon...
+mheardd -l
+echo Done
+echo -n Starting ax25 daemon...
+ax25d -l
+echo Done
+echo -n 'Starting fbb'
+sudo fbb -f -l /home/hibby/fbb.log
+echo Done
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../bpq/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../repo/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

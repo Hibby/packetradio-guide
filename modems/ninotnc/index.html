@@ -213,6 +213,84 @@
     <ul>
     </ul>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../config/linux/">Linux Native AX.25 Stack</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#axports">axports</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#kissattach">kissattach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#axcall">axcall</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#ax25ipd">ax25ipd</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#socat">socat</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#ax25ipdconf">ax25ipd.conf</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#running-ax25ipd">Running ax25ipd</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#kissattach_1">kissattach</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#netrom">NET/ROM</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#nrports">nrports</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#nrbroadcast">nrbroadcast</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#nrattach">nrattach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#netromd">netromd</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#ax25d">ax25d</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#running-ax25d">Running ax25d</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#uronode-frontend">Uronode Frontend</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#uronodeconf">uronode.conf</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#other-uronode-config-files">Other Uronode Config Files</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodeperms">uronode.perms</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodeannounce">uronode.announce</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodeinfo">uronode.info</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodemotd">uronode.motd</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodeusers">uronode.users</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#uronode-as-a-local-interface">Uronode as a local interface</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#xinetd-config">xinetd config</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#fbb-bbs">FBB BBS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#portssys">ports.sys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#bbssys-forwardsys">bbs.sys, forward.sys</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#running-everything">Running Everything</a>
+    </li>
+    </ul>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Misc</span></p>
               <ul>
@@ -255,19 +333,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="ninotnc">NinoTNC</h1>
+                <h1 id="ninotnc">NinoTNC<a class="headerlink" href="#ninotnc" title="Permanent link">&para;</a></h1>
 <p>The NinoTNC is a modern hardware modem that can come in either kit form or assembled.
 It connects to a computer by USB, and to a radio by a cable that is usually custom built buy the operator.</p>
 <p>It supports traditional 300, 1200 and 9600 baud packet modes as well as some more modern experimental modes designed to be more efficient that also include forward error correction. The NinoTNC has become an integral part of many new packet radio deployments in the UK and further afield.</p>
-<h2 id="buying-one">Buying one</h2>
+<h2 id="buying-one">Buying one<a class="headerlink" href="#buying-one" title="Permanent link">&para;</a></h2>
 <p>Information is available on the <a href="https://tarpn.net/t/nino-tnc/n9600a/n9600a_info.html">TARPN Website Ordering Page</a>.</p>
 <p>For the UK &amp; Ireland, boards are are available from <a href="https://ko-fi.com/s/981d919ea3">Tom, M0LTE</a>.</p>
-<h2 id="build">Build</h2>
+<h2 id="build">Build<a class="headerlink" href="#build" title="Permanent link">&para;</a></h2>
 <p>The build gide for the NinoTNC is available on the <a href="https://tarpn.net/t/nino-tnc/nino-tnc.html">TARPN Website</a>.</p>
-<h2 id="operation">Operation</h2>
+<h2 id="operation">Operation<a class="headerlink" href="#operation" title="Permanent link">&para;</a></h2>
 <p>The Through Hole NinoTNC has 2 banks of switches: Mode and Signals, explanation below.</p>
 <p>USB is always 57600 baud</p>
-<h3 id="mode-switch">Mode Switch</h3>
+<h3 id="mode-switch">Mode Switch<a class="headerlink" href="#mode-switch" title="Permanent link">&para;</a></h3>
 <p>Current modes as of firmware release 3.3.1:</p>
 <table>
 <thead>
@@ -475,16 +553,16 @@ It connects to a computer by USB, and to a radio by a cable that is usually cust
   * QPSK &gt; BPSK &gt; DPSK &gt; AFSK
   * IL2P+CRC &gt; IL2P &gt; IL2P &gt; AX.25
   * SSB &gt; FM</p>
-<h3 id="signals-switch">Signals Switch</h3>
-<h4 id="switch-1-transmit-audio-range-selection-datamic">Switch 1 - Transmit audio range selection - DATA/MIC</h4>
+<h3 id="signals-switch">Signals Switch<a class="headerlink" href="#signals-switch" title="Permanent link">&para;</a></h3>
+<h4 id="switch-1-transmit-audio-range-selection-datamic">Switch 1 - Transmit audio range selection - DATA/MIC<a class="headerlink" href="#switch-1-transmit-audio-range-selection-datamic" title="Permanent link">&para;</a></h4>
 <p>The data / on / up position increases the TXA level so the TX-LEVEL potentiometer adjustment is in the range needed by the Data radio.</p>
 <p>The mic / off / down position reduces transmit audio to the range needed by a microphone-level-input radio.</p>
-<h4 id="switch-2-receive-audio-sensitivity-1x11x">Switch 2 - Receive audio sensitivity - 1x/11x</h4>
+<h4 id="switch-2-receive-audio-sensitivity-1x11x">Switch 2 - Receive audio sensitivity - 1x/11x<a class="headerlink" href="#switch-2-receive-audio-sensitivity-1x11x" title="Permanent link">&para;</a></h4>
 <p>The on / up / 1x position is about the right level for a speaker output, and is also appropriate for a data radio output.</p>
 <p>The off / down / 11x position is used for radios which have a very low level of receive audio, e.g. perhaps when taken from a speaker mic connection.</p>
-<h4 id="switch-3-transmit-audio-coupling-control-dcac">Switch 3 - Transmit audio coupling control - DC/AC</h4>
+<h4 id="switch-3-transmit-audio-coupling-control-dcac">Switch 3 - Transmit audio coupling control - DC/AC<a class="headerlink" href="#switch-3-transmit-audio-coupling-control-dcac" title="Permanent link">&para;</a></h4>
 <p>Leave in the off / down / AC position unless you have a rare case where having the voltage into the modulator track the TNC’s output, exactly, is required (DC coupling).</p>
-<h4 id="switch-4-external-carrier-detect-encd">Switch 4 - External carrier detect - EN/CD</h4>
+<h4 id="switch-4-external-carrier-detect-encd">Switch 4 - External carrier detect - EN/CD<a class="headerlink" href="#switch-4-external-carrier-detect-encd" title="Permanent link">&para;</a></h4>
 <p>Leave in the off / down / CD position unless you want to provide external transmit inhibit using pin 2 of the DB9 connector.</p>
               
             </div>

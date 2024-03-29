@@ -213,6 +213,84 @@
     <ul>
     </ul>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../config/linux/">Linux Native AX.25 Stack</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#axports">axports</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#kissattach">kissattach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#axcall">axcall</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#ax25ipd">ax25ipd</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#socat">socat</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#ax25ipdconf">ax25ipd.conf</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#running-ax25ipd">Running ax25ipd</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#kissattach_1">kissattach</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#netrom">NET/ROM</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#nrports">nrports</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#nrbroadcast">nrbroadcast</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#nrattach">nrattach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#netromd">netromd</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#ax25d">ax25d</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#running-ax25d">Running ax25d</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#uronode-frontend">Uronode Frontend</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#uronodeconf">uronode.conf</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#other-uronode-config-files">Other Uronode Config Files</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="../config/linux/#uronodeperms">uronode.perms</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../config/linux/#uronodeannounce">uronode.announce</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../config/linux/#uronodeinfo">uronode.info</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../config/linux/#uronodemotd">uronode.motd</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="../config/linux/#uronodeusers">uronode.users</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#uronode-as-a-local-interface">Uronode as a local interface</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="../config/linux/#xinetd-config">xinetd config</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#fbb-bbs">FBB BBS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#portssys">ports.sys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../config/linux/#bbssys-forwardsys">bbs.sys, forward.sys</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../config/linux/#running-everything">Running Everything</a>
+    </li>
+    </ul>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Misc</span></p>
               <ul class="current">
@@ -255,14 +333,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="hibbys-repo">Hibby's Repo</h1>
-<h2 id="install-signing-key">Install Signing Key</h2>
+                <h1 id="hibbys-repo">Hibby's Repo<a class="headerlink" href="#hibbys-repo" title="Permanent link">&para;</a></h1>
+<h2 id="install-signing-key">Install Signing Key<a class="headerlink" href="#install-signing-key" title="Permanent link">&para;</a></h2>
 <p>First, you need tell your machine to trust the signature I verify the packages with:</p>
 <pre><code>wget -q https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key
 sudo mv hibby.key /etc/apt/trusted.gpg.d/hibby.asc
 </code></pre>
 <p>You can trust this key - it is contained in <a href="https://salsa.debian.org/debian-keyring/keyring/-/blob/master/debian-keyring-gpg/0x03A1FB7A1904771B?ref_type=heads">Debian</a> and signed as trusted by other developers in the project.</p>
-<h2 id="set-up-repo">Set up Repo</h2>
+<h2 id="set-up-repo">Set up Repo<a class="headerlink" href="#set-up-repo" title="Permanent link">&para;</a></h2>
 <p>Then you need to add the repo for your OS:</p>
 <pre><code># Ubuntu 22.04 LTS amd64
 sudo sh -c 'echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages jammy main&quot; &gt;&gt; /etc/apt/sources.list'
@@ -279,7 +357,7 @@ sudo sh -c 'echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oar
 # Debian 12 amd64
 sudo sh -c 'echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main&quot; &gt;&gt; /etc/apt/sources.list'
 </code></pre>
-<h2 id="update">Update</h2>
+<h2 id="update">Update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h2>
 <p>Once the repo is setup, refresh your package lists and we're good to go:</p>
 <pre><code>sudo apt update
 </code></pre>
@@ -307,7 +385,7 @@ sudo sh -c 'echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oar
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../config/bpq/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../config/linux/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../glossary/" style="color: #fcfcfc">Next &raquo;</a></span>
