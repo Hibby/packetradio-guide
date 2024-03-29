@@ -1,4 +1,4 @@
 # BPQ
 Configure BPQ this way:
 
-  * Badly
+  * Badly, just like everyone else.
