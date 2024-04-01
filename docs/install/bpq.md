@@ -27,7 +27,7 @@ sudo chmod 644 /etc/bpq32.cfg
 The configuration file I ship in the repo, there are hopefully some obvious fields to fill out. Once all the below holes are filled, you should be able to log in either with [QtTermTCP](../clients/qtttcp.md) or in your web browser at 127.0.0.1:8008, assuming you're on the same computer as the node. 
 
 | Field | Example | Purpose
-| ===== | ======= | =======
+| ----- | ------- | -------
 | NODECALL | MM0RFN | The callsign your node shall identify as
 | NODEALIAS | RFNNOD | The alias a calling NET/ROM station can use to connect directly to you
 | LOCATOR | IO87dc | A 6 figure Maidenhead square where you are
