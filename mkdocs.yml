@@ -1,12 +1,16 @@
 site_name: Hibby's Packet Radio Guide
-site_url: https://packetradio.debian.net
+site_url: https://people.debian.org/~hibby
+
 nav:
   - Home: index.md
   - About: about.md
   - Beginner's Guide: beginners-guide.md
-  - Radios: 
-    - radios/index.md
+  - Radio Equipment: 
+    - equipment/index.md
+    - equipment/antennas.md
+    - equipment/radios.md
   - Modems:
+    - modems/index.md
     - modems/ninotnc.md
     - modems/qtsm.md
     - modems/direwolf.md

@@ -8,13 +8,17 @@ In packet radio, we connect our computers together over the air to transmit data
 
 You'll need a Radio, and a computer with a cable to connect them together. Sometimes these are easy to buy online, and the moreadventurous can make them. If you've done [FT-8](https://en.wikipedia.org/wiki/FT8) or another datamode, you might already have this cable.
 
+Learn more about some Radio equipment [here](equipment/index.md).
+
 ### Modem
 
 You'll need a modem of some variety. For more advanced users this of often a piece of hardware such as a [NinoTNC](modems/ninotnc.md), but as a beginner you're better suited to a piece of software such as [QtSoundModem](modems/qtsm.md). As the software costs nothing and takes no time to be delivered, it's quicker to get started with!
 
+Learn more about modems [here](modems/index.md)
+
 ### Client Software
 
-You'll need a client of some form to be able to connect to the network. I would recommend [QtTermTCP](clients/qttcp.md) to start with. Again, it's free and it works with QtSoundModem, a NinoTNC and other hardware & software offerings too.
+You'll need a client of some form to be able to connect to the network. I would recommend [QtTermTCP](clients/qtttcp.md) to start with. Again, it's free and it works with QtSoundModem, a NinoTNC and other hardware & software offerings too.
 
 ### Addresses
 
