@@ -47,11 +47,13 @@ Configure a connection to BPQ by selecting the 'Setup' menu, Hosts and any of th
 
 I assume you are connecting to a local BPQ Node, so I recommend the following settings, where the User and Password are the telnet access details you configured during the [first set up of your BPQ Node](../install/bpq.md).
 
-Host Name: 127.0.0.1
-Port: 8011
-User: <username>
-Password: <password>
-Session Name: BPQ Local
+| Config | Setting |
+| ------ | ------- |
+| Host Name | 127.0.0.1 |
+| Port | 8011 |
+| User | <username> |
+| Password | <password> |
+| Session Name | BPQ Local |
 
 ### Helpful Hints
 
