@@ -23,7 +23,7 @@ sudo chmod 644 /etc/bpq32.cfg
 ```
 !!! note
 
-    Without a config file installed to /etc/bpq32.cfg, bpq will not start
+    Without a config file installed to `/etc/bpq32.cfg`, BPQ from the repo will not start. If you are looking to use a config file in a different location, remove or modify `ConditionPathExists=/etc/bpq32.cfg` in `/usr/lib/systemd/system/linbpq.service`
 
 ## Configure
 
