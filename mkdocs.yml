@@ -27,16 +27,12 @@ nav:
     - repo.md
     - Glossary: glossary.md
 
-theme: 
-  name: readthedocs
-  navigation_depth: 5
-  collapse_navigation: false 
-  sticky_navigation: true
-  prev_next_buttons_location: none
-
-plugins:
-    - search
+theme:
+  name: material 
 
 markdown_extensions:
   - toc:
       permalink: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences

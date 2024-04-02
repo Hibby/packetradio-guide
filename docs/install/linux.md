@@ -2,6 +2,8 @@
 
 The linux native stack is highly configurable and can be easily installed on all Debian distros.
 
+More detailed configuration instructions and explanations can be found [here](../config/linux.md)
+
 ## Install
 
 To get a basic node setup, the minimum viable software is:

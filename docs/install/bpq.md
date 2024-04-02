@@ -21,6 +21,9 @@ sudo nano /etc/bpq32.cfg
 sudo chown :linbpq /etc/bpq32.cfg
 sudo chmod 644 /etc/bpq32.cfg
 ```
+!!! note
+
+    Without a config file installed to /etc/bpq32.cfg, bpq will not start
 
 ## Configure
 

@@ -28,7 +28,7 @@ The key things you will need are:
 
 If you don't want to spend a lot of money to dip your toe in, you don't have to. The only things you'll need are a radio, a computer and a cable to interface between the two. Everything else can run as software.
 
-Have a look to see if you have a [proven radio](radios/index.md) and install [QtSoundModem](modems/qtsm.md) and [QtTermTCP](clients/qtttcp.md) to access someone else's node.
+Have a look to see if you have a [proven radio](equipment/radios.md) and install [QtSoundModem](modems/qtsm.md) and [QtTermTCP](clients/qtttcp.md) to access someone else's node.
 
 I'd recommend trying 1200bd on VHF or UHF first, but slower modes on HF are perfectly do-able as well if you're on an island or stuck in a ditch,
 
