@@ -168,6 +168,7 @@ There are a few great sources of assistance, some will be faster than others to 
   * General help and chatter on all things packet: [Online Amateur Radio Club Discord](https://oarc.uk)
   * UK Packet Radio Users: [uk packet radio mailing list](https://groups.io/g/ukpacketradio/)
   * QtTermTCP and QtSoundModem help: [bpq32 mailing list](https://groups.io/g/bpq32/)
-  * NinoTNC: [NinoTNC Mailing List](https://groups.io/g/ninotnc/)
+  * XROUTER help: [XROUTER mailing list](https://groups.io/g/xrouter)
+  * NinoTNC: [NinoTNC mailing list](https://groups.io/g/ninotnc/)
   * My Inbox - see the [about page](about.md). I'll be thrilled if you get stuck and sent me an email saying you'd tried this and nothing worked!
 

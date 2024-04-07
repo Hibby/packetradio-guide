@@ -21,7 +21,11 @@ Configuration is done through the menu system.
 
 ### Modem Configuration
 
+Open Settings, then Setup modems, and face this menu:
 
+![config menu](../static/img/qtsm_modem_settings.png)
+
+Select 'IL2P Only' in the IL2P menu, and then run away.
 
 ## Debugging Strategies
 
@@ -64,7 +68,7 @@ Open the input devices tab - does the VU bar of your soundcard show any activity
 
 If you receive a packet and the VU bar goes all the way or is very high, your incoming audio is too high - bring down that slider below the VU bar. If your incoming audio is too high, it might be distorting as the computer digitises it. Having it peak at half way should be more than enough volume.
 
-![receive audio window](static/img/input_devices.png)
+![receive audio window](../static/img/input_devices.png)
 
 This resolves to the following questions:
 
@@ -77,7 +81,7 @@ As in the above segment, open Pulse Audio Volume Control but this time go to the
 
 The VU bar should show activity when a packet is received, just like the one in the Input Devices Tab. If not, you may need to change the device the audio is coming from - there will be a dropdown that lists all your computer's audio inputs and you can select. Again, there is a slider here for volume control - the effects of this are additional to that of the Input Tab, so dropping audio by 6dB in both locations will create a total drop of 12dB. Due to this, I generally recommend leaving it at 100% / 0dB and only modifying the Input Device slider.
 
-[insert image]
+![Incoming Audio](../static/img/recording_dropdown.png)
 
 If you have sorted routing, wait for more packet traffic to see if anything appears in your Terminal monitor pane.
 
@@ -98,13 +102,14 @@ This resolves to the questions:
 
 Open Pulse Audio Volume Control but this time go to the 'Playback' Tab. You should see an entry for QtSoundModem, or Direwolf if that is your poison of choice!
 
-If your modem is not receiving audio, check in the configuration to be sure it is outputting audio to 'Pulse'. In QtSoundModem, this will look as below:
+If your modem is not showing, check in the configuration to be sure it is outputting audio to 'Pulse'. In QtSoundModem, this will look as below:
 
-[insert image]
+![Audio Config](../static/img/qtsm_modem_config.png)
 
-The VU bar should show activity when a packet is transmitted, just like the one in the Input Devices Tab. If not, you may need to change the application volume, and double check the soundcard the application is being sent to. Tere will be a dropdown that lists all your computer's audio inputs and you can select. Again, there is a slider here for volume control - the effects of this are additional to that of the Output Devices Tab, so dropping audio by 6dB in both locations will create a total drop of 12dB. Due to this, I generally recommend leaving it at 100% / 0dB and only modifying the Output Devices slider.
+The VU bar should show activity when a packet is transmitted, just like the one in the Input Devices Tab. If not, you may need to change the application volume, and double check the soundcard the application is being sent to. There will be a dropdown that lists all your computer's audio outputs and you can select. Again, there is a slider here for volume control - the effects of this are additional to that of the Output Devices Tab, so dropping audio by 6dB in both locations will create a total drop of 12dB. Due to this, I generally recommend leaving it at 100% / 0dB and only modifying the Output Devices slider.
 
-[insert image]
+
+![Outgoing Audio](../static/img/playback_dropdown.png)
 
 If you have sorted routing, generate more packet traffic to see if anything appears in your Terminal monitor pane.
 
@@ -120,22 +125,13 @@ This resolves to the questions:
 
 #### Check the audio leaving is at the right volume
 
-!!! note
+Open the Output Devices tab - does the VU bar of your soundcard show any activity? 
 
-    This shall use the Pulse Audio Volume Control program, which is an invaluable friend in wading through Linux audio problems. If it's not obvious where this is in your application launcher, you can open a terminal and type `pavucontrol`. If you don't have it, you should `sudo apt install pavucontrol`.
+If you transmit a packet and the VU bar goes all the way or is very high, your outgoing audio is too high - bring down that slider below the VU bar. If your incoming audio is too high, it might be distorting as the radio modulates it. Having it peak at half way should be more than enough volume. If your radio has an ALC meter, use the slider to set an optimum level in that.
 
-Open the input devices tab - does the VU bar of your soundcard show any activity? In the below screengrab, I have a little audio that is probably just background coming to my Built in soundcard. In many scenarios you'll be using a USB or external soundcard, it might be called a CM108 or similar - be sure you're looking at the right device. Low to no audio as I am showing indicates an issue or an error in the cable. It also might indicate your radio is squelched, be sure to check your squelch is off if possible.
-
-!!! note
-    If you have no audio coming in and your radio is unsquelched, double check your cable is ok (maybe with a volt meter, or remove and reconnect the ends). Check you are looking at the right soundcard, and check each jack is going to the correct socket on the soundcard.
-
-If you receive a packet and the VU bar goes all the way or is very high, your incoming audio is too high - bring down that slider below the VU bar. If your incoming audio is too high, it might be distorting as the computer digitises it. Having it peak at half way should be more than enough volume.
-
-![receive audio window](static/img/input_devices.png)
+![Transmit Audio Window](../static/img/output_devices.png)
 
 This resolves to the following questions:
 
-  * Is the computer receiving audio?
-  * Is the received audio too high?
-
-
+  * Is the computer generating audio?
+  * Is the generated audio too high?
