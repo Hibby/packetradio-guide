@@ -16,7 +16,7 @@ nav:
     - modems/direwolf.md
   - Clients:
     - clients/qtttcp.md
-  - Software Setup:
+  - Node Setup:
     - software.md
     - install/bpq.md
     - install/linux.md
