@@ -1119,6 +1119,9 @@
 <h2 id="configuation">Configuation<a class="headerlink" href="#configuation" title="Permanent link">&para;</a></h2>
 <p>Configuration is done through the menu system.</p>
 <h3 id="modem-configuration">Modem Configuration<a class="headerlink" href="#modem-configuration" title="Permanent link">&para;</a></h3>
+<p>Open Settings, then Setup modems, and face this menu:</p>
+<p><img alt="config menu" src="../../static/img/qtsm_modem_settings.png" /></p>
+<p>Select 'IL2P Only' in the IL2P menu, and then run away.</p>
 <h2 id="debugging-strategies">Debugging Strategies<a class="headerlink" href="#debugging-strategies" title="Permanent link">&para;</a></h2>
 <p>First off, make sure you have your terminal open and at the bottom right it says 'KISS Connected' or 'AGW Connected' depending on how you've configured your interface from your soundmodem to terminal. </p>
 <h3 id="receive-check">Receive Check<a class="headerlink" href="#receive-check" title="Permanent link">&para;</a></h3>
@@ -1152,7 +1155,7 @@
 <p>If you have no audio coming in and your radio is unsquelched, double check your cable is ok (maybe with a volt meter, or remove and reconnect the ends). Check you are looking at the right soundcard, and check each jack is going to the correct socket on the soundcard.</p>
 </div>
 <p>If you receive a packet and the VU bar goes all the way or is very high, your incoming audio is too high - bring down that slider below the VU bar. If your incoming audio is too high, it might be distorting as the computer digitises it. Having it peak at half way should be more than enough volume.</p>
-<p><img alt="receive audio window" src="static/img/input_devices.png" /></p>
+<p><img alt="receive audio window" src="../../static/img/input_devices.png" /></p>
 <p>This resolves to the following questions:</p>
 <ul>
 <li>Is the computer receiving audio?</li>
@@ -1161,7 +1164,7 @@
 <h4 id="check-the-audio-coming-in-is-going-to-the-right-application">Check the audio coming in is going to the right application<a class="headerlink" href="#check-the-audio-coming-in-is-going-to-the-right-application" title="Permanent link">&para;</a></h4>
 <p>As in the above segment, open Pulse Audio Volume Control but this time go to the 'Recording' Tab. You should see an entry for QtSoundModem, or Direwolf if that is your poison of choice!</p>
 <p>The VU bar should show activity when a packet is received, just like the one in the Input Devices Tab. If not, you may need to change the device the audio is coming from - there will be a dropdown that lists all your computer's audio inputs and you can select. Again, there is a slider here for volume control - the effects of this are additional to that of the Input Tab, so dropping audio by 6dB in both locations will create a total drop of 12dB. Due to this, I generally recommend leaving it at 100% / 0dB and only modifying the Input Device slider.</p>
-<p>[insert image]</p>
+<p><img alt="Incoming Audio" src="../../static/img/recording_dropdown.png" /></p>
 <p>If you have sorted routing, wait for more packet traffic to see if anything appears in your Terminal monitor pane.</p>
 <p>To understand if QtSoundModem is receiving audio, you can look in the waterfall window within the application:</p>
 <p>[insert image]</p>
@@ -1174,10 +1177,10 @@
 <h3 id="transmit-audio">Transmit Audio<a class="headerlink" href="#transmit-audio" title="Permanent link">&para;</a></h3>
 <h4 id="check-the-generated-audio-is-going-to-the-right-soundcard">Check the generated audio is going to the right soundcard<a class="headerlink" href="#check-the-generated-audio-is-going-to-the-right-soundcard" title="Permanent link">&para;</a></h4>
 <p>Open Pulse Audio Volume Control but this time go to the 'Playback' Tab. You should see an entry for QtSoundModem, or Direwolf if that is your poison of choice!</p>
-<p>If your modem is not receiving audio, check in the configuration to be sure it is outputting audio to 'Pulse'. In QtSoundModem, this will look as below:</p>
-<p>[insert image]</p>
-<p>The VU bar should show activity when a packet is transmitted, just like the one in the Input Devices Tab. If not, you may need to change the application volume, and double check the soundcard the application is being sent to. Tere will be a dropdown that lists all your computer's audio inputs and you can select. Again, there is a slider here for volume control - the effects of this are additional to that of the Output Devices Tab, so dropping audio by 6dB in both locations will create a total drop of 12dB. Due to this, I generally recommend leaving it at 100% / 0dB and only modifying the Output Devices slider.</p>
-<p>[insert image]</p>
+<p>If your modem is not showing, check in the configuration to be sure it is outputting audio to 'Pulse'. In QtSoundModem, this will look as below:</p>
+<p><img alt="Audio Config" src="../../static/img/qtsm_modem_config.png" /></p>
+<p>The VU bar should show activity when a packet is transmitted, just like the one in the Input Devices Tab. If not, you may need to change the application volume, and double check the soundcard the application is being sent to. There will be a dropdown that lists all your computer's audio outputs and you can select. Again, there is a slider here for volume control - the effects of this are additional to that of the Output Devices Tab, so dropping audio by 6dB in both locations will create a total drop of 12dB. Due to this, I generally recommend leaving it at 100% / 0dB and only modifying the Output Devices slider.</p>
+<p><img alt="Outgoing Audio" src="../../static/img/playback_dropdown.png" /></p>
 <p>If you have sorted routing, generate more packet traffic to see if anything appears in your Terminal monitor pane.</p>
 <p>To understand if QtSoundModem is transmitting audio, you can look in the waterfall window within the application:</p>
 <p>[insert image]</p>
@@ -1188,21 +1191,13 @@
 <li>Is the application audio too high or too low?</li>
 </ul>
 <h4 id="check-the-audio-leaving-is-at-the-right-volume">Check the audio leaving is at the right volume<a class="headerlink" href="#check-the-audio-leaving-is-at-the-right-volume" title="Permanent link">&para;</a></h4>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This shall use the Pulse Audio Volume Control program, which is an invaluable friend in wading through Linux audio problems. If it's not obvious where this is in your application launcher, you can open a terminal and type <code>pavucontrol</code>. If you don't have it, you should <code>sudo apt install pavucontrol</code>.</p>
-</div>
-<p>Open the input devices tab - does the VU bar of your soundcard show any activity? In the below screengrab, I have a little audio that is probably just background coming to my Built in soundcard. In many scenarios you'll be using a USB or external soundcard, it might be called a CM108 or similar - be sure you're looking at the right device. Low to no audio as I am showing indicates an issue or an error in the cable. It also might indicate your radio is squelched, be sure to check your squelch is off if possible.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you have no audio coming in and your radio is unsquelched, double check your cable is ok (maybe with a volt meter, or remove and reconnect the ends). Check you are looking at the right soundcard, and check each jack is going to the correct socket on the soundcard.</p>
-</div>
-<p>If you receive a packet and the VU bar goes all the way or is very high, your incoming audio is too high - bring down that slider below the VU bar. If your incoming audio is too high, it might be distorting as the computer digitises it. Having it peak at half way should be more than enough volume.</p>
-<p><img alt="receive audio window" src="static/img/input_devices.png" /></p>
+<p>Open the Output Devices tab - does the VU bar of your soundcard show any activity? </p>
+<p>If you transmit a packet and the VU bar goes all the way or is very high, your outgoing audio is too high - bring down that slider below the VU bar. If your incoming audio is too high, it might be distorting as the radio modulates it. Having it peak at half way should be more than enough volume. If your radio has an ALC meter, use the slider to set an optimum level in that.</p>
+<p><img alt="Transmit Audio Window" src="../../static/img/output_devices.png" /></p>
 <p>This resolves to the following questions:</p>
 <ul>
-<li>Is the computer receiving audio?</li>
-<li>Is the received audio too high?</li>
+<li>Is the computer generating audio?</li>
+<li>Is the generated audio too high?</li>
 </ul>
 
 
