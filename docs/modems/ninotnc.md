@@ -50,10 +50,19 @@ Superseded (but still supported) modes:
 | 1100 | 300  | 300  | AFSK | AX.25    | 300 AFSK IL2P      | SSB           | 500Hz  | Backwards compatibility with legacy HF packet modems. Modulation invented c. 1962! |
 | 1101 | 300  | 300  | AFSK | IL2P     | 300 AFSK IL2P+CRC  | SSB           | 500Hz  | IL2P improvement of AFSK 300 baud AX.25.                                           |
 
-Prefer:
+Our order of preference for modes at UKPR are:
+
   * QPSK > BPSK > DPSK > AFSK
   * IL2P+CRC > IL2P > IL2P > AX.25
   * SSB > FM
+
+Why? Simply put, see the below three statements but tread carefully. Not all things are equal, and not all rigs are capable of 'optimum' performance. Perfection is the enemy of good enough, so please endeavour to get something working, not something perfect.
+
+Modulation: These modes offer increasing bandwidth efficiency, with QPSK being our over SSB being our preferred - AFSK over FM is the least efficient mode.
+
+Protocol: IL2P+CRC is the most resilent mode against corruption or data loss as it transits the air, with AX.25 being unprotected against this.
+
+Mode: SSB is preferred as the channels are narrower and allow for more flexibility - tigher filtering and better amplification per hz.  FM is good enough, however.
 
 ### Signals Switch
 
@@ -76,3 +85,43 @@ Leave in the off / down / AC position unless you have a rare case where having t
 #### Switch 4 - External carrier detect - EN/CD
 
 Leave in the off / down / CD position unless you want to provide external transmit inhibit using pin 2 of the DB9 connector.
+
+## Debugging Strategies
+
+Link not working as well as you want? Can your friends not hear you? Can you not hear them? Let's take it back to basics and see if we can find the problem.
+
+Let's strip the complete system back. Make sure that BPQ or other node software is stopped - it's going to want to take over the modem and that'll get in the way. This will be easiest if you can connect to your TNC with a client such as QtTermTCP that offers both monitor *and* interactive panes. If you're running the [linux stack](../config/linux.md), you can run `sudo axlisten -ac` to see the data decoded by your modem.
+
+### No Received Signal
+
+Not seeing anything in the monitor? We need to think about two things here: Is the modem receiving signals from the radio, and is the computer receiving signals from the modem. Let's eliminate each issue one step at a time.
+
+#### Radio -> Modem Fault
+
+First off, [check the radio](../qtsm/#check-the-radio) and [check the cable](../qtsm/#check-the-cable). Check if the radio is set up for outputting audio through the accessory socket you're using, and it's in the correct mode (1200bd vs 9600bd - check your manual). A good test here is can you *hear* the signal you want to decode? If you can hear it, we need to find out why your modem can't. As the faster modes sound quite close to white noise, this doesn't always hold true, but it's a least a starter. Perhaps combine eyes and ears and watch the S-meter too!
+
+I often confuse the 9600bd and 1200bd lines on my interface cable - have a look to see if you've done the same. More often than not, this has melted my head during cable construction, or I'm using the cable for my [UHF Radio](../equipment/ft-7900.md) on my [HF Radio](../equipment/ft-891.md).
+
+Next up: is your modem in the right mode? Look online at either the node's website or [UKPRN Website](https://ukpacketradio.network) for hints and clues or [ask questions](../../beginners-guide/#ask-for-help) of your peers - we're here to help.
+
+Finally - is your radio outputting enough audio? Is it too much audio? Look at the LEDs on your NinoTNC. Here is a guideline of how to read them:
+
+
+#### Modem -> Computer Fault
+
+Is your modem decoding a signal? 
+
+You can tell by the RX DCD / Green LED lighting when a packet is successfully received & decoded.
+
+It's being powered, and that's presumably from the computer USB port, but maybe it's not connected properly. 
+
+Check if it is a serial device: run `ls /dev | grep ttyACM`, unplug the modem and run the command again. If there's a difference, when you plug it back in and rerun the command (for a third time, yes!) you should see a new device appear, and appear similar to below:
+
+```
+hibby@GB7HIB:~ $ ls /dev | grep ttyACM
+ttyACM0
+```
+
+We've now identified your modem's device and we know it is appearing on your computer. If it isn't, then start by trying a new USB cable. 
+
+An alternative command to look at running before and after disconnect is `sudo dmesg` - this should tell you if the kernel has detected your device disappearing and reappearing.

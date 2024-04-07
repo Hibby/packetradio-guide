@@ -6,13 +6,13 @@ In packet radio, we connect our computers together over the air to transmit data
 
 ### Equipment
 
-You'll need a Radio, and a computer with a cable to connect them together. Sometimes these are easy to buy online, and the moreadventurous can make them. If you've done [FT-8](https://en.wikipedia.org/wiki/FT8) or another datamode, you might already have this cable.
+You'll need a Radio and a computer with a cable to connect them together. Sometimes these are easy to buy online, and the more adventurous can make them. If you've done [FT-8](https://en.wikipedia.org/wiki/FT8) or another data mode, you might already have this cable.
 
 Learn more about some Radio equipment [here](equipment/index.md).
 
 ### Modem
 
-You'll need a modem of some variety. For more advanced users this of often a piece of hardware such as a [NinoTNC](modems/ninotnc.md), but as a beginner you're better suited to a piece of software such as [QtSoundModem](modems/qtsm.md). As the software costs nothing and takes no time to be delivered, it's quicker to get started with!
+You'll need a modem of some variety. For more advanced users this of often a piece of hardware such as a [NinoTNC](modems/ninotnc.md), but as a beginner you're likely better served with a piece of software such as [QtSoundModem](modems/qtsm.md). As the software costs nothing and takes no time to be delivered, it's quicker to get started with! No lunch is free, however, so this simpler starting point brings with it more configuration complexity!
 
 Learn more about modems [here](modems/index.md)
 
@@ -22,7 +22,7 @@ You'll need a client of some form to be able to connect to the network. I would 
 
 ### Addresses
 
-Every station on the network has an address. The Government issued yours when you passed your ham exam (or if you've not sat it, they will do once you pass!). My station, as an example, is MM0RFN on the air.
+Every station on the network has an address. The Government issued yours when you passed your ham exam (or if you've not sat it, they will do once you pass!) - it's simply your callsign. My station, as an example, is MM0RFN on the air.
 
 Sometimes, when we want to offer a service from our computer, such as a messageboard or chatroom, we will add a number afterwards. We call this an SSID, a Service Set IDentifier. Due to the limitations of AX.25, we can have from number 1 to 15. 
 
@@ -30,7 +30,7 @@ If you want to connect to my messageboard, you can tell your client to connect s
 
 SSIDs are not necessary - some stations have a frontend that will let you choose what service you want to use when you connect.
 
-When you call your local node or a nearby station, it is most likely they will have an SSID and you will have to call that.
+When you call your local node or a nearby station, it is most likely they will have an SSID that you'll need to use.
 
 ### Modes
 
@@ -39,10 +39,12 @@ Similar to normal radio, we have different Modes too.
 Instead of AM, FM, etc, we break to them down to 3 categories:
 
   * Protocol: How our data is encoded
-  * Speed: How fast our data will travel (tied to bandwidth)
-  * Modulation: what manner of sound we generate to achieve communication. 
+  * Speed: How fast our data will travel
+  * Modulation: what manner of sound we generate to achieve communication
 
 Both stations must use the same protocol, speed and modulation to communicate on a shared frequency.
+
+You can see a good table of Protocols, Speeds and Modulations at [NinoTNC](../modems/ninotnc/#mode-switch) once you've digested the below and feel brave!
 
 #### Protocol
 
@@ -58,35 +60,37 @@ Learn more [here](detail/ax25.md).
 
 ##### IL2P
 
-IL2P, the 'Improved Layer 2 Protocol' is by Nino KK4HEJ and is an evolution of AX.25. It includes nice things such as error correction of data and allows for, theoretically, more reliable communications but isn't compatible with AX.25.
+IL2P, the 'Improved Layer 2 Protocol' is by Nino KK4HEJ and is an evolution of AX.25. It includes nice things such as error correction of data and allows for, theoretically, more reliable communications but isn't compatible with AX.25 on the air.
 
 There are a number of varieties of IL2P in the wild too - learn more [here](detail/il2p.md).
 
 #### Speeds
 
-We often use '1200', '1200bd' or similar as shorthand for how fast our data is sending and received. The 'bd' is baud, or the number of symbols a second. For most of our communications, 1 baud is equivalent to 1 bit per second. 
+We often use '1200', '1200bd' or similar as shorthand for how fast our data is sending and received. The 'bd' is baud, or the number of 'symbols' transmitted a second. For most of our communications, 1 baud is equivalent to 1 bit per second, however more exotic modulation can transmit more than one symbol at a time, buying us more speed! 
 
 We 3 broad speed categories at the moment:
 
-  * 300bd - used on HF.
-  * 1200bd - used on VHF
-  * 9600bd - used on UHF and beyond
+  * Low - 300bd - used on HF
+  * Medium - 1200bd - used on VHF
+  * High - 9600bd - used on UHF and beyond
+
+Nothing comes for free, and speed is normally proportional to your channel bandwidth. 300bd fits into quite a narrow space, 5-600Hz, which is why we use it on HF. 1200bd and other medium speed up to and including 4800bd are used in 12.5kHz FM channels, so appear on VHF and UHF. 9600bd and faster need 25kHz FM and higher channels. 
 
 #### Modulation
 
 Modulation is a little more complicated than the others as there are many ways to modulate a signal!
 
-If you've played with datamodes on a radio already, you will have a reasonable feeling for this already.
+If you've played with data modes on a radio already, you will have a reasonable feeling for this.
 
 The key modulations we use are:
 
 **AFSK**
 
-Audio Frequncy Shift Keying - Multiple audible tones. This is commonly found on VHF, FM 1200bd links.
+Audio Frequncy Shift Keying - Multiple audible tones. This is commonly found on VHF, FM 1200bd links. Classic bleeps and bloops that have been heard on our frequencies for decades. Tune to 144.800MHz to get a flavour from the APRS network.
 
 **FSK**
 
-Frequency Shift Keying - Multiple tones, not necessarily audible. Commonly found on UHF, FM 9600bd links.
+Frequency Shift Keying - Multiple tones, not necessarily audible. Commonly found on UHF, FM 9600bd links. This sounds quite like white noise and can be difficut to differentiate from unsquelched audio.
 
 **PSK**
 
@@ -98,7 +102,7 @@ Find out your local packet radio frequency first, and tune your radio to see if 
 
 If you're in the UK, this will be listed at [ukpacketradio.network](https://nodes.ukpacketradio.network/packet-network-map.html) or  [UKRepeater](https://ukrepeater.net/packetlist.html).
 
-If information is available online, also take note of the details of the mode as this will come in handy setting up your modem
+If information is available online, also take note of the details of the mode as this will come in handy setting up your modem.
 
 ## Software Set Up
 
@@ -134,8 +138,36 @@ Decoded data shall look like:
 
 ## Connect
 
-Press Connect and select 'xxx'
+Press Connect and enter the callsign & SSID you are trying to connect to, for example GB7HIB-7 if you're connecting to my node.
 
-You should be presented with some choices in the bottom pane. 
+You should be presented with some choices in the bottom pane - BBS, Links, Info etc. If not, type `?` in the bottom text box, hit enter and see what the remote system returns with.
 
 Congratulations, you are on the air!
+
+Not seeing anything in the monitor pane? Time to get debugging!
+
+## Debugging
+
+This is where most of my time is spent when setting up packet radio stuff. In my opinion, it's where the real learning happens - you need to get your hands dirty with your radio, with your modem, with linux and try to retain your sanity at the same time. 
+
+Don't worry - there is always something you've forgotten to do, or think you've looked at and haven't. We all have that feeling. Sometimes I keep a note of what I've done and what I've looked at to avoid replication of work, or so I can note what I *have* changed and what I might need to replicate.
+
+### Debugging Checklist
+
+Learn more about debugging:
+
+  * [Your Radio](../modems/qtsm/#check-the-radio)
+  * [QtSoundModem](../modems/qtsm/#check-the-audio-coming-in-is-at-the-right-volume)
+
+### Ask for Help!
+
+It is easy to feel overwhelmed and alone as you struggle through debugging your system. Feel free to ask the community for help! No question is stupid, and we all started knowing nothing about this. Everyone is excited to have new stations and nodes to connect to, so will be thrilled to offer some form of pointer, assistance, input or advice. Please note, advice is a form of nostalgia: dispensing it is a way of fishing the past from the disposal, wiping it off, painting over the ugly parts and recycling it for more than it's worth.
+
+There are a few great sources of assistance, some will be faster than others to get responses from:
+
+  * General help and chatter on all things packet: [Online Amateur Radio Club Discord](https://oarc.uk)
+  * UK Packet Radio Users: [uk packet radio mailing list](https://groups.io/g/ukpacketradio/)
+  * QtTermTCP and QtSoundModem help: [bpq32 mailing list](https://groups.io/g/bpq32/)
+  * NinoTNC: [NinoTNC Mailing List](https://groups.io/g/ninotnc/)
+  * My Inbox - see the [about page](about.md). I'll be thrilled if you get stuck and sent me an email saying you'd tried this and nothing worked!
+

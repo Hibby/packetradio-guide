@@ -29,6 +29,7 @@ nav:
 
 theme:
   name: material 
+  font: false
 
 markdown_extensions:
   - toc:
