@@ -1,381 +1,1251 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://packetradio.debian.net/modems/qtsm/" />
-      <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>QtSoundModem - Hibby's Packet Radio Guide</title>
-    <link rel="stylesheet" href="../../css/theme.css" />
-    <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "QtSoundModem";
-        var mkdocs_page_input_path = "modems/qtsm.md";
-        var mkdocs_page_url = "/modems/qtsm/";
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://guide.foxk.it/modems/qtsm/">
+      
+      
+        <link rel="prev" href="../ninotnc/">
+      
+      
+        <link rel="next" href="../direwolf/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
     
-    <!--[if lt IE 9]>
-      <script src="../../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>QtSoundModem - Hibby's Packet Radio Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> Hibby's Packet Radio Guide
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../..#what-is-packet-radio">What is Packet Radio?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../..#taking-your-first-steps">Taking Your First Steps</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../..#recommended-first-setup">Recommended first setup</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
-    <ul>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../beginners-guide/">Beginner's Guide</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../beginners-guide/#key-concepts">Key Concepts</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#equipment">Equipment</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#modem">Modem</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#client-software">Client Software</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#addresses">Addresses</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#modes">Modes</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../../beginners-guide/#protocol">Protocol</a>
-        <ul>
-    <li class="toctree-l5"><a class="reference internal" href="../../beginners-guide/#ax25">AX.25</a>
-    </li>
-    <li class="toctree-l5"><a class="reference internal" href="../../beginners-guide/#il2p">IL2P</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../../beginners-guide/#speeds">Speeds</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../../beginners-guide/#modulation">Modulation</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../beginners-guide/#radio-set-up">Radio Set Up</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../beginners-guide/#software-set-up">Software Set Up</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#installation">Installation</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#configure-qtsoundmodem">Configure QtSoundModem</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#configure-qttermtcp">Configure QtTermTCP</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../../beginners-guide/#set-up-kiss-connection">Set up Kiss Connection</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../beginners-guide/#connect">Connect</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Radios</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../radios/">Radios</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../radios/#known-good-beginner-radios">Known good Beginner Radios</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../radios/#vhfuhf-radios">VHF/UHF Radios</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../radios/#hf-radios">HF Radios</a>
-    </li>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Modems</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../ninotnc/">NinoTNC</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../ninotnc/#buying-one">Buying one</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../ninotnc/#build">Build</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../ninotnc/#operation">Operation</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../ninotnc/#mode-switch">Mode Switch</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../ninotnc/#signals-switch">Signals Switch</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../ninotnc/#switch-1-transmit-audio-range-selection-datamic">Switch 1 - Transmit audio range selection - DATA/MIC</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../ninotnc/#switch-2-receive-audio-sensitivity-1x11x">Switch 2 - Receive audio sensitivity - 1x/11x</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../ninotnc/#switch-3-transmit-audio-coupling-control-dcac">Switch 3 - Transmit audio coupling control - DC/AC</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../ninotnc/#switch-4-external-carrier-detect-encd">Switch 4 - External carrier detect - EN/CD</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">QtSoundModem</a>
-    <ul class="current">
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../direwolf/">Direwolf</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Clients</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../clients/qtttcp/">QtTermTCP</a>
-    <ul>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Software Setup</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../software/">What are my choices?</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../software/#linbpq">LinBPQ</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../software/#xrouter">XROUTER</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../software/#linux-native-stack">Linux Native Stack</a>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../install/bpq/">BPQ</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../install/bpq/#set-up-repo">Set Up Repo</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../install/bpq/#install">Install</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../install/bpq/#configure">Configure</a>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../install/linux/">Linux Native Stack</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../install/linux/#install">Install</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../install/linux/#bbs">BBS</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../install/linux/#basic-config">Basic Config</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../install/linux/#ax25-ports">ax25 ports</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../install/linux/#ax25d">ax25d</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Node Configuration</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../config/bpq/">BPQ</a>
-    <ul>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../config/linux/">Linux Native AX.25 Stack</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#axports">axports</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#kissattach">kissattach</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#axcall">axcall</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#ax25ipd">ax25ipd</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#socat">socat</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#ax25ipdconf">ax25ipd.conf</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#running-ax25ipd">Running ax25ipd</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#kissattach_1">kissattach</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#netrom">NET/ROM</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#nrports">nrports</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#nrbroadcast">nrbroadcast</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#nrattach">nrattach</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#netromd">netromd</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#ax25d">ax25d</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#running-ax25d">Running ax25d</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#uronode-frontend">Uronode Frontend</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#uronodeconf">uronode.conf</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#other-uronode-config-files">Other Uronode Config Files</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodeperms">uronode.perms</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodeannounce">uronode.announce</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodeinfo">uronode.info</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodemotd">uronode.motd</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodeusers">uronode.users</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#uronode-as-a-local-interface">Uronode as a local interface</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#xinetd-config">xinetd config</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#fbb-bbs">FBB BBS</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#portssys">ports.sys</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#bbssys-forwardsys">bbs.sys, forward.sys</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#running-everything">Running Everything</a>
-    </li>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Misc</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../repo/">Hibby's Repo</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../repo/#install-signing-key">Install Signing Key</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../repo/#set-up-repo">Set up Repo</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../repo/#update">Update</a>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Glossary</a>
-    <ul>
-    </ul>
-                  </li>
-              </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">Hibby's Packet Radio Guide</a>
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Modems</li>
-      <li class="breadcrumb-item active">QtSoundModem</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h1 id="qtsoundmodem">QtSoundModem<a class="headerlink" href="#qtsoundmodem" title="Permanent link">&para;</a></h1>
-<p>hi</p>
-              
-            </div>
-          </div><footer>
+        <a href="#qtsoundmodem" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-  <hr/>
+  
 
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Hibby&#39;s Packet Radio Guide" class="md-header__button md-logo" aria-label="Hibby's Packet Radio Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-          
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hibby's Packet Radio Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              QtSoundModem
+            
+          </span>
         </div>
       </div>
-
-    </section>
-
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../ninotnc/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../direwolf/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
 </div>
-    <script src="../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../..";</script>
-    <script src="../../js/theme_extra.js"></script>
-    <script src="../../js/theme.js"></script>
-      <script src="../../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
-</body>
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Hibby&#39;s Packet Radio Guide" class="md-nav__button md-logo" aria-label="Hibby's Packet Radio Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Hibby's Packet Radio Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginners-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beginner's Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Radio Equipment
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Radio Equipment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../equipment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Equipment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../equipment/antennas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Antennas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../equipment/radios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Radios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Modems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Modems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ninotnc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NinoTNC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    QtSoundModem
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    QtSoundModem
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software-set-up" class="md-nav__link">
+    Software Set Up
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Set Up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuation" class="md-nav__link">
+    Configuation
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modem-configuration" class="md-nav__link">
+    Modem Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-strategies" class="md-nav__link">
+    Debugging Strategies
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#receive-check" class="md-nav__link">
+    Receive Check
+  </a>
+  
+    <nav class="md-nav" aria-label="Receive Check">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-the-radio" class="md-nav__link">
+    Check the radio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-cable" class="md-nav__link">
+    Check the cable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-audio-coming-in-is-at-the-right-volume" class="md-nav__link">
+    Check the audio coming in is at the right volume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-audio-coming-in-is-going-to-the-right-application" class="md-nav__link">
+    Check the audio coming in is going to the right application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transmit-audio" class="md-nav__link">
+    Transmit Audio
+  </a>
+  
+    <nav class="md-nav" aria-label="Transmit Audio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-the-generated-audio-is-going-to-the-right-soundcard" class="md-nav__link">
+    Check the generated audio is going to the right soundcard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-audio-leaving-is-at-the-right-volume" class="md-nav__link">
+    Check the audio leaving is at the right volume
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../direwolf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Direwolf
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Clients
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Clients
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../clients/qtttcp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QtTermTCP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Software Setup
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Software Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What are my choices?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/bpq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BPQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux Native Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Node Configuration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Node Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/bpq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BPQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux Native AX.25 Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Misc
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Misc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hibby's Repo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software-set-up" class="md-nav__link">
+    Software Set Up
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Set Up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuation" class="md-nav__link">
+    Configuation
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modem-configuration" class="md-nav__link">
+    Modem Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-strategies" class="md-nav__link">
+    Debugging Strategies
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#receive-check" class="md-nav__link">
+    Receive Check
+  </a>
+  
+    <nav class="md-nav" aria-label="Receive Check">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-the-radio" class="md-nav__link">
+    Check the radio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-cable" class="md-nav__link">
+    Check the cable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-audio-coming-in-is-at-the-right-volume" class="md-nav__link">
+    Check the audio coming in is at the right volume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-audio-coming-in-is-going-to-the-right-application" class="md-nav__link">
+    Check the audio coming in is going to the right application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transmit-audio" class="md-nav__link">
+    Transmit Audio
+  </a>
+  
+    <nav class="md-nav" aria-label="Transmit Audio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-the-generated-audio-is-going-to-the-right-soundcard" class="md-nav__link">
+    Check the generated audio is going to the right soundcard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-audio-leaving-is-at-the-right-volume" class="md-nav__link">
+    Check the audio leaving is at the right volume
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="qtsoundmodem">QtSoundModem<a class="headerlink" href="#qtsoundmodem" title="Permanent link">&para;</a></h1>
+<p>QtSoundModem is a soundmodem with a GUI written by John Wiseman G8BPQ. It is a fork of UZ7HO Soundmodem.</p>
+<p>It has some compelling features - not only does it natively understand IL2P at a number of different baud and bitrates and modulations, it supports multiple modems, each with a different KISS interface. This allows for up to 4 ports with different speeds, protocols and modes in the same channel - a fantastic thing to explore on HF.</p>
+<h2 id="software-set-up">Software Set Up<a class="headerlink" href="#software-set-up" title="Permanent link">&para;</a></h2>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<p>If you're using Debian, Ubuntu or a Raspberry Pi it will be easiest if you install <a href="repo.md">hibby's repo</a>.</p>
+<p>Once you have done that you can install the prerequisites:</p>
+<p><code>sudo apt install qtsoundmodem</code></p>
+<h2 id="configuation">Configuation<a class="headerlink" href="#configuation" title="Permanent link">&para;</a></h2>
+<p>Configuration is done through the menu system.</p>
+<h3 id="modem-configuration">Modem Configuration<a class="headerlink" href="#modem-configuration" title="Permanent link">&para;</a></h3>
+<h2 id="debugging-strategies">Debugging Strategies<a class="headerlink" href="#debugging-strategies" title="Permanent link">&para;</a></h2>
+<p>First off, make sure you have your terminal open and at the bottom right it says 'KISS Connected' or 'AGW Connected' depending on how you've configured your interface from your soundmodem to terminal. </p>
+<h3 id="receive-check">Receive Check<a class="headerlink" href="#receive-check" title="Permanent link">&para;</a></h3>
+<p>Sense check: are you hearing the remote station coming in to your radio? Have you heard it in the past? </p>
+<h4 id="check-the-radio">Check the radio<a class="headerlink" href="#check-the-radio" title="Permanent link">&para;</a></h4>
+<p>Let's work out what's changed if you've heard the remote station in the past. </p>
+<ul>
+<li>Are you on the right frequency? </li>
+<li>Are they experiencing a temporary outage / expected break? </li>
+<li>Is your antenna OK? </li>
+<li>Is it in the same place? </li>
+<li>Is it plugged in? </li>
+<li>Is the radio even on?</li>
+<li>Is everything real or am I just living in a simulation? ...Wrong list of questions</li>
+</ul>
+<h4 id="check-the-cable">Check the cable<a class="headerlink" href="#check-the-cable" title="Permanent link">&para;</a></h4>
+<p>Is the cable connected to both the radio and the computer - </p>
+<ul>
+<li>Are there any obvious breaks in the cable? </li>
+<li>Are the jacks at the computer end plugged in to the correct sockets?</li>
+<li>Maybe just reseat the cable to check it's plugged in correctly.</li>
+</ul>
+<h4 id="check-the-audio-coming-in-is-at-the-right-volume">Check the audio coming in is at the right volume<a class="headerlink" href="#check-the-audio-coming-in-is-at-the-right-volume" title="Permanent link">&para;</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This shall use the Pulse Audio Volume Control program, which is an invaluable friend in wading through Linux audio problems. If it's not obvious where this is in your application launcher, you can open a terminal and type <code>pavucontrol</code>. If you don't have it, you should <code>sudo apt install pavucontrol</code>.</p>
+</div>
+<p>Open the input devices tab - does the VU bar of your soundcard show any activity? In the below screengrab, I have a little audio that is probably just background coming to my Built in soundcard. In many scenarios you'll be using a USB or external soundcard, it might be called a CM108 or similar - be sure you're looking at the right device. Low to no audio as I am showing indicates an issue or an error in the cable. It also might indicate your radio is squelched, be sure to check your squelch is off if possible.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have no audio coming in and your radio is unsquelched, double check your cable is ok (maybe with a volt meter, or remove and reconnect the ends). Check you are looking at the right soundcard, and check each jack is going to the correct socket on the soundcard.</p>
+</div>
+<p>If you receive a packet and the VU bar goes all the way or is very high, your incoming audio is too high - bring down that slider below the VU bar. If your incoming audio is too high, it might be distorting as the computer digitises it. Having it peak at half way should be more than enough volume.</p>
+<p><img alt="receive audio window" src="static/img/input_devices.png" /></p>
+<p>This resolves to the following questions:</p>
+<ul>
+<li>Is the computer receiving audio?</li>
+<li>Is the received audio too high?</li>
+</ul>
+<h4 id="check-the-audio-coming-in-is-going-to-the-right-application">Check the audio coming in is going to the right application<a class="headerlink" href="#check-the-audio-coming-in-is-going-to-the-right-application" title="Permanent link">&para;</a></h4>
+<p>As in the above segment, open Pulse Audio Volume Control but this time go to the 'Recording' Tab. You should see an entry for QtSoundModem, or Direwolf if that is your poison of choice!</p>
+<p>The VU bar should show activity when a packet is received, just like the one in the Input Devices Tab. If not, you may need to change the device the audio is coming from - there will be a dropdown that lists all your computer's audio inputs and you can select. Again, there is a slider here for volume control - the effects of this are additional to that of the Input Tab, so dropping audio by 6dB in both locations will create a total drop of 12dB. Due to this, I generally recommend leaving it at 100% / 0dB and only modifying the Input Device slider.</p>
+<p>[insert image]</p>
+<p>If you have sorted routing, wait for more packet traffic to see if anything appears in your Terminal monitor pane.</p>
+<p>To understand if QtSoundModem is receiving audio, you can look in the waterfall window within the application:</p>
+<p>[insert image]</p>
+<p>This resolves to the questions: </p>
+<ul>
+<li>Is the application receiving audio?</li>
+<li>Is the correct soundcard selected  </li>
+<li>Is the application audio too high or too low?</li>
+</ul>
+<h3 id="transmit-audio">Transmit Audio<a class="headerlink" href="#transmit-audio" title="Permanent link">&para;</a></h3>
+<h4 id="check-the-generated-audio-is-going-to-the-right-soundcard">Check the generated audio is going to the right soundcard<a class="headerlink" href="#check-the-generated-audio-is-going-to-the-right-soundcard" title="Permanent link">&para;</a></h4>
+<p>Open Pulse Audio Volume Control but this time go to the 'Playback' Tab. You should see an entry for QtSoundModem, or Direwolf if that is your poison of choice!</p>
+<p>If your modem is not receiving audio, check in the configuration to be sure it is outputting audio to 'Pulse'. In QtSoundModem, this will look as below:</p>
+<p>[insert image]</p>
+<p>The VU bar should show activity when a packet is transmitted, just like the one in the Input Devices Tab. If not, you may need to change the application volume, and double check the soundcard the application is being sent to. Tere will be a dropdown that lists all your computer's audio inputs and you can select. Again, there is a slider here for volume control - the effects of this are additional to that of the Output Devices Tab, so dropping audio by 6dB in both locations will create a total drop of 12dB. Due to this, I generally recommend leaving it at 100% / 0dB and only modifying the Output Devices slider.</p>
+<p>[insert image]</p>
+<p>If you have sorted routing, generate more packet traffic to see if anything appears in your Terminal monitor pane.</p>
+<p>To understand if QtSoundModem is transmitting audio, you can look in the waterfall window within the application:</p>
+<p>[insert image]</p>
+<p>This resolves to the questions: </p>
+<ul>
+<li>Is the application registered in pulseaudio?</li>
+<li>Is the correct soundcard selected</li>
+<li>Is the application audio too high or too low?</li>
+</ul>
+<h4 id="check-the-audio-leaving-is-at-the-right-volume">Check the audio leaving is at the right volume<a class="headerlink" href="#check-the-audio-leaving-is-at-the-right-volume" title="Permanent link">&para;</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This shall use the Pulse Audio Volume Control program, which is an invaluable friend in wading through Linux audio problems. If it's not obvious where this is in your application launcher, you can open a terminal and type <code>pavucontrol</code>. If you don't have it, you should <code>sudo apt install pavucontrol</code>.</p>
+</div>
+<p>Open the input devices tab - does the VU bar of your soundcard show any activity? In the below screengrab, I have a little audio that is probably just background coming to my Built in soundcard. In many scenarios you'll be using a USB or external soundcard, it might be called a CM108 or similar - be sure you're looking at the right device. Low to no audio as I am showing indicates an issue or an error in the cable. It also might indicate your radio is squelched, be sure to check your squelch is off if possible.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have no audio coming in and your radio is unsquelched, double check your cable is ok (maybe with a volt meter, or remove and reconnect the ends). Check you are looking at the right soundcard, and check each jack is going to the correct socket on the soundcard.</p>
+</div>
+<p>If you receive a packet and the VU bar goes all the way or is very high, your incoming audio is too high - bring down that slider below the VU bar. If your incoming audio is too high, it might be distorting as the computer digitises it. Having it peak at half way should be more than enough volume.</p>
+<p><img alt="receive audio window" src="static/img/input_devices.png" /></p>
+<p>This resolves to the following questions:</p>
+<ul>
+<li>Is the computer receiving audio?</li>
+<li>Is the received audio too high?</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
 </html>

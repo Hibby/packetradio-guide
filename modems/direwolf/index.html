@@ -1,380 +1,869 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://packetradio.debian.net/modems/direwolf/" />
-      <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Direwolf - Hibby's Packet Radio Guide</title>
-    <link rel="stylesheet" href="../../css/theme.css" />
-    <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Direwolf";
-        var mkdocs_page_input_path = "modems/direwolf.md";
-        var mkdocs_page_url = "/modems/direwolf/";
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://guide.foxk.it/modems/direwolf/">
+      
+      
+        <link rel="prev" href="../qtsm/">
+      
+      
+        <link rel="next" href="../../clients/qtttcp/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
     
-    <!--[if lt IE 9]>
-      <script src="../../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>Direwolf - Hibby's Packet Radio Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> Hibby's Packet Radio Guide
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../..#what-is-packet-radio">What is Packet Radio?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../..#taking-your-first-steps">Taking Your First Steps</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../..#recommended-first-setup">Recommended first setup</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
-    <ul>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../beginners-guide/">Beginner's Guide</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../beginners-guide/#key-concepts">Key Concepts</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#equipment">Equipment</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#modem">Modem</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#client-software">Client Software</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#addresses">Addresses</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#modes">Modes</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../../beginners-guide/#protocol">Protocol</a>
-        <ul>
-    <li class="toctree-l5"><a class="reference internal" href="../../beginners-guide/#ax25">AX.25</a>
-    </li>
-    <li class="toctree-l5"><a class="reference internal" href="../../beginners-guide/#il2p">IL2P</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../../beginners-guide/#speeds">Speeds</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../../beginners-guide/#modulation">Modulation</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../beginners-guide/#radio-set-up">Radio Set Up</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../beginners-guide/#software-set-up">Software Set Up</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#installation">Installation</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#configure-qtsoundmodem">Configure QtSoundModem</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../beginners-guide/#configure-qttermtcp">Configure QtTermTCP</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../../beginners-guide/#set-up-kiss-connection">Set up Kiss Connection</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../beginners-guide/#connect">Connect</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Radios</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../radios/">Radios</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../radios/#known-good-beginner-radios">Known good Beginner Radios</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../radios/#vhfuhf-radios">VHF/UHF Radios</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../radios/#hf-radios">HF Radios</a>
-    </li>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Modems</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../ninotnc/">NinoTNC</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../ninotnc/#buying-one">Buying one</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../ninotnc/#build">Build</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../ninotnc/#operation">Operation</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../ninotnc/#mode-switch">Mode Switch</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../ninotnc/#signals-switch">Signals Switch</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../ninotnc/#switch-1-transmit-audio-range-selection-datamic">Switch 1 - Transmit audio range selection - DATA/MIC</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../ninotnc/#switch-2-receive-audio-sensitivity-1x11x">Switch 2 - Receive audio sensitivity - 1x/11x</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../ninotnc/#switch-3-transmit-audio-coupling-control-dcac">Switch 3 - Transmit audio coupling control - DC/AC</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../ninotnc/#switch-4-external-carrier-detect-encd">Switch 4 - External carrier detect - EN/CD</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../qtsm/">QtSoundModem</a>
-    <ul>
-    </ul>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Direwolf</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Clients</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../clients/qtttcp/">QtTermTCP</a>
-    <ul>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Software Setup</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../software/">What are my choices?</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../software/#linbpq">LinBPQ</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../software/#xrouter">XROUTER</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../software/#linux-native-stack">Linux Native Stack</a>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../install/bpq/">BPQ</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../install/bpq/#set-up-repo">Set Up Repo</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../install/bpq/#install">Install</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../install/bpq/#configure">Configure</a>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../install/linux/">Linux Native Stack</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../install/linux/#install">Install</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../install/linux/#bbs">BBS</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../install/linux/#basic-config">Basic Config</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../install/linux/#ax25-ports">ax25 ports</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../install/linux/#ax25d">ax25d</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Node Configuration</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../config/bpq/">BPQ</a>
-    <ul>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../config/linux/">Linux Native AX.25 Stack</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#axports">axports</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#kissattach">kissattach</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#axcall">axcall</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#ax25ipd">ax25ipd</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#socat">socat</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#ax25ipdconf">ax25ipd.conf</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#running-ax25ipd">Running ax25ipd</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#kissattach_1">kissattach</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#netrom">NET/ROM</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#nrports">nrports</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#nrbroadcast">nrbroadcast</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#nrattach">nrattach</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#netromd">netromd</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#ax25d">ax25d</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#running-ax25d">Running ax25d</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#uronode-frontend">Uronode Frontend</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#uronodeconf">uronode.conf</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#other-uronode-config-files">Other Uronode Config Files</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodeperms">uronode.perms</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodeannounce">uronode.announce</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodeinfo">uronode.info</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodemotd">uronode.motd</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#uronodeusers">uronode.users</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#uronode-as-a-local-interface">Uronode as a local interface</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../../config/linux/#xinetd-config">xinetd config</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#fbb-bbs">FBB BBS</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#portssys">ports.sys</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../../config/linux/#bbssys-forwardsys">bbs.sys, forward.sys</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../config/linux/#running-everything">Running Everything</a>
-    </li>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Misc</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../repo/">Hibby's Repo</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../../repo/#install-signing-key">Install Signing Key</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../repo/#set-up-repo">Set up Repo</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../../repo/#update">Update</a>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Glossary</a>
-    <ul>
-    </ul>
-                  </li>
-              </ul>
-      </div>
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
     </div>
-    </nav>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">Hibby's Packet Radio Guide</a>
-        
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Modems</li>
-      <li class="breadcrumb-item active">Direwolf</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                
-              
-            </div>
-          </div><footer>
+  
 
-  <hr/>
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Hibby&#39;s Packet Radio Guide" class="md-header__button md-logo" aria-label="Hibby's Packet Radio Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-          
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hibby's Packet Radio Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Direwolf
+            
+          </span>
         </div>
       </div>
-
-    </section>
-
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../qtsm/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../../clients/qtttcp/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
 </div>
-    <script src="../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../..";</script>
-    <script src="../../js/theme_extra.js"></script>
-    <script src="../../js/theme.js"></script>
-      <script src="../../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
-</body>
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Hibby&#39;s Packet Radio Guide" class="md-nav__button md-logo" aria-label="Hibby's Packet Radio Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Hibby's Packet Radio Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginners-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beginner's Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Radio Equipment
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Radio Equipment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../equipment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Equipment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../equipment/antennas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Antennas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../equipment/radios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Radios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Modems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Modems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ninotnc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NinoTNC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qtsm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QtSoundModem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Direwolf
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Clients
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Clients
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../clients/qtttcp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QtTermTCP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Software Setup
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Software Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What are my choices?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/bpq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BPQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux Native Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Node Configuration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Node Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/bpq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BPQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux Native AX.25 Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Misc
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Misc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hibby's Repo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Direwolf</h1>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
 </html>
