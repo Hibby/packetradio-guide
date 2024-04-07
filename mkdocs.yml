@@ -1,5 +1,5 @@
 site_name: Hibby's Packet Radio Guide
-site_url: https://people.debian.org/~hibby
+site_url: https://guide.foxk.it
 
 nav:
   - Home: index.md
