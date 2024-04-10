@@ -24,6 +24,7 @@ nav:
     - config/bpq.md
     - config/linux.md
   - Misc:
+    - linux.md
     - repo.md
     - Glossary: glossary.md
 

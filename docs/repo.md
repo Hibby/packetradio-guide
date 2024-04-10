@@ -13,22 +13,21 @@ You can trust this key - it is contained in [Debian](https://salsa.debian.org/de
 ## Set up Repo
 Then you need to add the repo for your OS:
 
-```
-# Ubuntu 22.04 LTS amd64
-sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages jammy main" >> /etc/apt/sources.list'
 
-# Raspberry Pi OS 12 - 'Bookworm'
-sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main" >> /etc/apt/sources.list'
+### Ubuntu 22.04 LTS amd64
+`sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages jammy main" >> /etc/apt/sources.list'`
 
-# Raspberry Pi OS 11 - 'Bullseye'
-sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bullseye main" >> /etc/apt/sources.list'
+### Raspberry Pi OS 12 - 'Bookworm'
+`sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main" >> /etc/apt/sources.list'`
 
-# Debian 13 amd64
-sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages testing main" >> /etc/apt/sources.list'
+### Raspberry Pi OS 11 - 'Bullseye'
+`sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bullseye main" >> /etc/apt/sources.list'`
 
-# Debian 12 amd64
-sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main" >> /etc/apt/sources.list'
-```
+### Debian 13 amd64
+`sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages testing main" >> /etc/apt/sources.list'`
+
+### Debian 12 amd64
+`sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main" >> /etc/apt/sources.list'`
 
 ## Update
 
