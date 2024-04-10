@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://guide.foxk.it/repo/">
       
       
-        <link rel="prev" href="../config/linux/">
+        <link rel="prev" href="../linux/">
       
       
         <link rel="next" href="../glossary/">
@@ -742,6 +742,26 @@
                 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux Primer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -800,6 +820,47 @@
   <a href="#set-up-repo" class="md-nav__link">
     Set up Repo
   </a>
+  
+    <nav class="md-nav" aria-label="Set up Repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu-2204-lts-amd64" class="md-nav__link">
+    Ubuntu 22.04 LTS amd64
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi-os-12-bookworm" class="md-nav__link">
+    Raspberry Pi OS 12 - 'Bookworm'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi-os-11-bullseye" class="md-nav__link">
+    Raspberry Pi OS 11 - 'Bullseye'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debian-13-amd64" class="md-nav__link">
+    Debian 13 amd64
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debian-12-amd64" class="md-nav__link">
+    Debian 12 amd64
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -884,6 +945,47 @@
     Set up Repo
   </a>
   
+    <nav class="md-nav" aria-label="Set up Repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu-2204-lts-amd64" class="md-nav__link">
+    Ubuntu 22.04 LTS amd64
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi-os-12-bookworm" class="md-nav__link">
+    Raspberry Pi OS 12 - 'Bookworm'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi-os-11-bullseye" class="md-nav__link">
+    Raspberry Pi OS 11 - 'Bullseye'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debian-13-amd64" class="md-nav__link">
+    Debian 13 amd64
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debian-12-amd64" class="md-nav__link">
+    Debian 12 amd64
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -917,21 +1019,16 @@ sudo mv hibby.key /etc/apt/trusted.gpg.d/hibby.asc
 <p>You can trust this key - it is contained in <a href="https://salsa.debian.org/debian-keyring/keyring/-/blob/master/debian-keyring-gpg/0x03A1FB7A1904771B?ref_type=heads">Debian</a> and signed as trusted by other developers in the project.</p>
 <h2 id="set-up-repo">Set up Repo<a class="headerlink" href="#set-up-repo" title="Permanent link">&para;</a></h2>
 <p>Then you need to add the repo for your OS:</p>
-<div class="highlight"><pre><span></span><code># Ubuntu 22.04 LTS amd64
-sudo sh -c &#39;echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages jammy main&quot; &gt;&gt; /etc/apt/sources.list&#39;
-
-# Raspberry Pi OS 12 - &#39;Bookworm&#39;
-sudo sh -c &#39;echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main&quot; &gt;&gt; /etc/apt/sources.list&#39;
-
-# Raspberry Pi OS 11 - &#39;Bullseye&#39;
-sudo sh -c &#39;echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bullseye main&quot; &gt;&gt; /etc/apt/sources.list&#39;
-
-# Debian 13 amd64
-sudo sh -c &#39;echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages testing main&quot; &gt;&gt; /etc/apt/sources.list&#39;
-
-# Debian 12 amd64
-sudo sh -c &#39;echo &quot;deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main&quot; &gt;&gt; /etc/apt/sources.list&#39;
-</code></pre></div>
+<h3 id="ubuntu-2204-lts-amd64">Ubuntu 22.04 LTS amd64<a class="headerlink" href="#ubuntu-2204-lts-amd64" title="Permanent link">&para;</a></h3>
+<p><code>sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages jammy main" &gt;&gt; /etc/apt/sources.list'</code></p>
+<h3 id="raspberry-pi-os-12-bookworm">Raspberry Pi OS 12 - 'Bookworm'<a class="headerlink" href="#raspberry-pi-os-12-bookworm" title="Permanent link">&para;</a></h3>
+<p><code>sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main" &gt;&gt; /etc/apt/sources.list'</code></p>
+<h3 id="raspberry-pi-os-11-bullseye">Raspberry Pi OS 11 - 'Bullseye'<a class="headerlink" href="#raspberry-pi-os-11-bullseye" title="Permanent link">&para;</a></h3>
+<p><code>sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bullseye main" &gt;&gt; /etc/apt/sources.list'</code></p>
+<h3 id="debian-13-amd64">Debian 13 amd64<a class="headerlink" href="#debian-13-amd64" title="Permanent link">&para;</a></h3>
+<p><code>sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages testing main" &gt;&gt; /etc/apt/sources.list'</code></p>
+<h3 id="debian-12-amd64">Debian 12 amd64<a class="headerlink" href="#debian-12-amd64" title="Permanent link">&para;</a></h3>
+<p><code>sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main" &gt;&gt; /etc/apt/sources.list'</code></p>
 <h2 id="update">Update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h2>
 <p>Once the repo is setup, refresh your package lists and we're good to go:</p>
 <div class="highlight"><pre><span></span><code>sudo apt update

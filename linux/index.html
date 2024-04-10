@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://guide.foxk.it/hardware/">
+        <link rel="canonical" href="https://guide.foxk.it/linux/">
       
       
+        <link rel="prev" href="../config/linux/">
+      
+      
+        <link rel="next" href="../repo/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -18,7 +22,7 @@
     
     
       
-        <title>Hardware - Hibby's Packet Radio Guide</title>
+        <title>Linux Primer - Hibby's Packet Radio Guide</title>
       
     
     
@@ -57,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hardware" class="md-skip">
+        <a href="#linux-primer" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hardware
+              Linux Primer
             
           </span>
         </div>
@@ -702,17 +706,19 @@
       
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
         
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
@@ -725,7 +731,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Misc
@@ -736,9 +742,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../linux/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Linux Primer
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -747,6 +773,87 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-linux" class="md-nav__link">
+    What is Linux?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desktops-and-terminals" class="md-nav__link">
+    Desktops and Terminals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-and-repositories" class="md-nav__link">
+    Applications and Repositories
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications and Repositories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-from-the-command-line" class="md-nav__link">
+    Install from the Command Line
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphical-app-store-frontend" class="md-nav__link">
+    Graphical App Store Frontend
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#users-permissions-and-sudo" class="md-nav__link">
+    Users, Permissions and 'sudo'
+  </a>
+  
+    <nav class="md-nav" aria-label="Users, Permissions and 'sudo'">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-know-if-i-can-run-programs-as-root" class="md-nav__link">
+    How do I know if I can run programs as root?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -826,23 +933,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#modems" class="md-nav__link">
-    Modems
+  <a href="#what-is-linux" class="md-nav__link">
+    What is Linux?
   </a>
   
-    <nav class="md-nav" aria-label="Modems">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desktops-and-terminals" class="md-nav__link">
+    Desktops and Terminals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-and-repositories" class="md-nav__link">
+    Applications and Repositories
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications and Repositories">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ninotnc" class="md-nav__link">
-    NinoTNC
+  <a href="#install-from-the-command-line" class="md-nav__link">
+    Install from the Command Line
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#another" class="md-nav__link">
-    Another
+  <a href="#graphical-app-store-frontend" class="md-nav__link">
+    Graphical App Store Frontend
   </a>
   
 </li>
@@ -853,16 +974,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#radios" class="md-nav__link">
-    Radios
+  <a href="#users-permissions-and-sudo" class="md-nav__link">
+    Users, Permissions and 'sudo'
   </a>
   
-    <nav class="md-nav" aria-label="Radios">
+    <nav class="md-nav" aria-label="Users, Permissions and 'sudo'">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gm340" class="md-nav__link">
-    GM340
+  <a href="#how-do-i-know-if-i-can-run-programs-as-root" class="md-nav__link">
+    How do I know if I can run programs as root?
   </a>
   
 </li>
@@ -887,14 +1008,51 @@
                   
 
 
-<h1 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h1>
-<h2 id="modems">Modems<a class="headerlink" href="#modems" title="Permanent link">&para;</a></h2>
-<h3 id="ninotnc">NinoTNC<a class="headerlink" href="#ninotnc" title="Permanent link">&para;</a></h3>
-<p>NinoTNC is lovely</p>
-<h3 id="another">Another<a class="headerlink" href="#another" title="Permanent link">&para;</a></h3>
-<h2 id="radios">Radios<a class="headerlink" href="#radios" title="Permanent link">&para;</a></h2>
-<h3 id="gm340">GM340<a class="headerlink" href="#gm340" title="Permanent link">&para;</a></h3>
-<p>I use this </p>
+<h1 id="linux-primer">Linux Primer<a class="headerlink" href="#linux-primer" title="Permanent link">&para;</a></h1>
+<p>My packet radio guide is focussed on running software on Linux and it probably assumes a base level of knowledge. I shall dispense some thoughts and you can judge whether this is helpful.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For those of you with greater background knowledge and opinions, you'll notice I'm painting in broad brushstrokes. This is intentional, don't bite my head off!</p>
+</div>
+<h2 id="what-is-linux">What is Linux?<a class="headerlink" href="#what-is-linux" title="Permanent link">&para;</a></h2>
+<p>Linux is, in general terms, a family of operating systems that share a common core set of software and exhibit similar characteristics. It is no one simple thing, and doesn't fit in one neat category.</p>
+<p>It can be seen as an alternative to Windows, MacOS, DOS, FreeBSD etc on the desktop - there are many similarities and many differences.</p>
+<p>It is built collaboratively by enthusiast and professional software developers in the spirit of freely sharing and improving the world for all humans - in this sense, there is a strong overlap with the goals of man radio amateurs.</p>
+<p>Through this guide I will regularly refer to "<a href="https://debian.org">Debian</a>" - this is the 'Distribution' of Linux that I work on in my free time. A distribution is a collection of software maintained by a group of people. In the case of Debian, there's around 1000 of us. </p>
+<p>As the source code is available for all to see and use due to permissive licenses, if another group has an opinion which differs from the team producing a distribution, they can use our work as a foundation and build something different and new based on that - we call this 'forking'. This is what <a href="https://ubuntu.com">Ubuntu</a> is, and why we refer to Ubuntu as a 'Debian Derivative'. It's also why 90% of tutorials that target Ubuntu will work for Debian and vice versa. We share common components and building blocks. Raspberry Pi OS falls into this category too - they are standing on Debian's shoulders and commonly re-base their system on ours, so that they can focus their efforts on making the Raspberry Pi work well instead of getting bogged down in tangential detail.</p>
+<p>An alternative to Debian and its derivatives is <a href="https://www.fedoraproject.org">Fedora</a> - while this shares many common components and code at the core of the system, some of the tools used in Fedora differ to such an extent that software built for it can't be guaranteed to run on a Debian based system - similar to Mac vs Windows.</p>
+<p>There are hundreds, if not thousands, of Linux Distributions all with different goals. Some are derivatives focussed on a specific task, some are very General and left to you to configure and use. Some are even delivered as code and you need to compile it from the ground up.</p>
+<h2 id="desktops-and-terminals">Desktops and Terminals<a class="headerlink" href="#desktops-and-terminals" title="Permanent link">&para;</a></h2>
+<p>There's a common misconception that Linux is for command line users only, or that you need to be proficient in the command line to be able to drive it. This is no more true in Linux than it is for MacOS and Windows - there are a number of tasks that some may find more efficient to do via the command line interface (CLI), but there are usually multiple ways to skin the cat. </p>
+<p>Most of my advice will take the form of things to run in the command line, but I am endeavouring to diversify so things are more approachable. </p>
+<p>If you're running the Raspberry Pi, it's most likely you have <a href="https://www.raspberrypi.com/software/">Raspberry Pi OS</a> with a desktop - there'll be a background, a menu in the top left etc. It might not look familiar, but to a keen explorer it should look approachable at the very least.</p>
+<p>If you're running Debian, during install we'll ask you what graphical desktop environment you want to install, if any. As a beginner, I strongly recommend <a href="https://kde.org">KDE</a> - it is most Windows like and is pretty full featured. If you're running Ubuntu, typically you install an Ubuntu derivative focussed on a specific desktop environment - perhaps <a href="https://kubuntu.org">Kubuntu</a> for KDE.</p>
+<h2 id="applications-and-repositories">Applications and Repositories<a class="headerlink" href="#applications-and-repositories" title="Permanent link">&para;</a></h2>
+<p>Most Linux distributions are not only just the system and the desktop, but they are shipped with a vast catalogue of applications too. They might not be installed, and you'll need to use some sort of app store tool to install, remove etc applications. It's just like every modern mobile phone - they stole the idea from us!</p>
+<p>We call this tool a package manager (we often call applications 'packages'), and a collection of applications is known as a repository, or repo. The Debian family use a program called <code>apt</code> as its package manager, and it ships with quite a large repository of apps you can choose from. Most guides, mine included, don't focus on showing you a usable app-store, just a method of installing from a repository.</p>
+<p>You might want to add another repository if to get access to additional software, new software that isn't shipped by the distribution's maintainers or some other reason. I keep more up to date versions of software in my repository than Raspberry Pi OS offers, and I have additional software that isn't offered by RasPi OS too.</p>
+<h3 id="install-from-the-command-line">Install from the Command Line<a class="headerlink" href="#install-from-the-command-line" title="Permanent link">&para;</a></h3>
+<p>To install from the command line, the standard command would be <code>apt install x</code> where x is any application you're looking for. This is often prefixed with <code>sudo</code>, see below in 'Users, Permissions and sudo' to learn more about why.</p>
+<h3 id="graphical-app-store-frontend">Graphical App Store Frontend<a class="headerlink" href="#graphical-app-store-frontend" title="Permanent link">&para;</a></h3>
+<p>Instead of using <code>apt install x</code>, it is possible to run a graphical piece of software. One I recommend is 'Synaptic' - you might have it installed already, or you might have to quickly run <code>apt install synaptic</code> in the command line to get yourself the software. </p>
+<p>Have a little look through your application launcher to see if there is an app catalogue, application store, package list or similar.</p>
+<h2 id="users-permissions-and-sudo">Users, Permissions and 'sudo'<a class="headerlink" href="#users-permissions-and-sudo" title="Permanent link">&para;</a></h2>
+<p>Much like other systems, Linux has the concept of a regular 'user' which you log in as, day to day and an 'administrator' user who is empowered to make configuration changes to the system, install software and so on. In the Linux world, the administrator is known as 'root'. As root has a lot of power - changing users passwords, deleting every file, overriding safe norms to damage hardware potentially - it is generally recommended that you do not log in day to day as root. If a bad actor or malicious piece of software runs while you are root, it can cause all of the aforementioned damage and more!</p>
+<p>Again, similar to windows, you can run a command as the root user, effectively temporarily granting access to just one program to perform a specific task. In Windows, what usually happens is a pop up window appears asking if you want to do that and pressing yes or no. In Linux, we will have configured the system in advance to know that your user is allowed to do this, and then it will ask for your password to grant permission to carry out the action. </p>
+<p>In graphical environments this may take the form of a pop up window - more often than not, however, we do this from the command line by prefixing our whole command with <code>sudo</code> - you can see a lot of examples of <code>sudo</code> in use at <a href="../repo/">the repo page</a>.</p>
+<p>Looking at the repo as an example and considering our earlier learning from Applications and Repositories above - it's no wonder that you need to carry out the commands mostly as the root user! 
+To add my repository, you are making a major system configuration change in two manners: 
+  * Telling it to trust absolutely the software that I distribute
+  * Telling the package manager where to download that software from </p>
+<p>From this point on, you're placing a lot of trust in me personally - I can make quite significant changes to your system, or open up security holes, or accidentally break programs. I promise to not abuse this trust - to do so would break our Social Contract, result in me being ejected from several communities I love and I'd probably have to find a new set of hobbies.</p>
+<p>You can, of course, revoke this decision at any point by removing the repo key and entry in <code>/etc/apt.conf</code>.</p>
+<h3 id="how-do-i-know-if-i-can-run-programs-as-root">How do I know if I can run programs as root?<a class="headerlink" href="#how-do-i-know-if-i-can-run-programs-as-root" title="Permanent link">&para;</a></h3>
+<p>This is one for the command line! I recommend running <code>groups</code>:</p>
+<div class="highlight"><pre><span></span><code>❯ groups
+hibby cdrom floppy sudo audio dip video plugdev users netdev lpadmin scanner sbuild
+</code></pre></div>
+<p>You can see in my group list that I can access the cd rom drive, the floppy drive and run things as sudo, amongst other less important groups!</p>
+<p>If you do <em>not</em> have sudo in this list, you'll need a bit more help than I can give here - time to <a href="../beginners-guide/#ask-for-help">ask for help!</a>. If you're running a Raspberry Pi or Ubuntu, chances are that you'll be able to. Debian is a little more paranoid so we don't grant it by default. </p>
 
 
 
