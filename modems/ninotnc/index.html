@@ -771,6 +771,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/xrouter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install XROUTER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -843,6 +863,26 @@
   
   <span class="md-ellipsis">
     Linux Native AX.25 Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/xrouter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configure XROUTER
   </span>
   
 
@@ -1371,8 +1411,8 @@ It connects to a computer by USB, and to a radio by a cable that is usually cust
 <div class="highlight"><pre><span></span><code>hibby@GB7HIB:~ $ ls /dev | grep ttyACM
 ttyACM0
 </code></pre></div>
-<p>We've now identified your modem's device and we know it is appearing on your computer. If it isn't, then start by trying a new USB cable. </p>
-<p>An alternative command to look at running before and after disconnect is <code>sudo dmesg</code> - this should tell you if the kernel has detected your device disappearing and reappearing.</p>
+<p>We've now identified your modem's device and we know it is appearing on your computer. If it isn't, check you are in the 'dialout' group by opening a terminal and running <code>groups</code> on the command line. If it doesn't say <code>dialout</code> in the output, follow <a href="../../linux/#permissions-and-groups">this advice</a> and log out/in. If the above doesn't work, try a new USB cable. </p>
+<p>An alternative command to look at running before and after disconnect is <code>sudo dmesg</code> - this should tell you if Linux has detected your device disappearing and reappearing.</p>
 
 
 

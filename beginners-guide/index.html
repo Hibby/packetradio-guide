@@ -359,6 +359,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -837,6 +844,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/xrouter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install XROUTER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -909,6 +936,26 @@
   
   <span class="md-ellipsis">
     Linux Native AX.25 Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/xrouter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configure XROUTER
   </span>
   
 
@@ -1142,6 +1189,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1282,10 +1336,10 @@
 <h5 id="ax25">AX.25<a class="headerlink" href="#ax25" title="Permanent link">&para;</a></h5>
 <p>AX.25 is an umbrella term often used for all packet radio, but really it refers to the specification written between the 70s and 90s that defines the basics of packet.</p>
 <p>It has a long legacy and is rather simple, but is reliable, embedded in a lot of old hardware and will likely be in use until the heat death of the universe.</p>
-<p>Learn more <a href="detail/ax25.md">here</a>.</p>
+<p>Learn more <a href="../detail/ax25/">here</a>.</p>
 <h5 id="il2p">IL2P<a class="headerlink" href="#il2p" title="Permanent link">&para;</a></h5>
 <p>IL2P, the 'Improved Layer 2 Protocol' is by Nino KK4HEJ and is an evolution of AX.25. It includes nice things such as error correction of data and allows for, theoretically, more reliable communications but isn't compatible with AX.25 on the air.</p>
-<p>There are a number of varieties of IL2P in the wild too - learn more <a href="detail/il2p.md">here</a>.</p>
+<p>There are a number of varieties of IL2P in the wild too - learn more <a href="../detail/il2p/">here</a>.</p>
 <h4 id="speeds">Speeds<a class="headerlink" href="#speeds" title="Permanent link">&para;</a></h4>
 <p>We often use '1200', '1200bd' or similar as shorthand for how fast our data is sending and received. The 'bd' is baud, or the number of 'symbols' transmitted a second. For most of our communications, 1 baud is equivalent to 1 bit per second, however more exotic modulation can transmit more than one symbol at a time, buying us more speed! </p>
 <p>We 3 broad speed categories at the moment:</p>
@@ -1305,6 +1359,10 @@
 <p>Frequency Shift Keying - Multiple tones, not necessarily audible. Commonly found on UHF, FM 9600bd links. This sounds quite like white noise and can be difficut to differentiate from unsquelched audio.</p>
 <p><strong>PSK</strong></p>
 <p>Phase Shift Keying - Data encoded into changes of phase. Often found on HF links.</p>
+<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
+<p>A key component of the systems I'll be discussing in this guide is Linux. If you don't have a great understanding of Linux or it's a bit scary, I've got an overview of things you might want to know <a href="../linux/">here</a>.</p>
+<p>There's a lot to take in, and it can seem overwhelming at first, but feel free to read, ask for help and keep in mind that it's easy to be feel like that when you approach anything new.</p>
+<p>A simple starting point is a <a href="https://raspberrypi.org">Raspberry Pi</a> - it will be a dedicated computer for just packet exploration, and if everything is broken you can easily start again without losing any importnt data.</p>
 <h2 id="radio-set-up">Radio Set Up<a class="headerlink" href="#radio-set-up" title="Permanent link">&para;</a></h2>
 <p>Find out your local packet radio frequency first, and tune your radio to see if you can hear any activity. This will be a good indicator as to whether you need to think about HF instead of VHF/UHF.</p>
 <p>If you're in the UK, this will be listed at <a href="https://nodes.ukpacketradio.network/packet-network-map.html">ukpacketradio.network</a> or  <a href="https://ukrepeater.net/packetlist.html">UKRepeater</a>.</p>

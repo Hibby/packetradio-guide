@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://guide.foxk.it/linux/">
       
       
-        <link rel="prev" href="../config/linux/">
+        <link rel="prev" href="../config/xrouter/">
       
       
         <link rel="next" href="../repo/">
@@ -614,6 +614,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/xrouter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install XROUTER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -686,6 +706,26 @@
   
   <span class="md-ellipsis">
     Linux Native AX.25 Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/xrouter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configure XROUTER
   </span>
   
 
@@ -831,6 +871,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#filesystem-layout" class="md-nav__link">
+    Filesystem Layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#users-permissions-and-sudo" class="md-nav__link">
     Users, Permissions and 'sudo'
   </a>
@@ -841,6 +888,40 @@
           <li class="md-nav__item">
   <a href="#how-do-i-know-if-i-can-run-programs-as-root" class="md-nav__link">
     How do I know if I can run programs as root?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-text-as-root" class="md-nav__link">
+    Editing text as root
+  </a>
+  
+    <nav class="md-nav" aria-label="Editing text as root">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui" class="md-nav__link">
+    GUI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-line" class="md-nav__link">
+    Command Line
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions-and-groups" class="md-nav__link">
+    Permissions and Groups
   </a>
   
 </li>
@@ -974,6 +1055,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#filesystem-layout" class="md-nav__link">
+    Filesystem Layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#users-permissions-and-sudo" class="md-nav__link">
     Users, Permissions and 'sudo'
   </a>
@@ -984,6 +1072,40 @@
           <li class="md-nav__item">
   <a href="#how-do-i-know-if-i-can-run-programs-as-root" class="md-nav__link">
     How do I know if I can run programs as root?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-text-as-root" class="md-nav__link">
+    Editing text as root
+  </a>
+  
+    <nav class="md-nav" aria-label="Editing text as root">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui" class="md-nav__link">
+    GUI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-line" class="md-nav__link">
+    Command Line
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions-and-groups" class="md-nav__link">
+    Permissions and Groups
   </a>
   
 </li>
@@ -1036,14 +1158,34 @@
 <h3 id="graphical-app-store-frontend">Graphical App Store Frontend<a class="headerlink" href="#graphical-app-store-frontend" title="Permanent link">&para;</a></h3>
 <p>Instead of using <code>apt install x</code>, it is possible to run a graphical piece of software. One I recommend is 'Synaptic' - you might have it installed already, or you might have to quickly run <code>apt install synaptic</code> in the command line to get yourself the software. </p>
 <p>Have a little look through your application launcher to see if there is an app catalogue, application store, package list or similar.</p>
+<h2 id="filesystem-layout">Filesystem Layout<a class="headerlink" href="#filesystem-layout" title="Permanent link">&para;</a></h2>
+<p>In a Windows system, the very top of your computer's filesystem is most often the C Drive, represented as C: commonly. Windows also neatly shows other drives as similar folder structures - CD Drives often start at D:, Floppy drives at A:.</p>
+<p>In Linux we follow a documented filesystem hierarchy, starting at the root of the drive, commonly labelled as <code>/</code>. Everything else on the system is presented as a file or a folder under <code>/</code>. This includes CD Roms, Hard drives which present as folders, serial &amp; USB devices which present as files and more.</p>
+<p>Paths always start with a <code>/</code>, and if it's a folder it will end with a <code>/</code> to indicate there is more depth below.</p>
+<p>Devices, as they present, are often named by the class of device and a number starting at 0 to indicate which number it is. You'll commonly see references to <code>eth0</code>, showing the first ethernet device or <code>wlan0</code> showing the first wireless internet adaptor. A second would be <code>wlan1</code> etc. </p>
+<p>If I look at my root filesystem, I see the following folders:</p>
+<div class="highlight"><pre><span></span><code>❯ ls /
+bin@   dev/  home/  lost+found/  mnt/  proc/  run/   srv/  tmp/  var/
+boot/  etc/  lib@   media/       opt/  root/  sbin@  sys/  usr/
+</code></pre></div>
+<p>Many folders won't be of interest to you day to day, but some helpful ones to know are:</p>
+<ul>
+<li><code>/dev/</code> - A folder containing devices, it's likely your modem appears here as <code>/dev/ttyACM0</code></li>
+<li><code>/etc/</code> - This folder contains every system configuration file, and you could think of it as similar to the Windows Registry.</li>
+<li><code>/home/</code> - The home folder is the equivalent to <code>C:\Users\</code> on Windows. <code>/home/hibby/</code> is where my files live, just like <code>C:\Users\Hibby</code></li>
+<li><code>/mnt/</code> - Often where hard drives appear as a folder. A CD Drive called <code>D:\</code> on Windows might appear as <code>/mnt/cdrom/</code> here.</li>
+<li><code>/tmp/</code> - A handy scratchpad to test and download things to. It gets emptied on every reboot</li>
+</ul>
 <h2 id="users-permissions-and-sudo">Users, Permissions and 'sudo'<a class="headerlink" href="#users-permissions-and-sudo" title="Permanent link">&para;</a></h2>
 <p>Much like other systems, Linux has the concept of a regular 'user' which you log in as, day to day and an 'administrator' user who is empowered to make configuration changes to the system, install software and so on. In the Linux world, the administrator is known as 'root'. As root has a lot of power - changing users passwords, deleting every file, overriding safe norms to damage hardware potentially - it is generally recommended that you do not log in day to day as root. If a bad actor or malicious piece of software runs while you are root, it can cause all of the aforementioned damage and more!</p>
 <p>Again, similar to windows, you can run a command as the root user, effectively temporarily granting access to just one program to perform a specific task. In Windows, what usually happens is a pop up window appears asking if you want to do that and pressing yes or no. In Linux, we will have configured the system in advance to know that your user is allowed to do this, and then it will ask for your password to grant permission to carry out the action. </p>
 <p>In graphical environments this may take the form of a pop up window - more often than not, however, we do this from the command line by prefixing our whole command with <code>sudo</code> - you can see a lot of examples of <code>sudo</code> in use at <a href="../repo/">the repo page</a>.</p>
 <p>Looking at the repo as an example and considering our earlier learning from Applications and Repositories above - it's no wonder that you need to carry out the commands mostly as the root user! 
-To add my repository, you are making a major system configuration change in two manners: 
-  * Telling it to trust absolutely the software that I distribute
-  * Telling the package manager where to download that software from </p>
+To add my repository, you are making a major system configuration change in two manners: </p>
+<ul>
+<li>Telling it to trust absolutely the software that I distribute</li>
+<li>Telling the package manager where to download that software from </li>
+</ul>
 <p>From this point on, you're placing a lot of trust in me personally - I can make quite significant changes to your system, or open up security holes, or accidentally break programs. I promise to not abuse this trust - to do so would break our Social Contract, result in me being ejected from several communities I love and I'd probably have to find a new set of hobbies.</p>
 <p>You can, of course, revoke this decision at any point by removing the repo key and entry in <code>/etc/apt.conf</code>.</p>
 <h3 id="how-do-i-know-if-i-can-run-programs-as-root">How do I know if I can run programs as root?<a class="headerlink" href="#how-do-i-know-if-i-can-run-programs-as-root" title="Permanent link">&para;</a></h3>
@@ -1053,6 +1195,74 @@ hibby cdrom floppy sudo audio dip video plugdev users netdev lpadmin scanner sbu
 </code></pre></div>
 <p>You can see in my group list that I can access the cd rom drive, the floppy drive and run things as sudo, amongst other less important groups!</p>
 <p>If you do <em>not</em> have sudo in this list, you'll need a bit more help than I can give here - time to <a href="../beginners-guide/#ask-for-help">ask for help!</a>. If you're running a Raspberry Pi or Ubuntu, chances are that you'll be able to. Debian is a little more paranoid so we don't grant it by default. </p>
+<p>You'll need to run a command called <code>usermod</code> as the root user to grant your regular user a new group - <code>usermod -aG &lt;groupname&gt; &lt;username&gt;</code> effectively translates to 'add <username> to <groupname>. Get rid of the brackets and add the user and group you're trying for! See <a href="#Permissions-and-Groups">Permissions and Groups</a> for an example. </p>
+<h3 id="editing-text-as-root">Editing text as root<a class="headerlink" href="#editing-text-as-root" title="Permanent link">&para;</a></h3>
+<p>The path of least resistance for many is to use the command line - if you know what file you need to edit, you can do that using a command line text editor. </p>
+<h5 id="gui">GUI<a class="headerlink" href="#gui" title="Permanent link">&para;</a></h5>
+<p>I recommend installing Featherpad for this - it's lightweight and will only ask for a password when you save the file.</p>
+<p>To install it, go to the Raspberry Pi menu, Preferences and select Add/Remove software.</p>
+<p>Search for featherpad, select the checkbox and press apply:</p>
+<p><img alt="Featherpad Installation" src="../static/img/install-featherpad.png" /></p>
+<p>The Raspberry Pi ships with Featherpad - this is a lightweight text editor. You can open Featherpad from the application launcher and use the file-&gt;open menu to get access to files all round the system:</p>
+<p><img alt="Featherpad Open File" src="../static/img/featherpad-open.png" /></p>
+<p>Take yourself back to <code>/</code> with the Path breadcrumb at the top, and to edit the bpq32.conf config file, for example, find <code>/etc/bpq32.cfg</code>. </p>
+<p>On saving the file, the system will ask you to enter your password as it's a protected file that only the root user can write to:</p>
+<p><img alt="Featherpad Save as Root Dialogue" src="../static/img/featherpad-rootsave.png" /></p>
+<p>Alternatively, after installing featherpad you can open your file manager, navigate to <code>/etc/</code>, open <code>bpq32.cfg</code> and the system will present a similar popup when you try to save:</p>
+<p><img alt="Fileman Select File" src="../static/img/fileman-select.png" /></p>
+<p>In all these programs, you can find <code>/etc/</code> by typing <code>/etc</code> in the navigation bar that is top-central, or by Pressing 'Filesystem Root' on the left hand side and navigating to etc in the main pane.</p>
+<h4 id="command-line">Command Line<a class="headerlink" href="#command-line" title="Permanent link">&para;</a></h4>
+<p>Every Debian system ships with one called <code>nano</code> which is relatively approachable. </p>
+<p>You open your file directly, so to edit the BPQ config file, run <code>sudo nano /etc/bpq32.cfg</code>. This translates to: <code>As root user, open nano to edit /etc/bpq32.cfg</code></p>
+<p>Navigation is with arrow keys (no mouse, sorry!). There are a list of commands at the bottom of the screen - they use ^ as a shortcut to indicate you must press control at the same time as those letters. Similarly, M is an idication of 'meta' key, which will likely be the alt key. This is quite similar to keyboard shortcuts in Microsoft Word (ctrl&amp;s for save, alt-f4 for exit).</p>
+<p>Some helpful commands to know:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ctrl &amp; o</td>
+<td>Save</td>
+</tr>
+<tr>
+<td>ctrl &amp; x</td>
+<td>Exit</td>
+</tr>
+<tr>
+<td>ctrl &amp; w</td>
+<td>Find (helpful for quick navigation)</td>
+</tr>
+<tr>
+<td>alt &amp; u</td>
+<td>Undo</td>
+</tr>
+<tr>
+<td>alt &amp; e</td>
+<td>Redo</td>
+</tr>
+<tr>
+<td>ctrl &amp; k</td>
+<td>Cut Line</td>
+</tr>
+<tr>
+<td>ctrl &amp; u</td>
+<td>Paste Line</td>
+</tr>
+</tbody>
+</table>
+<h3 id="permissions-and-groups">Permissions and Groups<a class="headerlink" href="#permissions-and-groups" title="Permanent link">&para;</a></h3>
+<p>Files, devices and folders can have read and write permissions tied to both a user and a group, just as in Windows. You can check this in your file manager by right clicking and selecting properties.</p>
+<p>In the command line, this can be checked also - to understand who can do what with a NinoTNC, plug it in and run</p>
+<div class="highlight"><pre><span></span><code>❯ ls -l /dev/ttyACM0
+crw-rw---- 1 root dialout 204, 64 Apr 11 08:32 /dev/ttyACM0
+</code></pre></div>
+<p>This can be read as the device is owned by root and accessible by the group <code>dialout</code>. This is a common group you'll see regularly for serial devices, and worth being a member of. If a device has dialout as its group, this is telling us unless your user is root or in the dialout group, you cannot use the device. </p>
+<p>To add your user to the dialout group, you may need to run the usermod command as mentioned above. To add my user hibby, it would be <code>usermod -aG dialout hibby</code>. As this command needs to be run as the root user, we probably need to run <code>sudo usermod -aG dialout hibby</code>. </p>
+<p>For this change to take effect, you will need to log out and log back in again.</p>
 
 
 
