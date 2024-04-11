@@ -98,11 +98,11 @@ Not seeing anything in the monitor? We need to think about two things here: Is t
 
 #### Radio -> Modem Fault
 
-First off, [check the radio](../qtsm/#check-the-radio) and [check the cable](../qtsm/#check-the-cable). Check if the radio is set up for outputting audio through the accessory socket you're using, and it's in the correct mode (1200bd vs 9600bd - check your manual). A good test here is can you *hear* the signal you want to decode? If you can hear it, we need to find out why your modem can't. As the faster modes sound quite close to white noise, this doesn't always hold true, but it's a least a starter. Perhaps combine eyes and ears and watch the S-meter too!
+First off, [check the radio](qtsm.md#check-the-radio) and [check the cable](qtsm.md#check-the-cable). Check if the radio is set up for outputting audio through the accessory socket you're using, and it's in the correct mode (1200bd vs 9600bd - check your manual). A good test here is can you *hear* the signal you want to decode? If you can hear it, we need to find out why your modem can't. As the faster modes sound quite close to white noise, this doesn't always hold true, but it's a least a starter. Perhaps combine eyes and ears and watch the S-meter too!
 
 I often confuse the 9600bd and 1200bd lines on my interface cable - have a look to see if you've done the same. More often than not, this has melted my head during cable construction, or I'm using the cable for my [UHF Radio](../equipment/ft-7900.md) on my [HF Radio](../equipment/ft-891.md).
 
-Next up: is your modem in the right mode? Look online at either the node's website or [UKPRN Website](https://ukpacketradio.network) for hints and clues or [ask questions](../../beginners-guide/#ask-for-help) of your peers - we're here to help.
+Next up: is your modem in the right mode? Look online at either the node's website or [UKPRN Website](https://ukpacketradio.network) for hints and clues or [ask questions](../beginners-guide.md#ask-for-help) of your peers - we're here to help.
 
 Finally - is your radio outputting enough audio? Is it too much audio? Look at the LEDs on your NinoTNC. Here is a guideline of how to read them:
 
@@ -122,6 +122,6 @@ hibby@GB7HIB:~ $ ls /dev | grep ttyACM
 ttyACM0
 ```
 
-We've now identified your modem's device and we know it is appearing on your computer. If it isn't, then start by trying a new USB cable. 
+We've now identified your modem's device and we know it is appearing on your computer. If it isn't, check you are in the 'dialout' group by opening a terminal and running `groups` on the command line. If it doesn't say `dialout` in the output, follow [this advice](linux.md#permissions-and-groups) and log out/in. If the above doesn't work, try a new USB cable. 
 
-An alternative command to look at running before and after disconnect is `sudo dmesg` - this should tell you if the kernel has detected your device disappearing and reappearing.
+An alternative command to look at running before and after disconnect is `sudo dmesg` - this should tell you if Linux has detected your device disappearing and reappearing.

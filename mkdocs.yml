@@ -20,9 +20,11 @@ nav:
     - software.md
     - install/bpq.md
     - install/linux.md
+    - install/xrouter.md
   - Node Configuration:
     - config/bpq.md
     - config/linux.md
+    - config/xrouter.md
   - Misc:
     - linux.md
     - repo.md

@@ -51,6 +51,32 @@ Instead of using `apt install x`, it is possible to run a graphical piece of sof
 
 Have a little look through your application launcher to see if there is an app catalogue, application store, package list or similar.
 
+## Filesystem Layout
+
+In a Windows system, the very top of your computer's filesystem is most often the C Drive, represented as C: commonly. Windows also neatly shows other drives as similar folder structures - CD Drives often start at D:, Floppy drives at A:.
+
+In Linux we follow a documented filesystem hierarchy, starting at the root of the drive, commonly labelled as `/`. Everything else on the system is presented as a file or a folder under `/`. This includes CD Roms, Hard drives which present as folders, serial & USB devices which present as files and more.
+
+Paths always start with a `/`, and if it's a folder it will end with a `/` to indicate there is more depth below.
+
+Devices, as they present, are often named by the class of device and a number starting at 0 to indicate which number it is. You'll commonly see references to `eth0`, showing the first ethernet device or `wlan0` showing the first wireless internet adaptor. A second would be `wlan1` etc. 
+
+If I look at my root filesystem, I see the following folders:
+
+```
+❯ ls /
+bin@   dev/  home/  lost+found/  mnt/  proc/  run/   srv/  tmp/  var/
+boot/  etc/  lib@   media/       opt/  root/  sbin@  sys/  usr/
+```
+
+Many folders won't be of interest to you day to day, but some helpful ones to know are:
+
+  * `/dev/` - A folder containing devices, it's likely your modem appears here as `/dev/ttyACM0`
+  * `/etc/` - This folder contains every system configuration file, and you could think of it as similar to the Windows Registry.
+  * `/home/` - The home folder is the equivalent to `C:\Users\` on Windows. `/home/hibby/` is where my files live, just like `C:\Users\Hibby`
+  * `/mnt/` - Often where hard drives appear as a folder. A CD Drive called `D:\` on Windows might appear as `/mnt/cdrom/` here.
+  * `/tmp/` - A handy scratchpad to test and download things to. It gets emptied on every reboot
+
 ## Users, Permissions and 'sudo'
 
 Much like other systems, Linux has the concept of a regular 'user' which you log in as, day to day and an 'administrator' user who is empowered to make configuration changes to the system, install software and so on. In the Linux world, the administrator is known as 'root'. As root has a lot of power - changing users passwords, deleting every file, overriding safe norms to damage hardware potentially - it is generally recommended that you do not log in day to day as root. If a bad actor or malicious piece of software runs while you are root, it can cause all of the aforementioned damage and more!
@@ -61,6 +87,7 @@ In graphical environments this may take the form of a pop up window - more often
 
 Looking at the repo as an example and considering our earlier learning from Applications and Repositories above - it's no wonder that you need to carry out the commands mostly as the root user! 
 To add my repository, you are making a major system configuration change in two manners: 
+
   * Telling it to trust absolutely the software that I distribute
   * Telling the package manager where to download that software from 
 
@@ -80,3 +107,65 @@ hibby cdrom floppy sudo audio dip video plugdev users netdev lpadmin scanner sbu
 You can see in my group list that I can access the cd rom drive, the floppy drive and run things as sudo, amongst other less important groups!
 
 If you do *not* have sudo in this list, you'll need a bit more help than I can give here - time to [ask for help!](beginners-guide.md#ask-for-help). If you're running a Raspberry Pi or Ubuntu, chances are that you'll be able to. Debian is a little more paranoid so we don't grant it by default. 
+
+You'll need to run a command called `usermod` as the root user to grant your regular user a new group - `usermod -aG <groupname> <username>` effectively translates to 'add <username> to <groupname>. Get rid of the brackets and add the user and group you're trying for! See [Permissions and Groups](#Permissions-and-Groups) for an example. 
+
+### Editing text as root
+
+The path of least resistance for many is to use the command line - if you know what file you need to edit, you can do that using a command line text editor. 
+
+##### GUI
+
+The Raspberry Pi ships with Featherpad - this is a lightweight text editor. You can open Featherpad from the application launcher and use the file->open menu to get access to files all round the system:
+
+![Featherpad Open File](static/img/featherpad-open.png)
+
+Take yourself back to `/` with the Path breadcrumb at the top, and to edit the bpq32.conf config file, for example, find `/etc/bpq32.cfg`. 
+
+On saving the file, the system will ask you to enter your password as it's a protected file that only the root user can write to:
+
+![Featherpad Save as Root Dialogue](static/img/featherpad-rootsave.png)
+
+Alternatively you can open your file manager, navigate to `/etc/`, open `bpq32.cfg` and the system will present a similar popup when you try to save:
+
+![PCManFM Select File](static/img/pcmanfm.png)
+
+In all these programs, you can find `/etc/` by pressing the `/` button on the navigation breadcrumb that is relatively top-central, or by Pressing 'Computer' on the left hand side.
+
+#### Command Line
+
+Every Debian system ships with one called `nano` which is relatively approachable. 
+
+You open your file directly, so to edit the BPQ config file, run `sudo nano /etc/bpq32.cfg`. This translates to: `As root user, open nano to edit /etc/bpq32.cfg`
+
+Navigation is with arrow keys (no mouse, sorry!). There are a list of commands at the bottom of the screen - they use ^ as a shortcut to indicate you must press control at the same time as those letters. Similarly, M is an idication of 'meta' key, which will likely be the alt key. This is quite similar to keyboard shortcuts in Microsoft Word (ctrl&s for save, alt-f4 for exit).
+
+Some helpful commands to know:
+
+| Command | Action |
+| ------- | ------ |
+| ctrl & o | Save |
+| ctrl & x | Exit |
+| ctrl & w | Find (helpful for quick navigation) |
+| alt & u | Undo |
+| alt & e | Redo |
+| ctrl & k | Cut Line |
+| ctrl & u | Paste Line |
+
+
+### Permissions and Groups
+
+Files, devices and folders can have read and write permissions tied to both a user and a group, just as in Windows. You can check this in your file manager by right clicking and selecting properties.
+
+In the command line, this can be checked also - to understand who can do what with a NinoTNC, plug it in and run
+
+```
+❯ ls -l /dev/ttyACM0
+crw-rw---- 1 root dialout 204, 64 Apr 11 08:32 /dev/ttyACM0
+```
+
+This can be read as the device is owned by root and accessible by the group `dialout`. This is a common group you'll see regularly for serial devices, and worth being a member of. If a device has dialout as its group, this is telling us unless your user is root or in the dialout group, you cannot use the device. 
+
+To add your user to the dialout group, you may need to run the usermod command as mentioned above. To add my user hibby, it would be `usermod -aG dialout hibby`. As this command needs to be run as the root user, we probably need to run `sudo usermod -aG dialout hibby`. 
+
+For this change to take effect, you will need to log out and log back in again.

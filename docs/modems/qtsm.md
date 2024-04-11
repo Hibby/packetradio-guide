@@ -9,7 +9,7 @@ It has some compelling features - not only does it natively understand IL2P at a
 
 ### Installation
 
-If you're using Debian, Ubuntu or a Raspberry Pi it will be easiest if you install [hibby's repo](repo.md).
+If you're using Debian, Ubuntu or a Raspberry Pi it will be easiest if you install [hibby's repo](../repo.md).
 
 Once you have done that you can install the prerequisites:
 

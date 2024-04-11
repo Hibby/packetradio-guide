@@ -44,7 +44,7 @@ Instead of AM, FM, etc, we break to them down to 3 categories:
 
 Both stations must use the same protocol, speed and modulation to communicate on a shared frequency.
 
-You can see a good table of Protocols, Speeds and Modulations at [NinoTNC](../modems/ninotnc/#mode-switch) once you've digested the below and feel brave!
+You can see a good table of Protocols, Speeds and Modulations at [NinoTNC](modems/ninotnc.md#mode-switch) once you've digested the below and feel brave!
 
 #### Protocol
 
@@ -95,6 +95,14 @@ Frequency Shift Keying - Multiple tones, not necessarily audible. Commonly found
 **PSK**
 
 Phase Shift Keying - Data encoded into changes of phase. Often found on HF links.
+
+### Linux
+
+A key component of the systems I'll be discussing in this guide is Linux. If you don't have a great understanding of Linux or it's a bit scary, I've got an overview of things you might want to know [here](linux.md).
+
+There's a lot to take in, and it can seem overwhelming at first, but feel free to read, ask for help and keep in mind that it's easy to be feel like that when you approach anything new.
+
+A simple starting point is a [Raspberry Pi](https://raspberrypi.org) - it will be a dedicated computer for just packet exploration, and if everything is broken you can easily start again without losing any importnt data.
 
 ## Radio Set Up
 
@@ -156,8 +164,8 @@ Don't worry - there is always something you've forgotten to do, or think you've 
 
 Learn more about debugging:
 
-  * [Your Radio](../modems/qtsm/#check-the-radio)
-  * [QtSoundModem](../modems/qtsm/#check-the-audio-coming-in-is-at-the-right-volume)
+  * [Your Radio](modems/qtsm.md#check-the-radio)
+  * [QtSoundModem](modems/qtsm.md#check-the-audio-coming-in-is-at-the-right-volume)
 
 ### Ask for Help!
 
@@ -171,4 +179,3 @@ There are a few great sources of assistance, some will be faster than others to 
   * XROUTER help: [XROUTER mailing list](https://groups.io/g/xrouter)
   * NinoTNC: [NinoTNC mailing list](https://groups.io/g/ninotnc/)
   * My Inbox - see the [about page](about.md). I'll be thrilled if you get stuck and sent me an email saying you'd tried this and nothing worked!
-
