@@ -122,6 +122,6 @@ hibby@GB7HIB:~ $ ls /dev | grep ttyACM
 ttyACM0
 ```
 
-We've now identified your modem's device and we know it is appearing on your computer. If it isn't, check you are in the 'dialout' group by opening a terminal and running `groups` on the command line. If it doesn't say `dialout` in the output, follow [this advice](linux.md#permissions-and-groups) and log out/in. If the above doesn't work, try a new USB cable. 
+We've now identified your modem's device and we know it is appearing on your computer. If it isn't, check you are in the 'dialout' group by opening a terminal and running `groups` on the command line. If it doesn't say `dialout` in the output, follow [this advice](../linux.md#permissions-and-groups) and log out/in. If the above doesn't work, try a new USB cable. 
 
 An alternative command to look at running before and after disconnect is `sudo dmesg` - this should tell you if Linux has detected your device disappearing and reappearing.

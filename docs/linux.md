@@ -116,6 +116,14 @@ The path of least resistance for many is to use the command line - if you know w
 
 ##### GUI
 
+I recommend installing Featherpad for this - it's lightweight and will only ask for a password when you save the file.
+
+To install it, go to the Raspberry Pi menu, Preferences and select Add/Remove software.
+
+Search for featherpad, select the checkbox and press apply:
+
+![Featherpad Installation](static/img/install-featherpad.png)
+
 The Raspberry Pi ships with Featherpad - this is a lightweight text editor. You can open Featherpad from the application launcher and use the file->open menu to get access to files all round the system:
 
 ![Featherpad Open File](static/img/featherpad-open.png)
@@ -126,11 +134,11 @@ On saving the file, the system will ask you to enter your password as it's a pro
 
 ![Featherpad Save as Root Dialogue](static/img/featherpad-rootsave.png)
 
-Alternatively you can open your file manager, navigate to `/etc/`, open `bpq32.cfg` and the system will present a similar popup when you try to save:
+Alternatively, after installing featherpad you can open your file manager, navigate to `/etc/`, open `bpq32.cfg` and the system will present a similar popup when you try to save:
 
-![PCManFM Select File](static/img/pcmanfm.png)
+![Fileman Select File](static/img/fileman-select.png)
 
-In all these programs, you can find `/etc/` by pressing the `/` button on the navigation breadcrumb that is relatively top-central, or by Pressing 'Computer' on the left hand side.
+In all these programs, you can find `/etc/` by typing `/etc` in the navigation bar that is top-central, or by Pressing 'Filesystem Root' on the left hand side and navigating to etc in the main pane.
 
 #### Command Line
 
