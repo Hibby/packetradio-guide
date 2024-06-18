@@ -1,4 +1,23 @@
 # Hibby's Repo
+
+## Script
+
+The script requires dowloaded, set to executable and run and is a little simpler than the manual setup - thanks to John M5ET for writing it!
+
+I strongly recommend you read through it **before** running it - it should look similar to the manual method below.
+**General computer security advice is to not blindly run scripts you downloaded from the internet!** 
+
+Download the script from: [[https://guide.foxk.it/static/files/setup.sh]]
+
+Lines you can run in the command line are:
+
+```
+cd /tmp
+wget https://guide.foxk.it/static/files/setup.sh
+chmod +x /tmp/setup.sh
+sudo bash /tmp/setup.sh
+```
+
 ## Install Signing Key
 
 First, you need tell your machine to trust the signature I verify the packages with:
