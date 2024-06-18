@@ -51,6 +51,10 @@ Instead of using `apt install x`, it is possible to run a graphical piece of sof
 
 Have a little look through your application launcher to see if there is an app catalogue, application store, package list or similar.
 
+On the Raspberry Pi, it's as below. To find it, go to the Raspberry Pi menu (Raspberry Icon, Top Left), Preferences and select Add/Remove software.
+
+![Featherpad Installation](static/img/install-featherpad.png)
+
 ## Filesystem Layout
 
 In a Windows system, the very top of your computer's filesystem is most often the C Drive, represented as C: commonly. Windows also neatly shows other drives as similar folder structures - CD Drives often start at D:, Floppy drives at A:.
@@ -112,7 +116,9 @@ You'll need to run a command called `usermod` as the root user to grant your reg
 
 ### Editing text as root
 
-The path of least resistance for many is to use the command line - if you know what file you need to edit, you can do that using a command line text editor. 
+The path of least resistance for many is to use the command line - if you know what file you need to edit, you can do that quickly and directly using a command line text editor.
+
+The GUI offers some choices - my preferred method is below.
 
 ##### GUI
 
@@ -124,7 +130,7 @@ Search for featherpad, select the checkbox and press apply:
 
 ![Featherpad Installation](static/img/install-featherpad.png)
 
-The Raspberry Pi ships with Featherpad - this is a lightweight text editor. You can open Featherpad from the application launcher and use the file->open menu to get access to files all round the system:
+You can open Featherpad from the application launcher and use the file->open menu to get access to files all round the system:
 
 ![Featherpad Open File](static/img/featherpad-open.png)
 
