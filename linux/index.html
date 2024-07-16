@@ -898,6 +898,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Graphical App Store Frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raspberry Pi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1108,6 +1132,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Graphical App Store Frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raspberry Pi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1221,9 +1269,33 @@
 <p>There are hundreds, if not thousands, of Linux Distributions all with different goals. Some are derivatives focussed on a specific task, some are very General and left to you to configure and use. Some are even delivered as code and you need to compile it from the ground up.</p>
 <h2 id="desktops-and-terminals">Desktops and Terminals<a class="headerlink" href="#desktops-and-terminals" title="Permanent link">&para;</a></h2>
 <p>There's a common misconception that Linux is for command line users only, or that you need to be proficient in the command line to be able to drive it. This is no more true in Linux than it is for MacOS and Windows - there are a number of tasks that some may find more efficient to do via the command line interface (CLI), but there are usually multiple ways to skin the cat. </p>
-<p>Most of my advice will take the form of things to run in the command line, but I am endeavouring to diversify so things are more approachable. </p>
+<p>Much of my advice will take the form of things to run in the command line, as this is often the way I interact with my computers, but I am endeavouring to diversify so things are more approachable. </p>
 <p>If you're running the Raspberry Pi, it's most likely you have <a href="https://www.raspberrypi.com/software/">Raspberry Pi OS</a> with a desktop - there'll be a background, a menu in the top left etc. It might not look familiar, but to a keen explorer it should look approachable at the very least.</p>
-<p>If you're running Debian, during install we'll ask you what graphical desktop environment you want to install, if any. This is the desktop you boot in to - unlike Windows, there are multiples available for Linux. As a beginner, I strongly recommend <a href="https://kde.org">KDE</a> - it is most Windows like and is pretty full featured. If you're running Ubuntu, typically you install an Ubuntu derivative focussed on a specific desktop environment - perhaps <a href="https://kubuntu.org">Kubuntu</a> for KDE.</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream
+If you're running Debian, during install we'll ask you what graphical desktop environment you want to install, if any. This is the desktop you boot in to - unlike Windows, there are multiples available for Linux. As a beginner, I strongly recommend <a href="https://kde.org">KDE</a> - it is most Windows like and is pretty full featured. If you're running Ubuntu, typically you install an Ubuntu derivative focussed on a specific desktop environment - perhaps <a href="https://kubuntu.org">Kubuntu</a> for KDE.
+=======
+If you're running Debian, during install we'll ask you what graphical desktop
+environment you want to install, if any. As a beginner, I strongly recommend
+<a href="https://kde.org">KDE</a> - it is most Windows like and is pretty full featured. If
+you're running Ubuntu, typically you install an Ubuntu derivative focussed on a
+specific desktop environment - perhaps <a href="https://kubuntu.org">Kubuntu</a> for KDE.
+For older hardware, I'm a big fan of <a href="https://lxde.org">LXDE</a> - it's simple and
+fast.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Stashed changes</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <h2 id="applications-and-repositories">Applications and Repositories<a class="headerlink" href="#applications-and-repositories" title="Permanent link">&para;</a></h2>
 <p>Most Linux distributions are not only just the system and the desktop, but they are shipped with a vast catalogue of applications too. They might not be installed, and you'll need to use some sort of app store tool to install, remove etc applications. It's just like every modern mobile phone - they stole the idea from us!</p>
 <p>We call this tool a package manager (we often call applications 'packages'), and a collection of applications is known as a repository, or repo. The Debian family use a program called <code>apt</code> as its package manager, and it ships with quite a large repository of apps you can choose from. Most guides, mine included, don't focus on showing you a usable app-store, just a method of installing from a repository.</p>
@@ -1231,13 +1303,24 @@
 <h3 id="install-from-the-command-line">Install from the Command Line<a class="headerlink" href="#install-from-the-command-line" title="Permanent link">&para;</a></h3>
 <p>To install from the command line, the standard command would be <code>apt install x</code> where x is any application you're looking for. This is often prefixed with <code>sudo</code>, see below in 'Users, Permissions and sudo' to learn more about why.</p>
 <h3 id="graphical-app-store-frontend">Graphical App Store Frontend<a class="headerlink" href="#graphical-app-store-frontend" title="Permanent link">&para;</a></h3>
-<p>Instead of using <code>apt install x</code>, it is possible to run a graphical piece of software. One I recommend is 'Synaptic' - you might have it installed already, or you might have to quickly run <code>apt install synaptic</code> in the command line to get yourself the software. </p>
-<p>Have a little look through your application launcher to see if there is an app catalogue, application store, package list or similar.</p>
+<p>Instead of using <code>apt install x</code>, it is possible to run a graphical piece of
+software. </p>
+<h4 id="raspberry-pi">Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permanent link">&para;</a></h4>
+<p>The Raspberry Pi ships with a GUI through which you can install packages. It
+lives in the Raspberry Pi menu (top left, Raspberry Pi icon), Preferences,
+Add/Remove software.</p>
+<h4 id="other-systems">Other systems<a class="headerlink" href="#other-systems" title="Permanent link">&para;</a></h4>
+<p>Have a little look through your application launcher menu to see if there is an
+app catalogue, application store, package list or similar. If nothing is there,
+then you might need to look to install something.</p>
+<p>One I recommend is 'Synaptic' - you might have it installed already, or you
+might have to quickly run <code>apt install synaptic</code> in the command line to get
+yourself the software. </p>
 <p>On the Raspberry Pi, it's as below. To find it, go to the Raspberry Pi menu (Raspberry Icon, Top Left), Preferences and select Add/Remove software.</p>
 <p><img alt="Featherpad Installation" src="../static/img/install-featherpad.png" /></p>
 <h2 id="filesystem-layout">Filesystem Layout<a class="headerlink" href="#filesystem-layout" title="Permanent link">&para;</a></h2>
 <p>In a Windows system, the very top of your computer's filesystem is most often the C Drive, represented as C: commonly. Windows also neatly shows other drives as similar folder structures - CD Drives often start at D:, Floppy drives at A:.</p>
-<p>In Linux we follow a documented filesystem hierarchy, starting at the root of the drive, commonly labelled as <code>/</code>. Everything else on the system is presented as a file or a folder under <code>/</code>. This includes CD Roms, Hard drives which present as folders, serial &amp; USB devices which present as files and more.</p>
+<p>In Linux we follow a different filesystem hierarchy, starting at the 'root' of the drive, commonly labelled as <code>/</code>. Everything else on the system is presented as a file or a folder under <code>/</code>. This includes CD Roms, Hard drives which present as folders, serial &amp; USB devices which present as files and more.</p>
 <p>Paths always start with a <code>/</code>, and if it's a folder it will end with a <code>/</code> to indicate there is more depth below.</p>
 <p>Devices, as they present, are often named by the class of device and a number starting at 0 to indicate which number it is. You'll commonly see references to <code>eth0</code>, showing the first ethernet device or <code>wlan0</code> showing the first wireless internet adaptor. A second would be <code>wlan1</code> etc. </p>
 <p>If I look at my root filesystem, I see the following folders:</p>
@@ -1289,7 +1372,7 @@ hibby cdrom floppy sudo audio dip video plugdev users netdev lpadmin scanner sbu
 <p><img alt="Fileman Select File" src="../static/img/fileman-select.png" /></p>
 <p>In all these programs, you can find <code>/etc/</code> by typing <code>/etc</code> in the navigation bar that is top-central, or by Pressing 'Filesystem Root' on the left hand side and navigating to etc in the main pane.</p>
 <h4 id="command-line">Command Line<a class="headerlink" href="#command-line" title="Permanent link">&para;</a></h4>
-<p>Every Debian system ships with one called <code>nano</code> which is relatively approachable. </p>
+<p>Every Debian system ships with a text editor called <code>nano</code> which is relatively approachable.</p>
 <p>You open your file directly, so to edit the BPQ config file, run <code>sudo nano /etc/bpq32.cfg</code>. This translates to: <code>As root user, open nano to edit /etc/bpq32.cfg</code></p>
 <p>Navigation is with arrow keys (no mouse, sorry!). There are a list of commands at the bottom of the screen - they use ^ as a shortcut to indicate you must press control at the same time as those letters. Similarly, M is an idication of 'meta' key, which will likely be the alt key. This is quite similar to keyboard shortcuts in Microsoft Word (ctrl&amp;s for save, alt-f4 for exit).</p>
 <p>Some helpful commands to know:</p>
@@ -1339,7 +1422,7 @@ crw-rw---- 1 root dialout 204, 64 Apr 11 08:32 /dev/ttyACM0
 </code></pre></div>
 <p>This can be read as the device is owned by root and accessible by the group <code>dialout</code>. This is a common group you'll see regularly for serial devices, and worth being a member of. If a device has dialout as its group, this is telling us unless your user is root or in the dialout group, you cannot use the device. </p>
 <p>To add your user to the dialout group, you may need to run the usermod command as mentioned above. To add my user hibby, it would be <code>usermod -aG dialout hibby</code>. As this command needs to be run as the root user, we probably need to run <code>sudo usermod -aG dialout hibby</code>. </p>
-<p>For this change to take effect, you will need to log out and log back in again.</p>
+<p>For this change to take effect, you will need to log out and log in again.</p>
 
 
 
