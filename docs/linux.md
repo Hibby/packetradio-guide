@@ -27,11 +27,21 @@ There are hundreds, if not thousands, of Linux Distributions all with different 
 
 There's a common misconception that Linux is for command line users only, or that you need to be proficient in the command line to be able to drive it. This is no more true in Linux than it is for MacOS and Windows - there are a number of tasks that some may find more efficient to do via the command line interface (CLI), but there are usually multiple ways to skin the cat. 
 
-Most of my advice will take the form of things to run in the command line, but I am endeavouring to diversify so things are more approachable. 
+Much of my advice will take the form of things to run in the command line, as this is often the way I interact with my computers, but I am endeavouring to diversify so things are more approachable. 
 
 If you're running the Raspberry Pi, it's most likely you have [Raspberry Pi OS](https://www.raspberrypi.com/software/) with a desktop - there'll be a background, a menu in the top left etc. It might not look familiar, but to a keen explorer it should look approachable at the very least.
 
+<<<<<<< Updated upstream
 If you're running Debian, during install we'll ask you what graphical desktop environment you want to install, if any. This is the desktop you boot in to - unlike Windows, there are multiples available for Linux. As a beginner, I strongly recommend [KDE](https://kde.org) - it is most Windows like and is pretty full featured. If you're running Ubuntu, typically you install an Ubuntu derivative focussed on a specific desktop environment - perhaps [Kubuntu](https://kubuntu.org) for KDE.
+=======
+If you're running Debian, during install we'll ask you what graphical desktop
+environment you want to install, if any. As a beginner, I strongly recommend
+[KDE](https://kde.org) - it is most Windows like and is pretty full featured. If
+you're running Ubuntu, typically you install an Ubuntu derivative focussed on a
+specific desktop environment - perhaps [Kubuntu](https://kubuntu.org) for KDE.
+For older hardware, I'm a big fan of [LXDE](https://lxde.org) - it's simple and
+fast.
+>>>>>>> Stashed changes
 
 ## Applications and Repositories
 
@@ -47,9 +57,25 @@ To install from the command line, the standard command would be `apt install x` 
 
 ### Graphical App Store Frontend
 
-Instead of using `apt install x`, it is possible to run a graphical piece of software. One I recommend is 'Synaptic' - you might have it installed already, or you might have to quickly run `apt install synaptic` in the command line to get yourself the software. 
+Instead of using `apt install x`, it is possible to run a graphical piece of
+software. 
 
-Have a little look through your application launcher to see if there is an app catalogue, application store, package list or similar.
+#### Raspberry Pi
+
+The Raspberry Pi ships with a GUI through which you can install packages. It
+lives in the Raspberry Pi menu (top left, Raspberry Pi icon), Preferences,
+Add/Remove software.
+
+#### Other systems 
+
+Have a little look through your application launcher menu to see if there is an
+app catalogue, application store, package list or similar. If nothing is there,
+then you might need to look to install something.
+
+One I recommend is 'Synaptic' - you might have it installed already, or you
+might have to quickly run `apt install synaptic` in the command line to get
+yourself the software. 
+
 
 On the Raspberry Pi, it's as below. To find it, go to the Raspberry Pi menu (Raspberry Icon, Top Left), Preferences and select Add/Remove software.
 
@@ -59,7 +85,7 @@ On the Raspberry Pi, it's as below. To find it, go to the Raspberry Pi menu (Ras
 
 In a Windows system, the very top of your computer's filesystem is most often the C Drive, represented as C: commonly. Windows also neatly shows other drives as similar folder structures - CD Drives often start at D:, Floppy drives at A:.
 
-In Linux we follow a documented filesystem hierarchy, starting at the root of the drive, commonly labelled as `/`. Everything else on the system is presented as a file or a folder under `/`. This includes CD Roms, Hard drives which present as folders, serial & USB devices which present as files and more.
+In Linux we follow a different filesystem hierarchy, starting at the 'root' of the drive, commonly labelled as `/`. Everything else on the system is presented as a file or a folder under `/`. This includes CD Roms, Hard drives which present as folders, serial & USB devices which present as files and more.
 
 Paths always start with a `/`, and if it's a folder it will end with a `/` to indicate there is more depth below.
 
@@ -146,7 +172,7 @@ In all these programs, you can find `/etc/` by typing `/etc` in the navigation b
 
 #### Command Line
 
-Every Debian system ships with one called `nano` which is relatively approachable. 
+Every Debian system ships with a text editor called `nano` which is relatively approachable.
 
 You open your file directly, so to edit the BPQ config file, run `sudo nano /etc/bpq32.cfg`. This translates to: `As root user, open nano to edit /etc/bpq32.cfg`
 
@@ -180,4 +206,4 @@ This can be read as the device is owned by root and accessible by the group `dia
 
 To add your user to the dialout group, you may need to run the usermod command as mentioned above. To add my user hibby, it would be `usermod -aG dialout hibby`. As this command needs to be run as the root user, we probably need to run `sudo usermod -aG dialout hibby`. 
 
-For this change to take effect, you will need to log out and log back in again.
+For this change to take effect, you will need to log out and log in again.
