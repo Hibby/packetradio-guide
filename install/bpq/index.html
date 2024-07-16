@@ -1128,8 +1128,7 @@
 <p>To install LinBPQ from the repo, run the below commands:</p>
 <div class="admonition note">
 <p class="admonition-title">Terminal Commands</p>
-<p>sudo apt update
-sudo apt install linbpq</p>
+<p><code>sudo apt update &amp;&amp; sudo apt install linbpq</code></p>
 </div>
 <h2 id="pre-configure">Pre-Configure<a class="headerlink" href="#pre-configure" title="Permanent link">&para;</a></h2>
 <p>We need to prepare the system and get configuration files in place. This must be
@@ -1138,9 +1137,10 @@ run on the command line, it's simply the fastest way.</p>
 each one.</p>
 <div class="admonition note">
 <p class="admonition-title">Terminal Commands</p>
-<p>sudo cp /usr/share/doc/linbpq/examples/bpq32.cfg /etc/bpq32.cfg
+<div class="highlight"><pre><span></span><code>sudo cp /usr/share/doc/linbpq/examples/bpq32.cfg /etc/bpq32.cfg
 sudo chown :linbpq /etc/bpq32.cfg
-sudo chmod 644 /etc/bpq32.cfg</p>
+sudo chmod 644 /etc/bpq32.cfg
+</code></pre></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1247,8 +1247,8 @@ ENDPORT
 <h2 id="startup">Startup<a class="headerlink" href="#startup" title="Permanent link">&para;</a></h2>
 <p>Head back to the terminal and run </p>
 <div class="admonition note">
-<p class="admonition-title">Terminal Command</p>
-<p>sudo systemctl start linbpq</p>
+<p class="admonition-title">Terminal Commands</p>
+<p><code>sudo systemctl start linbpq</code></p>
 </div>
 <p>This will tell the system you want to start the <code>linbpq</code> service. Navigate to
 <a href="http://127.0.0.1:8008">http://127.0.0.1:8008</a> if you are on the systme you've
