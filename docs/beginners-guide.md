@@ -56,13 +56,13 @@ AX.25 is an umbrella term often used for all packet radio, but really it refers 
 
 It has a long legacy and is rather simple, but is reliable, embedded in a lot of old hardware and will likely be in use until the heat death of the universe.
 
-Learn more [here](detail/ax25.md).
+Learn more [here](https://en.wikipedia.org/wiki/AX.25).
 
 ##### IL2P
 
 IL2P, the 'Improved Layer 2 Protocol' is by Nino KK4HEJ and is an evolution of AX.25. It includes nice things such as error correction of data and allows for, theoretically, more reliable communications but isn't compatible with AX.25 on the air.
 
-There are a number of varieties of IL2P in the wild too - learn more [here](detail/il2p.md).
+There are a number of varieties of IL2P in the wild too, most commonly 'With CRC' which includes a check that callsigns are valid.
 
 #### Speeds
 
@@ -98,11 +98,11 @@ Phase Shift Keying - Data encoded into changes of phase. Often found on HF links
 
 ### Linux
 
-A key component of the systems I'll be discussing in this guide is Linux. If you don't have a great understanding of Linux or it's a bit scary, I've got an overview of things you might want to know [here](linux.md).
+A key component of the systems I'll be discussing in this guide is Linux. If you don't have a great understanding of Linux or it's a bit scary, I've written a primer [here](linux.md).
 
-There's a lot to take in, and it can seem overwhelming at first, but feel free to read, ask for help and keep in mind that it's easy to be feel like that when you approach anything new.
+There's a lot to take in, and it can seem overwhelming at first, but feel free to read, ask for help and keep in mind that it's easy to feel lost when you approach anything new - there are just so many things to grasp.
 
-A simple starting point is a [Raspberry Pi](https://raspberrypi.org) - it will be a dedicated computer for just packet exploration, and if everything is broken you can easily start again without losing any importnt data.
+A simple starting point is a [Raspberry Pi](https://raspberrypi.org) - it will be a dedicated computer for just packet exploration, and if everything is broken you can easily start again without losing any importnt data - you just rewrite the SD card and start again.
 
 ## Radio Set Up
 
@@ -114,19 +114,17 @@ If information is available online, also take note of the details of the mode as
 
 ## Software Set Up
 
+I'm going to assume that you have a NinoTNC or other KISS hardware modem. If you want to use QtSoundModem, take a look at my [guide](modems/qtsm.md).
+
 ### Installation
 
 If you're using Debian, Ubuntu or a Raspberry Pi it will be easiest if you install [hibby's repo](repo.md).
 
-Once you have done that you can install the prerequisites:
+Once you have done that you can install the prerequisites - QTTermTCP.
 
-`sudo apt install qtsoundmodem qttermtcp`
+If you're a new user, I recommend using a graphical 'app store' - see how [here](linux.md/#graphical-app-store-frontend).
 
-### Configure QtSoundModem
-
-We shall set up QtSoundModem to understand the type of signal we are trying to receive. 
-
-If you have details of the mode as suggested above, QtSoundModem allows easy configuration of the key details.
+If you're more linux aware? `apt install soundmodem` in your terminal of choice!
 
 ### Configure QtTermTCP
 
@@ -134,21 +132,30 @@ Open QtTermTCP and set up a Kiss Connection to your Modem. This will work for Qt
 
 #### Set up Kiss Connection
 
-Click Setup then KISS Configuration.
+Click Setup then KISS Configuration. You will be presented with a window that looks similar to the below:
+
+![QTTermTCP Kiss Configuration Image](static/img/qttcp_kiss.png)
 
 Ensure 'Enable Kiss Interface' is selected, put your callsign in MYCALL and put select your modem from the 'Serial TNC' dropdown. If using a NinoTNC, the speed will be 57600.
 
-Press OK to save setting.
+Press OK to save settings.
 
 At this stage, I recommend Monitoring the frequency to see if you can decode any information. Local stations will likely be beaconing and this is a good way to test you have set up correctly without interfering with other users transmissions.
 
 Decoded data shall look like:
 
+![QtTermTCP Monitor Window](static/img/qttcp.png)
+
 ## Connect
 
-Press Connect and enter the callsign & SSID you are trying to connect to, for example GB7HIB-7 if you're connecting to my node.
+Press Connect, then 'Kiss Connect' in the dropdown menu. You'll see something aking to the below - selection session, enter the callsign & SSID you are trying to connect to, for example GB7HIB-7 if you're connecting to my node. Ignore digipeters for the moment - they can be a future challenge.
+
+![Connect window](static/img/qttcp_connect.png)
+
 
 You should be presented with some choices in the bottom pane - BBS, Links, Info etc. If not, type `?` in the bottom text box, hit enter and see what the remote system returns with.
+
+![Connection to GB7NRT](static/img/qttcp_nrt.png)
 
 Congratulations, you are on the air!
 

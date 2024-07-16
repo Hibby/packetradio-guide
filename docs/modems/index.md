@@ -38,4 +38,4 @@ Alternative modem command sets exist - onces I can name easily are:
 | Command Protocol | Description
 | ---------------- | -----------
 | AGW or AGWPE | From AGW Packet Engine. A properitary command set that was originally released to interact with the software it is named after
-| 6pack | Something about 6pack
+| 6pack | 6pack offers more control over the radio and more awareness for the PC what is happening at the cost of greater complexity

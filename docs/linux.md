@@ -31,7 +31,7 @@ Most of my advice will take the form of things to run in the command line, but I
 
 If you're running the Raspberry Pi, it's most likely you have [Raspberry Pi OS](https://www.raspberrypi.com/software/) with a desktop - there'll be a background, a menu in the top left etc. It might not look familiar, but to a keen explorer it should look approachable at the very least.
 
-If you're running Debian, during install we'll ask you what graphical desktop environment you want to install, if any. As a beginner, I strongly recommend [KDE](https://kde.org) - it is most Windows like and is pretty full featured. If you're running Ubuntu, typically you install an Ubuntu derivative focussed on a specific desktop environment - perhaps [Kubuntu](https://kubuntu.org) for KDE.
+If you're running Debian, during install we'll ask you what graphical desktop environment you want to install, if any. This is the desktop you boot in to - unlike Windows, there are multiples available for Linux. As a beginner, I strongly recommend [KDE](https://kde.org) - it is most Windows like and is pretty full featured. If you're running Ubuntu, typically you install an Ubuntu derivative focussed on a specific desktop environment - perhaps [Kubuntu](https://kubuntu.org) for KDE.
 
 ## Applications and Repositories
 
@@ -124,11 +124,9 @@ The GUI offers some choices - my preferred method is below.
 
 I recommend installing Featherpad for this - it's lightweight and will only ask for a password when you save the file.
 
-To install it, go to the Raspberry Pi menu, Preferences and select Add/Remove software.
+If you use the KDE Desktop, Kate works and has the below functionality inbuilt.
 
-Search for featherpad, select the checkbox and press apply:
-
-![Featherpad Installation](static/img/install-featherpad.png)
+To install it see [above](linux.md/#graphical-app-store-frontend) for more.
 
 You can open Featherpad from the application launcher and use the file->open menu to get access to files all round the system:
 

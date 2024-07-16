@@ -4,14 +4,13 @@ QtSoundModem is a soundmodem with a GUI written by John Wiseman G8BPQ. It is a f
 
 It has some compelling features - not only does it natively understand IL2P at a number of different baud and bitrates and modulations, it supports multiple modems, each with a different KISS interface. This allows for up to 4 ports with different speeds, protocols and modes in the same channel - a fantastic thing to explore on HF.
 
-
 ## Software Set Up
 
 ### Installation
 
 If you're using Debian, Ubuntu or a Raspberry Pi it will be easiest if you install [hibby's repo](../repo.md).
 
-Once you have done that you can install the prerequisites:
+Once you have done that you can install the prerequisites, either search for qtsoundmodem in your [app store](linux.md/#graphical-app-store-frontend):
 
 `sudo apt install qtsoundmodem`
 
