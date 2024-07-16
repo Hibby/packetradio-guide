@@ -36,8 +36,10 @@ each one.
 The configuration file I ship in the repo, there are hopefully some obvious fields to fill out.
 
 You can find the configuration file at `/etc/bpq32.cfg` and use something like
-Featherpad to edit it. To learn more about editing text in Linux, see
-[here](linux.md/#editing-text-as-root).
+Featherpad to edit it. 
+
+!!! tip
+	To learn more about editing text in Linux, see [here](../linux.md/#editing-text-as-root).
 
 
 | Field | Example | Purpose
