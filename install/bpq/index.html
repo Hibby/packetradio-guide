@@ -1122,7 +1122,7 @@ sudo chmod 644 /etc/bpq32.cfg
 <p>Without a config file installed to <code>/etc/bpq32.cfg</code>, BPQ from the repo will not start. If you are looking to use a config file in a different location, remove or modify <code>ConditionPathExists=/etc/bpq32.cfg</code> in <code>/usr/lib/systemd/system/linbpq.service</code></p>
 </div>
 <h2 id="configure">Configure<a class="headerlink" href="#configure" title="Permanent link">&para;</a></h2>
-<p>The configuration file I ship in the repo, there are hopefully some obvious fields to fill out. Once all the below holes are filled, you should be able to log in either with <a href="../../clients/qtttcp/">QtTermTCP</a> or in your web browser at 127.0.0.1:8008, assuming you're on the same computer as the node. </p>
+<p>The configuration file I ship in the repo, there are hopefully some obvious fields to fill out. Once all the below holes are filled, you should be able to log in either with <a href="../../clients/qtttcp/">QtTermTCP</a> or in your web browser at <a href="http://127.0.0.1:8008">localhost:8008</a>), assuming you're on the same computer as the node. </p>
 <table>
 <thead>
 <tr>
@@ -1175,7 +1175,7 @@ sudo chmod 644 /etc/bpq32.cfg
 </tbody>
 </table>
 <h3 id="ports">Ports<a class="headerlink" href="#ports" title="Permanent link">&para;</a></h3>
-<p>Port configs in BPQNode aren't too complicated. A common Gotcha is that you configure a port specific broadcast and end up double-broadcasting, both the node master broadcast and the port specific one. </p>
+<p>Port configuration blocks in BPQNode aren't too complicated. A common Gotcha is that you configure a port specific broadcast and end up double-broadcasting, both the node master broadcast and the port specific one. </p>
 <h4 id="kiss">KISS<a class="headerlink" href="#kiss" title="Permanent link">&para;</a></h4>
 <p>A common port entry for a <a href="../../modems/ninotnc/">NinoTNC</a> specifically (but also, more generally, a KISS Modem) looks like:</p>
 <div class="highlight"><pre><span></span><code>PORT
@@ -1196,7 +1196,7 @@ ENDPORT
 <p>Key settings to observe are the <code>COMPORT</code>, which should be the serial port of the device, and <code>SPEED</code>. For a NinoTNC this is always 57600, but for QtSoundModem, Direwolf or older hardware may be 9600 or something else. Check your modem configuration!</p>
 <p><code>QUALITY</code> sets the assumed quality of connections coming in - I recommend higher quality (up to 200) for higher speed links. Setting this to 0 will disable NET/ROM on the port, and this is current recommended standard practise on HF within the UK Packet Radio Network.</p>
 <h4 id="telnet">Telnet<a class="headerlink" href="#telnet" title="Permanent link">&para;</a></h4>
-<p>BPQ's Telnet Port sets the TCP Ports for Telnet, FBB and HTTP connetions, alongside the username and password. This will come in useful when using <a href="../../clients/qtttcp/">QtTTCP</a> as a monitor and control application.</p>
+<p>BPQ's Telnet Port sets the TCP Ports for Telnet, FBB and HTTP connections, alongside the username and password. This will come in useful when using <a href="../../clients/qtttcp/">QtTTCP</a> as a monitor and control application.</p>
 <div class="highlight"><pre><span></span><code>PORT
   PORTNUM=9
   ID=Telnet

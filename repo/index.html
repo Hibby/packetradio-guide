@@ -904,6 +904,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ubuntu-2404-lts-amd64" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ubuntu 24.04 LTS amd64
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ubuntu-2204-lts-amd64" class="md-nav__link">
     <span class="md-ellipsis">
       Ubuntu 22.04 LTS amd64
@@ -1054,6 +1063,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ubuntu-2404-lts-amd64" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ubuntu 24.04 LTS amd64
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ubuntu-2204-lts-amd64" class="md-nav__link">
     <span class="md-ellipsis">
       Ubuntu 22.04 LTS amd64
@@ -1129,11 +1147,12 @@
 
 <h1 id="hibbys-repo">Hibby's Repo<a class="headerlink" href="#hibbys-repo" title="Permanent link">&para;</a></h1>
 <h2 id="script">Script<a class="headerlink" href="#script" title="Permanent link">&para;</a></h2>
-<p>The script requires dowloaded, set to executable and run and is a little simpler than the manual setup - thanks to John M5ET for writing it!</p>
+<p>The script requires downloaded, set to executable and run and is a little simpler than the manual setup - thanks to John M5ET for writing it!</p>
 <p>I strongly recommend you read through it <strong>before</strong> running it - it should look similar to the manual method below.
 <strong>General computer security advice is to not blindly run scripts you downloaded from the internet!</strong> </p>
-<p>Download the script from: [[https://guide.foxk.it/static/files/setup.sh]]</p>
-<p>Lines you can run in the command line are:</p>
+<p>Download the script from:
+<a href="https://guide.foxk.it/static/files/setup.sh">https://guide.foxk.it/static/files/setup.sh</a>.</p>
+<p>This, sadly, must be run in the command line - the lines to run it are:</p>
 <div class="highlight"><pre><span></span><code>cd /tmp
 wget https://guide.foxk.it/static/files/setup.sh
 chmod +x /tmp/setup.sh
@@ -1147,6 +1166,9 @@ sudo mv hibby.key /etc/apt/trusted.gpg.d/hibby.asc
 <p>You can trust this key - it is contained in <a href="https://salsa.debian.org/debian-keyring/keyring/-/blob/master/debian-keyring-gpg/0x03A1FB7A1904771B?ref_type=heads">Debian</a> and signed as trusted by other developers in the project.</p>
 <h2 id="set-up-repo">Set up Repo<a class="headerlink" href="#set-up-repo" title="Permanent link">&para;</a></h2>
 <p>Then you need to add the repo for your OS:</p>
+<h3 id="ubuntu-2404-lts-amd64">Ubuntu 24.04 LTS amd64<a class="headerlink" href="#ubuntu-2404-lts-amd64" title="Permanent link">&para;</a></h3>
+<p><code>sudo sh -c 'echo "deb
+https://online-amateur-radio-club-m0ouk.github.io/oarc-packages noble main" &gt;&gt; /etc/apt/sources.list'</code></p>
 <h3 id="ubuntu-2204-lts-amd64">Ubuntu 22.04 LTS amd64<a class="headerlink" href="#ubuntu-2204-lts-amd64" title="Permanent link">&para;</a></h3>
 <p><code>sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages jammy main" &gt;&gt; /etc/apt/sources.list'</code></p>
 <h3 id="raspberry-pi-os-12-bookworm">Raspberry Pi OS 12 - 'Bookworm'<a class="headerlink" href="#raspberry-pi-os-12-bookworm" title="Permanent link">&para;</a></h3>

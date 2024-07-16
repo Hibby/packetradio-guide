@@ -1451,15 +1451,15 @@
 <p>If you've played with data modes on a radio already, you will have a reasonable feeling for this.</p>
 <p>The key modulations we use are:</p>
 <p><strong>AFSK</strong></p>
-<p>Audio Frequncy Shift Keying - Multiple audible tones. This is commonly found on VHF, FM 1200bd links. Classic bleeps and bloops that have been heard on our frequencies for decades. Tune to 144.800MHz to get a flavour from the APRS network.</p>
+<p>Audio Frequency Shift Keying - Multiple audible tones. This is commonly found on VHF, FM 1200bd links. Classic bleeps and bloops that have been heard on our frequencies for decades. Tune to 144.800MHz to get a flavour from the APRS network.</p>
 <p><strong>FSK</strong></p>
-<p>Frequency Shift Keying - Multiple tones, not necessarily audible. Commonly found on UHF, FM 9600bd links. This sounds quite like white noise and can be difficut to differentiate from unsquelched audio.</p>
+<p>Frequency Shift Keying - Multiple tones, not necessarily audible. Commonly found on UHF, FM 9600bd links. This sounds quite like white noise and can be difficult to differentiate from unsquelched audio.</p>
 <p><strong>PSK</strong></p>
 <p>Phase Shift Keying - Data encoded into changes of phase. Often found on HF links.</p>
 <h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
 <p>A key component of the systems I'll be discussing in this guide is Linux. If you don't have a great understanding of Linux or it's a bit scary, I've written a primer <a href="../linux/">here</a>.</p>
 <p>There's a lot to take in, and it can seem overwhelming at first, but feel free to read, ask for help and keep in mind that it's easy to feel lost when you approach anything new - there are just so many things to grasp.</p>
-<p>A simple starting point is a <a href="https://raspberrypi.org">Raspberry Pi</a> - it will be a dedicated computer for just packet exploration, and if everything is broken you can easily start again without losing any importnt data - you just rewrite the SD card and start again.</p>
+<p>A simple starting point is a <a href="https://raspberrypi.org">Raspberry Pi</a> - it will be a dedicated computer for just packet exploration, and if everything is broken you can easily start again without losing any important data - you just rewrite the SD card and start again.</p>
 <h2 id="radio-set-up">Radio Set Up<a class="headerlink" href="#radio-set-up" title="Permanent link">&para;</a></h2>
 <p>Find out your local packet radio frequency first, and tune your radio to see if you can hear any activity. This will be a good indicator as to whether you need to think about HF instead of VHF/UHF.</p>
 <p>If you're in the UK, this will be listed at <a href="https://nodes.ukpacketradio.network/packet-network-map.html">ukpacketradio.network</a> or  <a href="https://ukrepeater.net/packetlist.html">UKRepeater</a>.</p>
@@ -1470,7 +1470,7 @@
 <p>If you're using Debian, Ubuntu or a Raspberry Pi it will be easiest if you install <a href="../repo/">hibby's repo</a>.</p>
 <p>Once you have done that you can install the prerequisites - QTTermTCP.</p>
 <p>If you're a new user, I recommend using a graphical 'app store' - see how <a href="../linux/#graphical-app-store-frontend">here</a>.</p>
-<p>If you're more linux aware? <code>apt install soundmodem</code> in your terminal of choice!</p>
+<p>If you're more Linux aware? <code>apt install soundmodem</code> in your terminal of choice!</p>
 <h3 id="configure-qttermtcp">Configure QtTermTCP<a class="headerlink" href="#configure-qttermtcp" title="Permanent link">&para;</a></h3>
 <p>Open QtTermTCP and set up a Kiss Connection to your Modem. This will work for QtSoundModem or a physical modem.</p>
 <h4 id="set-up-kiss-connection">Set up Kiss Connection<a class="headerlink" href="#set-up-kiss-connection" title="Permanent link">&para;</a></h4>
@@ -1482,14 +1482,17 @@
 <p>Decoded data shall look like:</p>
 <p><img alt="QtTermTCP Monitor Window" src="../static/img/qttcp.png" /></p>
 <h2 id="connect">Connect<a class="headerlink" href="#connect" title="Permanent link">&para;</a></h2>
-<p>Press Connect, then 'Kiss Connect' in the dropdown menu. You'll see something aking to the below - selection session, enter the callsign &amp; SSID you are trying to connect to, for example GB7HIB-7 if you're connecting to my node. Ignore digipeters for the moment - they can be a future challenge.</p>
+<p>Press Connect, then 'Kiss Connect' in the dropdown menu. You'll see something asking to the below - selection session, enter the callsign &amp; SSID you are trying to connect to, for example GB7HIB-7 if you're connecting to my node. Ignore digipeters for the moment - they can be a future challenge.</p>
 <p><img alt="Connect window" src="../static/img/qttcp_connect.png" /></p>
 <p>You should be presented with some choices in the bottom pane - BBS, Links, Info etc. If not, type <code>?</code> in the bottom text box, hit enter and see what the remote system returns with.</p>
 <p><img alt="Connection to GB7NRT" src="../static/img/qttcp_nrt.png" /></p>
 <p>Congratulations, you are on the air!</p>
 <p>Not seeing anything in the monitor pane? Time to get debugging!</p>
 <h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
-<p>This is where most of my time is spent when setting up packet radio stuff. In my opinion, it's where the real learning happens - you need to get your hands dirty with your radio, with your modem, with linux and try to retain your sanity at the same time. </p>
+<p>This is where most of my time is spent when setting up packet radio stuff. In my
+opinion, it's where the real learning happens - you need to get your hands dirty
+with your radio, with your modem, with Linux and try to retain your sanity at
+the same time. </p>
 <p>Don't worry - there is always something you've forgotten to do, or think you've looked at and haven't. We all have that feeling. Sometimes I keep a note of what I've done and what I've looked at to avoid replication of work, or so I can note what I <em>have</em> changed and what I might need to replicate.</p>
 <h3 id="debugging-checklist">Debugging Checklist<a class="headerlink" href="#debugging-checklist" title="Permanent link">&para;</a></h3>
 <p>Learn more about debugging:</p>
