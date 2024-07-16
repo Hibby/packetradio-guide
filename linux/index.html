@@ -1223,7 +1223,7 @@
 <p>There's a common misconception that Linux is for command line users only, or that you need to be proficient in the command line to be able to drive it. This is no more true in Linux than it is for MacOS and Windows - there are a number of tasks that some may find more efficient to do via the command line interface (CLI), but there are usually multiple ways to skin the cat. </p>
 <p>Most of my advice will take the form of things to run in the command line, but I am endeavouring to diversify so things are more approachable. </p>
 <p>If you're running the Raspberry Pi, it's most likely you have <a href="https://www.raspberrypi.com/software/">Raspberry Pi OS</a> with a desktop - there'll be a background, a menu in the top left etc. It might not look familiar, but to a keen explorer it should look approachable at the very least.</p>
-<p>If you're running Debian, during install we'll ask you what graphical desktop environment you want to install, if any. As a beginner, I strongly recommend <a href="https://kde.org">KDE</a> - it is most Windows like and is pretty full featured. If you're running Ubuntu, typically you install an Ubuntu derivative focussed on a specific desktop environment - perhaps <a href="https://kubuntu.org">Kubuntu</a> for KDE.</p>
+<p>If you're running Debian, during install we'll ask you what graphical desktop environment you want to install, if any. This is the desktop you boot in to - unlike Windows, there are multiples available for Linux. As a beginner, I strongly recommend <a href="https://kde.org">KDE</a> - it is most Windows like and is pretty full featured. If you're running Ubuntu, typically you install an Ubuntu derivative focussed on a specific desktop environment - perhaps <a href="https://kubuntu.org">Kubuntu</a> for KDE.</p>
 <h2 id="applications-and-repositories">Applications and Repositories<a class="headerlink" href="#applications-and-repositories" title="Permanent link">&para;</a></h2>
 <p>Most Linux distributions are not only just the system and the desktop, but they are shipped with a vast catalogue of applications too. They might not be installed, and you'll need to use some sort of app store tool to install, remove etc applications. It's just like every modern mobile phone - they stole the idea from us!</p>
 <p>We call this tool a package manager (we often call applications 'packages'), and a collection of applications is known as a repository, or repo. The Debian family use a program called <code>apt</code> as its package manager, and it ships with quite a large repository of apps you can choose from. Most guides, mine included, don't focus on showing you a usable app-store, just a method of installing from a repository.</p>
@@ -1278,9 +1278,8 @@ hibby cdrom floppy sudo audio dip video plugdev users netdev lpadmin scanner sbu
 <p>The GUI offers some choices - my preferred method is below.</p>
 <h5 id="gui">GUI<a class="headerlink" href="#gui" title="Permanent link">&para;</a></h5>
 <p>I recommend installing Featherpad for this - it's lightweight and will only ask for a password when you save the file.</p>
-<p>To install it, go to the Raspberry Pi menu, Preferences and select Add/Remove software.</p>
-<p>Search for featherpad, select the checkbox and press apply:</p>
-<p><img alt="Featherpad Installation" src="../static/img/install-featherpad.png" /></p>
+<p>If you use the KDE Desktop, Kate works and has the below functionality inbuilt.</p>
+<p>To install it see <a href="./#graphical-app-store-frontend">above</a> for more.</p>
 <p>You can open Featherpad from the application launcher and use the file-&gt;open menu to get access to files all round the system:</p>
 <p><img alt="Featherpad Open File" src="../static/img/featherpad-open.png" /></p>
 <p>Take yourself back to <code>/</code> with the Path breadcrumb at the top, and to edit the bpq32.conf config file, for example, find <code>/etc/bpq32.cfg</code>. </p>

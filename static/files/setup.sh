@@ -11,65 +11,65 @@ osver=`echo "$osstr" |sed 's/GNU\/Linux//g'`
 case `echo $osver` in
         "Debian 13"*)
                 echo "Installing GPG signing key, please wait..."
-                curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
+#               curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
                 echo -e "\033[32mGPG signing key installed correctly.\033[0m"
                 echo "Adding Debian testing repository for OARC packages..."
-                echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
-                echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages testing main" >> /etc/apt/sources.list
+#               echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
+#               echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages testing main" >> /etc/apt/sources.list
                 echo -e "\033[32mRepository added correctly.\033[0m"
         ;;
         "Debian 12"*)
                 echo "Installing GPG signing key, please wait..."
-                curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
+#               curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
                 echo -e "\033[32mGPG signing key installed correctly.\033[0m"
                 echo "Adding Debian stable repository for OARC packages..."
-                echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
-                echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main" >> /etc/apt/sources.list
+#               echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
+#               echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main" >> /etc/apt/sources.list
                 echo -e "\033[32mRepository added correctly.\033[0m"
         ;;
         "Ubuntu 22.04"*)
                 echo "Installing GPG signing key, please wait..."
-                curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
+#               curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
                 echo -e "\033[32mGPG signing key installed correctly.\033[0m"
                 echo "Adding Ubuntu jammy repository for OARC packages..."
-                echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
-                echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages jammy main" >> /etc/apt/sources.list
+#               echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
+#               echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages jammy main" >> /etc/apt/sources.list
                 echo -e "\033[32mRepository added correctly.\033[0m"
         ;;
         "Ubuntu 24.04"*)
                 echo "Installing GPG signing key, please wait..."
-                curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
+#               curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
                 echo -e "\033[32mGPG signing key installed correctly.\033[0m"
                 echo "Adding Ubuntu jammy repository for OARC packages..."
-                echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
-                echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages noble main" >> /etc/apt/sources.list
+#               echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
+#               echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages noble main" >> /etc/apt/sources.list
                 echo -e "\033[32mRepository added correctly.\033[0m"
         ;;
         "Raspbian 12"*)
                 echo "Installing GPG signing key, please wait..."
-                curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
+#               curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
                 echo -e "\033[32mGPG signing key installed correctly.\033[0m"
                 echo "Adding Raspberry Pi OS stable repository for OARC packages..."
-                echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
-                echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main" >> /etc/apt/sources.list
+#               echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
+#               echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bookworm main" >> /etc/apt/sources.list
                 echo -e "\033[32mRepository added correctly.\033[0m"
         ;;
         "Raspbian 11"*)
                 echo "Installing GPG signing key, please wait..."
-                curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
+#               curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
                 echo -e "\033[32mGPG signing key installed correctly.\033[0m"
                 echo "Adding Raspberry Pi OS oldstable repository for OARC packages..."
-                echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
-                echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bullseye main" >> /etc/apt/sources.list
+#               echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
+#               echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bullseye main" >> /etc/apt/sources.list
                 echo -e "\033[32mRepository added correctly.\033[0m"
         ;;
         "Debian 11"*)
                 echo "Installing GPG signing key, please wait..."
-                curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
+#               curl https://online-amateur-radio-club-m0ouk.github.io/oarc-packages/hibby.key | tee /etc/apt/trusted.gpg.d/hibby.asc
                 echo -e "\033[32mGPG signing key installed correctly.\033[0m"
                 echo "Adding Raspberry Pi OS oldstable repository for OARC packages..."
-                echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
-                echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bullseye main" >> /etc/apt/sources.list
+#               echo "#OARC Packet Radio Packages" >> /etc/apt/sources.list
+#               echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages bullseye main" >> /etc/apt/sources.list
                 echo -e "\033[32mRepository added correctly.\033[0m"
         ;;
         *)

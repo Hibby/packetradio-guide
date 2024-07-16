@@ -427,15 +427,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-qtsoundmodem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configure QtSoundModem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#configure-qttermtcp" class="md-nav__link">
     <span class="md-ellipsis">
       Configure QtTermTCP
@@ -1325,15 +1316,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-qtsoundmodem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configure QtSoundModem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#configure-qttermtcp" class="md-nav__link">
     <span class="md-ellipsis">
       Configure QtTermTCP
@@ -1451,13 +1433,13 @@
 <h5 id="ax25">AX.25<a class="headerlink" href="#ax25" title="Permanent link">&para;</a></h5>
 <p>AX.25 is an umbrella term often used for all packet radio, but really it refers to the specification written between the 70s and 90s that defines the basics of packet.</p>
 <p>It has a long legacy and is rather simple, but is reliable, embedded in a lot of old hardware and will likely be in use until the heat death of the universe.</p>
-<p>Learn more <a href="../detail/ax25/">here</a>.</p>
+<p>Learn more <a href="https://en.wikipedia.org/wiki/AX.25">here</a>.</p>
 <h5 id="il2p">IL2P<a class="headerlink" href="#il2p" title="Permanent link">&para;</a></h5>
 <p>IL2P, the 'Improved Layer 2 Protocol' is by Nino KK4HEJ and is an evolution of AX.25. It includes nice things such as error correction of data and allows for, theoretically, more reliable communications but isn't compatible with AX.25 on the air.</p>
-<p>There are a number of varieties of IL2P in the wild too - learn more <a href="../detail/il2p/">here</a>.</p>
+<p>There are a number of varieties of IL2P in the wild too, most commonly 'With CRC' which includes a check that callsigns are valid.</p>
 <h4 id="speeds">Speeds<a class="headerlink" href="#speeds" title="Permanent link">&para;</a></h4>
 <p>We often use '1200', '1200bd' or similar as shorthand for how fast our data is sending and received. The 'bd' is baud, or the number of 'symbols' transmitted a second. For most of our communications, 1 baud is equivalent to 1 bit per second, however more exotic modulation can transmit more than one symbol at a time, buying us more speed! </p>
-<p>We use 3 broad speed categories at the moment:</p>
+<p>We 3 broad speed categories at the moment:</p>
 <ul>
 <li>Low - 300bd - used on HF</li>
 <li>Medium - 1200bd - used on VHF</li>
@@ -1475,32 +1457,35 @@
 <p><strong>PSK</strong></p>
 <p>Phase Shift Keying - Data encoded into changes of phase. Often found on HF links.</p>
 <h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
-<p>A key component of the systems I'll be discussing in this guide is Linux. If you don't have a great understanding of Linux or it's a bit scary, I've got an overview of things you might want to know <a href="../linux/">here</a>.</p>
-<p>There's a lot to take in, and it can seem overwhelming at first, but feel free to read, ask for help and keep in mind that it's easy to be feel like that when you approach anything new.</p>
-<p>A simple starting point is a <a href="https://raspberrypi.org">Raspberry Pi</a> - it will be a dedicated computer for just packet exploration, and if everything is broken you can easily start again without losing any importnt data.</p>
+<p>A key component of the systems I'll be discussing in this guide is Linux. If you don't have a great understanding of Linux or it's a bit scary, I've written a primer <a href="../linux/">here</a>.</p>
+<p>There's a lot to take in, and it can seem overwhelming at first, but feel free to read, ask for help and keep in mind that it's easy to feel lost when you approach anything new - there are just so many things to grasp.</p>
+<p>A simple starting point is a <a href="https://raspberrypi.org">Raspberry Pi</a> - it will be a dedicated computer for just packet exploration, and if everything is broken you can easily start again without losing any importnt data - you just rewrite the SD card and start again.</p>
 <h2 id="radio-set-up">Radio Set Up<a class="headerlink" href="#radio-set-up" title="Permanent link">&para;</a></h2>
 <p>Find out your local packet radio frequency first, and tune your radio to see if you can hear any activity. This will be a good indicator as to whether you need to think about HF instead of VHF/UHF.</p>
 <p>If you're in the UK, this will be listed at <a href="https://nodes.ukpacketradio.network/packet-network-map.html">ukpacketradio.network</a> or  <a href="https://ukrepeater.net/packetlist.html">UKRepeater</a>.</p>
 <p>If information is available online, also take note of the details of the mode as this will come in handy setting up your modem.</p>
 <h2 id="software-set-up">Software Set Up<a class="headerlink" href="#software-set-up" title="Permanent link">&para;</a></h2>
+<p>I'm going to assume that you have a NinoTNC or other KISS hardware modem. If you want to use QtSoundModem, take a look at my <a href="../modems/qtsm/">guide</a>.</p>
 <h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
 <p>If you're using Debian, Ubuntu or a Raspberry Pi it will be easiest if you install <a href="../repo/">hibby's repo</a>.</p>
-<p>Once you have done that you can install the prerequisites:</p>
-<p><code>sudo apt install qtsoundmodem qttermtcp</code></p>
-<h3 id="configure-qtsoundmodem">Configure QtSoundModem<a class="headerlink" href="#configure-qtsoundmodem" title="Permanent link">&para;</a></h3>
-<p>We shall set up QtSoundModem to understand the type of signal we are trying to receive. </p>
-<p>If you have details of the mode as suggested above, QtSoundModem allows easy configuration of the key details.</p>
+<p>Once you have done that you can install the prerequisites - QTTermTCP.</p>
+<p>If you're a new user, I recommend using a graphical 'app store' - see how <a href="../linux/#graphical-app-store-frontend">here</a>.</p>
+<p>If you're more linux aware? <code>apt install soundmodem</code> in your terminal of choice!</p>
 <h3 id="configure-qttermtcp">Configure QtTermTCP<a class="headerlink" href="#configure-qttermtcp" title="Permanent link">&para;</a></h3>
 <p>Open QtTermTCP and set up a Kiss Connection to your Modem. This will work for QtSoundModem or a physical modem.</p>
 <h4 id="set-up-kiss-connection">Set up Kiss Connection<a class="headerlink" href="#set-up-kiss-connection" title="Permanent link">&para;</a></h4>
-<p>Click Setup then KISS Configuration.</p>
+<p>Click Setup then KISS Configuration. You will be presented with a window that looks similar to the below:</p>
+<p><img alt="QTTermTCP Kiss Configuration Image" src="../static/img/qttcp_kiss.png" /></p>
 <p>Ensure 'Enable Kiss Interface' is selected, put your callsign in MYCALL and put select your modem from the 'Serial TNC' dropdown. If using a NinoTNC, the speed will be 57600.</p>
-<p>Press OK to save setting.</p>
+<p>Press OK to save settings.</p>
 <p>At this stage, I recommend Monitoring the frequency to see if you can decode any information. Local stations will likely be beaconing and this is a good way to test you have set up correctly without interfering with other users transmissions.</p>
 <p>Decoded data shall look like:</p>
+<p><img alt="QtTermTCP Monitor Window" src="../static/img/qttcp.png" /></p>
 <h2 id="connect">Connect<a class="headerlink" href="#connect" title="Permanent link">&para;</a></h2>
-<p>Press Connect and enter the callsign &amp; SSID you are trying to connect to, for example GB7HIB-7 if you're connecting to my node.</p>
+<p>Press Connect, then 'Kiss Connect' in the dropdown menu. You'll see something aking to the below - selection session, enter the callsign &amp; SSID you are trying to connect to, for example GB7HIB-7 if you're connecting to my node. Ignore digipeters for the moment - they can be a future challenge.</p>
+<p><img alt="Connect window" src="../static/img/qttcp_connect.png" /></p>
 <p>You should be presented with some choices in the bottom pane - BBS, Links, Info etc. If not, type <code>?</code> in the bottom text box, hit enter and see what the remote system returns with.</p>
+<p><img alt="Connection to GB7NRT" src="../static/img/qttcp_nrt.png" /></p>
 <p>Congratulations, you are on the air!</p>
 <p>Not seeing anything in the monitor pane? Time to get debugging!</p>
 <h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
@@ -1513,11 +1498,7 @@
 <li><a href="../modems/qtsm/#check-the-audio-coming-in-is-at-the-right-volume">QtSoundModem</a></li>
 </ul>
 <h3 id="ask-for-help">Ask for Help!<a class="headerlink" href="#ask-for-help" title="Permanent link">&para;</a></h3>
-<p>It is easy to feel overwhelmed and alone as you struggle through debugging your system. Feel free to ask the community for help! No question is stupid, and we all started knowing nothing about this. Everyone is excited to have new stations and nodes to connect to, so will be thrilled to offer some form of pointer, assistance, input or advice. </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Please note, advice is a form of nostalgia: dispensing it is a way of fishing the past from the disposal, wiping it off, painting over the ugly parts and recycling it for more than it's worth.</p>
-</div>
+<p>It is easy to feel overwhelmed and alone as you struggle through debugging your system. Feel free to ask the community for help! No question is stupid, and we all started knowing nothing about this. Everyone is excited to have new stations and nodes to connect to, so will be thrilled to offer some form of pointer, assistance, input or advice. Please note, advice is a form of nostalgia: dispensing it is a way of fishing the past from the disposal, wiping it off, painting over the ugly parts and recycling it for more than it's worth.</p>
 <p>There are a few great sources of assistance, some will be faster than others to get responses from:</p>
 <ul>
 <li>General help and chatter on all things packet: <a href="https://oarc.uk">Online Amateur Radio Club Discord</a></li>
