@@ -9,8 +9,7 @@ If you have not already done so, set up the repo [as shown here](../repo.md).
 To install LinBPQ from the repo, run the below commands:
 
 !!! note "Terminal Commands"
-    sudo apt update
-    sudo apt install linbpq
+    `sudo apt update && sudo apt install linbpq`
 
 
 ## Pre-Configure
@@ -22,9 +21,11 @@ Copy these three lines, one-at-a-time into your terminal and hit enter after
 each one.
 
 !!!note "Terminal Commands"
+	```
 	sudo cp /usr/share/doc/linbpq/examples/bpq32.cfg /etc/bpq32.cfg
 	sudo chown :linbpq /etc/bpq32.cfg
 	sudo chmod 644 /etc/bpq32.cfg
+	```
 
 !!! tip
 
@@ -109,8 +110,8 @@ ENDPORT
 
 Head back to the terminal and run 
 
-!!! note "Terminal Command" 
-	sudo systemctl start linbpq
+!!! note "Terminal Commands" 
+	`sudo systemctl start linbpq`
 
 This will tell the system you want to start the `linbpq` service. Navigate to
 [http://127.0.0.1:8008](http://127.0.0.1:8008) if you are on the systme you've
