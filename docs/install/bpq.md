@@ -8,26 +8,36 @@ If you have not already done so, set up the repo [as shown here](../repo.md).
 
 To install LinBPQ from the repo, run the below commands:
 
-```
-sudo apt update
-sudo apt install linbpq
-```
+!!! note "Terminal Commands"
+    sudo apt update
+    sudo apt install linbpq
+
 
 ## Pre-Configure
 
-```
-sudo cp /usr/share/doc/linbpq/examples/bpq32.cfg /etc/bpq32.cfg
-sudo nano /etc/bpq32.cfg
-sudo chown :linbpq /etc/bpq32.cfg
-sudo chmod 644 /etc/bpq32.cfg
-```
-!!! note
+We need to prepare the system and get configuration files in place. This must be
+run on the command line, it's simply the fastest way.
+
+Copy these three lines, one-at-a-time into your terminal and hit enter after
+each one.
+
+!!!note "Terminal Commands"
+	sudo cp /usr/share/doc/linbpq/examples/bpq32.cfg /etc/bpq32.cfg
+	sudo chown :linbpq /etc/bpq32.cfg
+	sudo chmod 644 /etc/bpq32.cfg
+
+!!! tip
 
     Without a config file installed to `/etc/bpq32.cfg`, BPQ from the repo will not start. If you are looking to use a config file in a different location, remove or modify `ConditionPathExists=/etc/bpq32.cfg` in `/usr/lib/systemd/system/linbpq.service`
 
 ## Configure
 
-The configuration file I ship in the repo, there are hopefully some obvious fields to fill out. Once all the below holes are filled, you should be able to log in either with [QtTermTCP](../clients/qtttcp.md) or in your web browser at [localhost:8008](http://127.0.0.1:8008)), assuming you're on the same computer as the node. 
+The configuration file I ship in the repo, there are hopefully some obvious fields to fill out.
+
+You can find the configuration file at `/etc/bpq32.cfg` and use something like
+Featherpad to edit it. To learn more about editing text in Linux, see
+[here](linux.md/#editing-text-as-root).
+
 
 | Field | Example | Purpose
 | ----- | ------- | -------
@@ -94,3 +104,16 @@ ENDPORT
 ```
 
 `USER` is the key configuration to change here - change `username` to your desired administrator username,  `xxxxxxx` to the password and `m0aaa` to the callsign of the administrator.
+
+## Startup
+
+Head back to the terminal and run 
+
+!!! note "Terminal Command" 
+	sudo systemctl start linbpq
+
+This will tell the system you want to start the `linbpq` service. Navigate to
+[http://127.0.0.1:8008](http://127.0.0.1:8008) if you are on the systme you've
+performed the install on and you should see a webpage like below:
+
+![bpq welcome page](../static/img/bpq_login.png))
