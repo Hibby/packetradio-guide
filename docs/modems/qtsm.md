@@ -10,7 +10,8 @@ It has some compelling features - not only does it natively understand IL2P at a
 
 If you're using Debian, Ubuntu or a Raspberry Pi it will be easiest if you install [hibby's repo](../repo.md).
 
-Once you have done that you can install the prerequisites, either search for qtsoundmodem in your [app store](linux.md/#graphical-app-store-frontend):
+Once you have done that you can install the prerequisites, either search for
+qtsoundmodem in your [app store](../linux.md/#graphical-app-store-frontend):
 
 `sudo apt install qtsoundmodem`
 
