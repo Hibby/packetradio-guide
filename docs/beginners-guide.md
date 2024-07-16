@@ -68,7 +68,7 @@ There are a number of varieties of IL2P in the wild too, most commonly 'With CRC
 
 We often use '1200', '1200bd' or similar as shorthand for how fast our data is sending and received. The 'bd' is baud, or the number of 'symbols' transmitted a second. For most of our communications, 1 baud is equivalent to 1 bit per second, however more exotic modulation can transmit more than one symbol at a time, buying us more speed! 
 
-We 3 broad speed categories at the moment:
+We use 3 broad speed categories at the moment:
 
   * Low - 300bd - used on HF
   * Medium - 1200bd - used on VHF
@@ -176,7 +176,11 @@ Learn more about debugging:
 
 ### Ask for Help!
 
-It is easy to feel overwhelmed and alone as you struggle through debugging your system. Feel free to ask the community for help! No question is stupid, and we all started knowing nothing about this. Everyone is excited to have new stations and nodes to connect to, so will be thrilled to offer some form of pointer, assistance, input or advice. Please note, advice is a form of nostalgia: dispensing it is a way of fishing the past from the disposal, wiping it off, painting over the ugly parts and recycling it for more than it's worth.
+It is easy to feel overwhelmed and alone as you struggle through debugging your system. Feel free to ask the community for help! No question is stupid, and we all started knowing nothing about this. Everyone is excited to have new stations and nodes to connect to, so will be thrilled to offer some form of pointer, assistance, input or advice. 
+
+!!! note
+
+    Please note, advice is a form of nostalgia: dispensing it is a way of fishing the past from the disposal, wiping it off, painting over the ugly parts and recycling it for more than it's worth.
 
 There are a few great sources of assistance, some will be faster than others to get responses from:
 
