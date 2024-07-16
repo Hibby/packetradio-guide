@@ -1254,19 +1254,46 @@
 
 
 <h1 id="linux-primer">Linux Primer<a class="headerlink" href="#linux-primer" title="Permanent link">&para;</a></h1>
-<p>My packet radio guide is focussed on running software on Linux and it probably assumes a base level of knowledge. I shall dispense some thoughts and you can judge whether this is helpful.</p>
+<p>My packet radio guide is focussed on running software on Linux and it probably
+assumes a base level of knowledge. I shall dispense some thoughts and you can
+judge whether this is helpful.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For those of you with greater background knowledge and opinions, you'll notice I'm painting in broad brushstrokes. This is intentional, don't bite my head off!</p>
 </div>
 <h2 id="what-is-linux">What is Linux?<a class="headerlink" href="#what-is-linux" title="Permanent link">&para;</a></h2>
-<p>Linux is, in general terms, a family of operating systems that share a common core set of software and exhibit similar characteristics. It is no one simple thing, and doesn't fit in one neat category.</p>
-<p>It can be seen as an alternative to Windows, MacOS, DOS, FreeBSD etc on the desktop - there are many similarities and many differences.</p>
-<p>It is built collaboratively by enthusiast and professional software developers in the spirit of freely sharing and improving the world for all humans - in this sense, there is a strong overlap with the goals of man radio amateurs.</p>
-<p>Through this guide I will regularly refer to "<a href="https://debian.org">Debian</a>" - this is the 'Distribution' of Linux that I work on in my free time. A distribution is a collection of software maintained by a group of people. In the case of Debian, there's around 1000 of us. </p>
-<p>As the source code is available for all to see and use due to permissive licenses, if another group has an opinion which differs from the team producing a distribution, they can use our work as a foundation and build something different and new based on that - we call this 'forking'. This is what <a href="https://ubuntu.com">Ubuntu</a> is, and why we refer to Ubuntu as a 'Debian Derivative'. It's also why 90% of tutorials that target Ubuntu will work for Debian and vice versa. We share common components and building blocks. Raspberry Pi OS falls into this category too - they are standing on Debian's shoulders and commonly re-base their system on ours, so that they can focus their efforts on making the Raspberry Pi work well instead of getting bogged down in tangential detail.</p>
-<p>An alternative to Debian and its derivatives is <a href="https://www.fedoraproject.org">Fedora</a> - while this shares many common components and code at the core of the system, some of the tools used in Fedora differ to such an extent that software built for it can't be guaranteed to run on a Debian based system - similar to Mac vs Windows.</p>
-<p>There are hundreds, if not thousands, of Linux Distributions all with different goals. Some are derivatives focussed on a specific task, some are very General and left to you to configure and use. Some are even delivered as code and you need to compile it from the ground up.</p>
+<p>Linux is, in general terms, a family of operating systems that share a common
+core set of software and exhibit similar characteristics. It is no one simple
+thing, and doesn't fit in one neat category.</p>
+<p>It can be seen as an alternative to Windows, MacOS, DOS, FreeBSD etc on the
+desktop - there are many similarities and many differences.</p>
+<p>It is built collaboratively by enthusiast and professional software developers
+in the spirit of freely sharing and improving the world for all humans - in
+this sense, there is a strong overlap with the goals of man radio amateurs.</p>
+<p>Through this guide I will regularly refer to "<a href="https://debian.org">Debian</a>" -
+this is the 'Distribution' of Linux that I work on in my free time. A
+distribution is a collection of software maintained by a group of people. In
+the case of Debian, there's around 1000 of us working on it. </p>
+<p>As the source code is available for all to see and use due to permissive
+licenses, if another group has an opinion which differs from the team producing
+a distribution, they can use our work as a foundation and build something
+different and new based on that - we call this 'forking'. This is what
+<a href="https://ubuntu.com">Ubuntu</a> is, and why we refer to Ubuntu as a 'Debian
+Derivative'. It's also why 90% of tutorials that target Ubuntu will work for
+Debian and vice versa. We share common components and building blocks.
+Raspberry Pi OS falls into this category too - they are standing on Debian's
+shoulders and commonly re-base their system on ours, so that they can focus
+their efforts on making the Raspberry Pi work well instead of getting bogged
+down in every tangential detail.</p>
+<p>An alternative to Debian and its derivatives is
+<a href="https://www.fedoraproject.org">Fedora</a> - while this shares many common
+components and code at the core of the system, some of the tools used in Fedora
+differ to such an extent that software built for it can't be guaranteed to run
+on a Debian based system - similar to Mac vs Windows.</p>
+<p>There are hundreds, if not thousands, of Linux Distributions all with different
+goals. Some are derivatives focussed on a specific task, some are very General
+and left to you to configure and use. Some are even delivered as code and you
+need to compile it from the ground up.</p>
 <h2 id="desktops-and-terminals">Desktops and Terminals<a class="headerlink" href="#desktops-and-terminals" title="Permanent link">&para;</a></h2>
 <p>There's a common misconception that Linux is for command line users only, or
 that you need to be proficient in the command line to be able to drive it. This
@@ -1283,9 +1310,9 @@ keen explorer it should look approachable at the very least.</p>
 <p>If you're running Debian, during install we'll ask you what graphical desktop
 environment you want to install, if any. This is the desktop you boot in to -
 unlike Windows, there are multiples available for Linux. As a beginner, I
-strongly recommend <a href="https://kde.org">KDE</a> - it is most Windows like and is
-pretty full featured. If you're running Ubuntu, typically you install an Ubuntu
-derivative focussed on a specific desktop environment - perhaps
+strongly recommend <a href="https://kde.org">KDE</a> Plasma - it is quite Windows like and
+is pretty full featured. If you're running Ubuntu, typically you install an
+Ubuntu derivative focussed on a specific desktop environment - perhaps
 <a href="https://kubuntu.org">Kubuntu</a> for KDE.</p>
 <h2 id="applications-and-repositories">Applications and Repositories<a class="headerlink" href="#applications-and-repositories" title="Permanent link">&para;</a></h2>
 <p>Most Linux distributions are not only just the system and the desktop, but they
@@ -1305,7 +1332,11 @@ some other reason. I keep more up to date versions of software in my repository
 than Raspberry Pi OS offers, and I have additional software that isn't offered
 by RasPi OS too.</p>
 <h3 id="install-from-the-command-line">Install from the Command Line<a class="headerlink" href="#install-from-the-command-line" title="Permanent link">&para;</a></h3>
-<p>To install from the command line, the standard command would be <code>apt install x</code> where x is any application you're looking for. This is often prefixed with <code>sudo</code>, see below in 'Users, Permissions and sudo' to learn more about why.</p>
+<p>To install from the command line, the standard command would be: 
+!!! note "Terminal Command
+<code>apt install x</code></p>
+<p>Where x is any application you're looking for. This is often prefixed with
+<code>sudo</code>, see below in <a href="./#users-permissions-and-sudo">Users, Permissions and sudo</a> to learn more about why.</p>
 <h3 id="graphical-app-store-frontend">Graphical App Store Frontend<a class="headerlink" href="#graphical-app-store-frontend" title="Permanent link">&para;</a></h3>
 <p>Instead of using <code>apt install x</code>, it is possible to run a graphical piece of
 software. </p>
@@ -1316,10 +1347,13 @@ Add/Remove software.</p>
 <h4 id="other-systems">Other systems<a class="headerlink" href="#other-systems" title="Permanent link">&para;</a></h4>
 <p>Have a little look through your application launcher menu to see if there is an
 app catalogue, application store, package list or similar. If nothing is there,
-then you might need to look to install something.</p>
+then you might need to look to install something. In KDE this is called 'Discover'.</p>
 <p>One I recommend is 'Synaptic' - you might have it installed already, or you
-might have to quickly run <code>apt install synaptic</code> in the command line to get
-yourself the software. </p>
+might have to quickly run the below to get it </p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
+<p><code>apt install synaptic</code></p>
+</div>
 <p>On the Raspberry Pi, it's as below. To find it, go to the Raspberry Pi menu (Raspberry Icon, Top Left), Preferences and select Add/Remove software.</p>
 <p><img alt="Featherpad Installation" src="../static/img/install-featherpad.png" /></p>
 <h2 id="filesystem-layout">Filesystem Layout<a class="headerlink" href="#filesystem-layout" title="Permanent link">&para;</a></h2>
@@ -1335,6 +1369,10 @@ internet adaptor. A second would be <code>wlan1</code> etc. </p>
 bin@   dev/  home/  lost+found/  mnt/  proc/  run/   srv/  tmp/  var/
 boot/  etc/  lib@   media/       opt/  root/  sbin@  sys/  usr/
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>I used <code>ls</code> here to list the folders in the terminal, but the DOS classic <code>dir</code> will also work!</p>
+</div>
 <p>Many folders won't be of interest to you day to day, but some helpful ones to know are:</p>
 <ul>
 <li><code>/dev/</code> - A folder containing devices, it's likely your modem appears here as <code>/dev/ttyACM0</code></li>
@@ -1344,44 +1382,101 @@ boot/  etc/  lib@   media/       opt/  root/  sbin@  sys/  usr/
 <li><code>/tmp/</code> - A handy scratchpad to test and download things to. It gets emptied on every reboot</li>
 </ul>
 <h2 id="users-permissions-and-sudo">Users, Permissions and 'sudo'<a class="headerlink" href="#users-permissions-and-sudo" title="Permanent link">&para;</a></h2>
-<p>Much like other systems, Linux has the concept of a regular 'user' which you log in as, day to day and an 'administrator' user who is empowered to make configuration changes to the system, install software and so on. In the Linux world, the administrator is known as 'root'. As root has a lot of power - changing users passwords, deleting every file, overriding safe norms to damage hardware potentially - it is generally recommended that you do not log in day to day as root. If a bad actor or malicious piece of software runs while you are root, it can cause all of the aforementioned damage and more!</p>
-<p>Again, similar to windows, you can run a command as the root user, effectively temporarily granting access to just one program to perform a specific task. In Windows, what usually happens is a pop up window appears asking if you want to do that and pressing yes or no. In Linux, we will have configured the system in advance to know that your user is allowed to do this, and then it will ask for your password to grant permission to carry out the action. </p>
-<p>In graphical environments this may take the form of a pop up window - more often than not, however, we do this from the command line by prefixing our whole command with <code>sudo</code> - you can see a lot of examples of <code>sudo</code> in use at <a href="../repo/">the repo page</a>.</p>
-<p>Looking at the repo as an example and considering our earlier learning from Applications and Repositories above - it's no wonder that you need to carry out the commands mostly as the root user! 
-To add my repository, you are making a major system configuration change in two manners: </p>
+<p>Much like other systems, Linux has the concept of a regular 'user' which you
+log in as, day to day and an 'administrator' user who is empowered to make
+configuration changes to the system, install software and so on. In the Linux
+world, the administrator is known as 'root'. As root has a lot of power -
+changing users passwords, deleting every file, overriding safe norms to damage
+hardware potentially - it is generally recommended that you do not log in day
+to day as root. If a bad actor or malicious piece of software runs while you
+are root, it can cause all of the aforementioned damage and more!</p>
+<p>Again, similar to windows, you can run a command as the root user, effectively
+temporarily granting access to just one program to perform a specific task. In
+Windows, what usually happens is a pop up window appears asking if you want to
+do that and pressing yes or no. In Linux, we will have configured the system in
+advance to know that your user is allowed to do this, and then it will ask for
+your password to grant permission to carry out the action. </p>
+<p>In graphical environments this may take the form of a pop up window - more
+often than not, however, we do this from the command line by prefixing our
+whole command with <code>sudo</code> - you can see a lot of examples of <code>sudo</code> in use at
+<a href="../repo/">the repo page</a>.</p>
+<p>Looking at the repo as an example and considering our earlier learning from
+Applications and Repositories above - it's no wonder that you need to carry out
+the commands mostly as the root user!  To add my repository, you are making a
+major system configuration change in two manners: </p>
 <ul>
 <li>Telling it to trust absolutely the software that I distribute</li>
 <li>Telling the package manager where to download that software from </li>
 </ul>
-<p>From this point on, you're placing a lot of trust in me personally - I can make quite significant changes to your system, or open up security holes, or accidentally break programs. I promise to not abuse this trust - to do so would break our Social Contract, result in me being ejected from several communities I love and I'd probably have to find a new set of hobbies.</p>
-<p>You can, of course, revoke this decision at any point by removing the repo key and entry in <code>/etc/apt.conf</code>.</p>
+<p>From this point on, you're placing a lot of trust in me personally - I can make
+quite significant changes to your system, or open up security holes, or
+accidentally break programs. I promise to not abuse this trust - to do so would
+break our Social Contract, result in me being ejected from several communities
+I love and I'd probably have to find a new set of hobbies.</p>
+<p>You can, of course, revoke this decision at any point by removing the repo key
+and entry in <code>/etc/apt.conf</code>.</p>
 <h3 id="how-do-i-know-if-i-can-run-programs-as-root">How do I know if I can run programs as root?<a class="headerlink" href="#how-do-i-know-if-i-can-run-programs-as-root" title="Permanent link">&para;</a></h3>
-<p>This is one for the command line! I recommend running <code>groups</code>:</p>
+<p>This is one for the command line! I recommend running groups:</p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
+<p><code>groups</code></p>
+</div>
+<p>The output on my system looks like:
 <div class="highlight"><pre><span></span><code>❯ groups
 hibby cdrom floppy sudo audio dip video plugdev users netdev lpadmin scanner sbuild
-</code></pre></div>
-<p>You can see in my group list that I can access the cd rom drive, the floppy drive and run things as sudo, amongst other less important groups!</p>
-<p>If you do <em>not</em> have sudo in this list, you'll need a bit more help than I can give here - time to <a href="../beginners-guide/#ask-for-help">ask for help!</a>. If you're running a Raspberry Pi or Ubuntu, chances are that you'll be able to. Debian is a little more paranoid so we don't grant it by default. </p>
-<p>You'll need to run a command called <code>usermod</code> as the root user to grant your regular user a new group - <code>usermod -aG &lt;groupname&gt; &lt;username&gt;</code> effectively translates to 'add <username> to <groupname>. Get rid of the brackets and add the user and group you're trying for! See <a href="#Permissions-and-Groups">Permissions and Groups</a> for an example. </p>
+</code></pre></div></p>
+<p>You can see in my group list that I can access the cd rom drive, the floppy
+drive and run things as sudo, amongst other less important groups!</p>
+<p>If you do <em>not</em> have sudo in this list, you'll need a bit more help than I can
+give here - time to <a href="../beginners-guide/#ask-for-help">ask for help!</a>. If you're
+running a Raspberry Pi or Ubuntu, chances are that you'll be able to. Debian is
+a little more paranoid so we don't grant it by default. </p>
+<p>You'll need to run a command called <code>usermod</code> as the root user to grant your regular user a new group - </p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
+<p><code>usermod -aG &lt;groupname&gt; &lt;username&gt;</code> </p>
+</div>
+<p>This effectively translates to 'add <username> to <groupname>. Get rid of the
+brackets and add the user and group you're trying for! See <a href="#Permissions-and-Groups">Permissions and
+Groups</a> for an example. </p>
 <h3 id="editing-text-as-root">Editing text as root<a class="headerlink" href="#editing-text-as-root" title="Permanent link">&para;</a></h3>
-<p>The path of least resistance for many is to use the command line - if you know what file you need to edit, you can do that quickly and directly using a command line text editor.</p>
+<p>The path of least resistance for many is to use the command line - if you know
+what file you need to edit, you can do that quickly and directly using a
+command line text editor.</p>
 <p>The GUI offers some choices - my preferred method is below.</p>
 <h5 id="gui">GUI<a class="headerlink" href="#gui" title="Permanent link">&para;</a></h5>
-<p>I recommend installing Featherpad for this - it's lightweight and will only ask for a password when you save the file.</p>
+<p>I recommend installing Featherpad for this - it's lightweight and will only ask
+for a password when you save the file.</p>
 <p>If you use the KDE Desktop, Kate works and has the below functionality inbuilt.</p>
 <p>To install it see <a href="./#graphical-app-store-frontend">above</a> for more.</p>
-<p>You can open Featherpad from the application launcher and use the file-&gt;open menu to get access to files all round the system:</p>
+<p>You can open Featherpad from the application launcher and use the file-&gt;open
+menu to get access to files all round the system:</p>
 <p><img alt="Featherpad Open File" src="../static/img/featherpad-open.png" /></p>
-<p>Take yourself back to <code>/</code> with the Path breadcrumb at the top, and to edit the bpq32.conf config file, for example, find <code>/etc/bpq32.cfg</code>. </p>
-<p>On saving the file, the system will ask you to enter your password as it's a protected file that only the root user can write to:</p>
+<p>Take yourself back to <code>/</code> with the Path breadcrumb at the top, and to edit the
+bpq32.conf config file, for example, find <code>/etc/bpq32.cfg</code>. </p>
+<p>On saving the file, the system will ask you to enter your password as it's a
+protected file that only the root user can write to:</p>
 <p><img alt="Featherpad Save as Root Dialogue" src="../static/img/featherpad-rootsave.png" /></p>
-<p>Alternatively, after installing featherpad you can open your file manager, navigate to <code>/etc/</code>, open <code>bpq32.cfg</code> and the system will present a similar popup when you try to save:</p>
+<p>Alternatively, after installing featherpad you can open your file manager,
+navigate to <code>/etc/</code>, open <code>bpq32.cfg</code> and the system will present a similar
+popup when you try to save:</p>
 <p><img alt="Fileman Select File" src="../static/img/fileman-select.png" /></p>
-<p>In all these programs, you can find <code>/etc/</code> by typing <code>/etc</code> in the navigation bar that is top-central, or by Pressing 'Filesystem Root' on the left hand side and navigating to etc in the main pane.</p>
+<p>In all these programs, you can find <code>/etc/</code> by typing <code>/etc</code> in the navigation
+bar that is top-central, or by Pressing 'Filesystem Root' on the left hand side
+and navigating to etc in the main pane.</p>
 <h4 id="command-line">Command Line<a class="headerlink" href="#command-line" title="Permanent link">&para;</a></h4>
 <p>Every Debian system ships with a text editor called <code>nano</code> which is relatively approachable.</p>
-<p>You open your file directly, so to edit the BPQ config file, run <code>sudo nano /etc/bpq32.cfg</code>. This translates to: <code>As root user, open nano to edit /etc/bpq32.cfg</code></p>
-<p>Navigation is with arrow keys (no mouse, sorry!). There are a list of commands at the bottom of the screen - they use ^ as a shortcut to indicate you must press control at the same time as those letters. Similarly, M is an indication of 'meta' key, which will likely be the alt key. This is quite similar to keyboard shortcuts in Microsoft Word (ctrl&amp;s for save, alt-f4 for exit).</p>
+<p>You open your file directly, so to edit the BPQ config file, run:</p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
+<p><code>sudo nano /etc/bpq32.cfg</code> </p>
+</div>
+<p>This translates to: <code>As root user, open nano to edit /etc/bpq32.cfg</code></p>
+<p>Navigation is with arrow keys (no mouse, sorry!). There are a list of commands
+at the bottom of the screen - they use ^ as a shortcut to indicate you must
+press control at the same time as those letters. Similarly, M is an indication
+of 'meta' key, which will likely be the alt key. This is quite similar to
+keyboard shortcuts in Microsoft Word (ctrl&amp;s for save, alt-f4 for exit).</p>
 <p>Some helpful commands to know:</p>
 <table>
 <thead>
@@ -1422,13 +1517,33 @@ hibby cdrom floppy sudo audio dip video plugdev users netdev lpadmin scanner sbu
 </tbody>
 </table>
 <h3 id="permissions-and-groups">Permissions and Groups<a class="headerlink" href="#permissions-and-groups" title="Permanent link">&para;</a></h3>
-<p>Files, devices and folders can have read and write permissions tied to both a user and a group, just as in Windows. You can check this in your file manager by right clicking and selecting properties.</p>
-<p>In the command line, this can be checked also - to understand who can do what with a NinoTNC, plug it in and run</p>
+<p>Files, devices and folders can have read and write permissions tied to both a
+user and a group, just as in Windows. You can check this in your file manager
+by right clicking and selecting properties.</p>
+<p>In the command line, this can be checked also - to understand who can do what
+with a NinoTNC, plug it in and run</p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
+<p><code>ls -l /dev/ttyACM0</code></p>
+</div>
+<p>The output on my system looks like:
 <div class="highlight"><pre><span></span><code>❯ ls -l /dev/ttyACM0
 crw-rw---- 1 root dialout 204, 64 Apr 11 08:32 /dev/ttyACM0
-</code></pre></div>
-<p>This can be read as the device is owned by root and accessible by the group <code>dialout</code>. This is a common group you'll see regularly for serial devices, and worth being a member of. If a device has dialout as its group, this is telling us unless your user is root or in the dialout group, you cannot use the device. </p>
-<p>To add your user to the dialout group, you may need to run the usermod command as mentioned above. To add my user hibby, it would be <code>usermod -aG dialout hibby</code>. As this command needs to be run as the root user, we probably need to run <code>sudo usermod -aG dialout hibby</code>. </p>
+</code></pre></div></p>
+<p>This can be read as the device is owned by root and accessible by the group
+<code>dialout</code>. This is a common group you'll see regularly for serial devices, and
+worth being a member of. If a device has dialout as its group, this is telling
+us unless your user is root or in the dialout group, you cannot use the device. </p>
+<p>To add your user to the dialout group, you may need to run the usermod command
+as mentioned above. To add my user hibby, it would be </p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
+<p><code>usermod -aG dialout hibby</code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As this command needs to be run as the root user, we probably need to run <code>sudo usermod -aG dialout hibby</code></p>
+</div>
 <p>For this change to take effect, you will need to log out and log in again.</p>
 
 
