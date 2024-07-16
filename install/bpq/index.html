@@ -719,6 +719,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Startup
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1088,6 +1097,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Startup
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1108,21 +1126,31 @@
 <p>If you have not already done so, set up the repo <a href="../../repo/">as shown here</a>.</p>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
 <p>To install LinBPQ from the repo, run the below commands:</p>
-<div class="highlight"><pre><span></span><code>sudo apt update
-sudo apt install linbpq
-</code></pre></div>
-<h2 id="pre-configure">Pre-Configure<a class="headerlink" href="#pre-configure" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>sudo cp /usr/share/doc/linbpq/examples/bpq32.cfg /etc/bpq32.cfg
-sudo nano /etc/bpq32.cfg
-sudo chown :linbpq /etc/bpq32.cfg
-sudo chmod 644 /etc/bpq32.cfg
-</code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">Terminal Commands</p>
+<p>sudo apt update
+sudo apt install linbpq</p>
+</div>
+<h2 id="pre-configure">Pre-Configure<a class="headerlink" href="#pre-configure" title="Permanent link">&para;</a></h2>
+<p>We need to prepare the system and get configuration files in place. This must be
+run on the command line, it's simply the fastest way.</p>
+<p>Copy these three lines, one-at-a-time into your terminal and hit enter after
+each one.</p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Commands</p>
+<p>sudo cp /usr/share/doc/linbpq/examples/bpq32.cfg /etc/bpq32.cfg
+sudo chown :linbpq /etc/bpq32.cfg
+sudo chmod 644 /etc/bpq32.cfg</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Without a config file installed to <code>/etc/bpq32.cfg</code>, BPQ from the repo will not start. If you are looking to use a config file in a different location, remove or modify <code>ConditionPathExists=/etc/bpq32.cfg</code> in <code>/usr/lib/systemd/system/linbpq.service</code></p>
 </div>
 <h2 id="configure">Configure<a class="headerlink" href="#configure" title="Permanent link">&para;</a></h2>
-<p>The configuration file I ship in the repo, there are hopefully some obvious fields to fill out. Once all the below holes are filled, you should be able to log in either with <a href="../../clients/qtttcp/">QtTermTCP</a> or in your web browser at <a href="http://127.0.0.1:8008">localhost:8008</a>), assuming you're on the same computer as the node. </p>
+<p>The configuration file I ship in the repo, there are hopefully some obvious fields to fill out.</p>
+<p>You can find the configuration file at <code>/etc/bpq32.cfg</code> and use something like
+Featherpad to edit it. To learn more about editing text in Linux, see
+<a href="../linux/#editing-text-as-root">here</a>.</p>
 <table>
 <thead>
 <tr>
@@ -1216,6 +1244,16 @@ ENDPORT
 ENDPORT
 </code></pre></div>
 <p><code>USER</code> is the key configuration to change here - change <code>username</code> to your desired administrator username,  <code>xxxxxxx</code> to the password and <code>m0aaa</code> to the callsign of the administrator.</p>
+<h2 id="startup">Startup<a class="headerlink" href="#startup" title="Permanent link">&para;</a></h2>
+<p>Head back to the terminal and run </p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
+<p>sudo systemctl start linbpq</p>
+</div>
+<p>This will tell the system you want to start the <code>linbpq</code> service. Navigate to
+<a href="http://127.0.0.1:8008">http://127.0.0.1:8008</a> if you are on the systme you've
+performed the install on and you should see a webpage like below:</p>
+<p><img alt="bpq welcome page" src="../../static/img/bpq_login.png" />)</p>
 
 
 
