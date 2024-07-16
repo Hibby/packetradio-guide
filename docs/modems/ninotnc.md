@@ -14,7 +14,7 @@ For the UK & Ireland, boards are are available from [Tom, M0LTE](https://ko-fi.c
 
 ## Build
 
-The build gide for the NinoTNC is available on the [TARPN Website](https://tarpn.net/t/nino-tnc/nino-tnc.html).
+The build guide for the NinoTNC is available on the [TARPN Website](https://tarpn.net/t/nino-tnc/nino-tnc.html).
 
 ## Operation
 
@@ -60,9 +60,9 @@ Why? Simply put, see the below three statements but tread carefully. Not all thi
 
 Modulation: These modes offer increasing bandwidth efficiency, with QPSK being our over SSB being our preferred - AFSK over FM is the least efficient mode.
 
-Protocol: IL2P+CRC is the most resilent mode against corruption or data loss as it transits the air, with AX.25 being unprotected against this.
+Protocol: IL2P+CRC is the most resilient mode against corruption or data loss as it transits the air, with AX.25 being unprotected against this.
 
-Mode: SSB is preferred as the channels are narrower and allow for more flexibility - tigher filtering and better amplification per hz.  FM is good enough, however.
+Mode: SSB is preferred as the channels are narrower and allow for more flexibility - tighter filtering and better amplification per hz.  FM is good enough, however.
 
 ### Signals Switch
 

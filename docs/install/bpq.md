@@ -27,7 +27,7 @@ sudo chmod 644 /etc/bpq32.cfg
 
 ## Configure
 
-The configuration file I ship in the repo, there are hopefully some obvious fields to fill out. Once all the below holes are filled, you should be able to log in either with [QtTermTCP](../clients/qtttcp.md) or in your web browser at 127.0.0.1:8008, assuming you're on the same computer as the node. 
+The configuration file I ship in the repo, there are hopefully some obvious fields to fill out. Once all the below holes are filled, you should be able to log in either with [QtTermTCP](../clients/qtttcp.md) or in your web browser at [localhost:8008](http://127.0.0.1:8008)), assuming you're on the same computer as the node. 
 
 | Field | Example | Purpose
 | ----- | ------- | -------
@@ -42,7 +42,7 @@ The configuration file I ship in the repo, there are hopefully some obvious fiel
 
 ### Ports
 
-Port configs in BPQNode aren't too complicated. A common Gotcha is that you configure a port specific broadcast and end up double-broadcasting, both the node master broadcast and the port specific one. 
+Port configuration blocks in BPQNode aren't too complicated. A common Gotcha is that you configure a port specific broadcast and end up double-broadcasting, both the node master broadcast and the port specific one. 
 
 #### KISS
 
@@ -71,7 +71,7 @@ Key settings to observe are the `COMPORT`, which should be the serial port of th
 
 #### Telnet
 
-BPQ's Telnet Port sets the TCP Ports for Telnet, FBB and HTTP connetions, alongside the username and password. This will come in useful when using [QtTTCP](../clients/qtttcp.md) as a monitor and control application.
+BPQ's Telnet Port sets the TCP Ports for Telnet, FBB and HTTP connections, alongside the username and password. This will come in useful when using [QtTTCP](../clients/qtttcp.md) as a monitor and control application.
 
 ```
 PORT

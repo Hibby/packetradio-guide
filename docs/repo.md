@@ -2,14 +2,15 @@
 
 ## Script
 
-The script requires dowloaded, set to executable and run and is a little simpler than the manual setup - thanks to John M5ET for writing it!
+The script requires downloaded, set to executable and run and is a little simpler than the manual setup - thanks to John M5ET for writing it!
 
 I strongly recommend you read through it **before** running it - it should look similar to the manual method below.
 **General computer security advice is to not blindly run scripts you downloaded from the internet!** 
 
-Download the script from: [[https://guide.foxk.it/static/files/setup.sh]]
+Download the script from:
+[https://guide.foxk.it/static/files/setup.sh](https://guide.foxk.it/static/files/setup.sh).
 
-Lines you can run in the command line are:
+This, sadly, must be run in the command line - the lines to run it are:
 
 ```
 cd /tmp
@@ -32,6 +33,9 @@ You can trust this key - it is contained in [Debian](https://salsa.debian.org/de
 ## Set up Repo
 Then you need to add the repo for your OS:
 
+### Ubuntu 24.04 LTS amd64
+`sudo sh -c 'echo "deb
+https://online-amateur-radio-club-m0ouk.github.io/oarc-packages noble main" >> /etc/apt/sources.list'`
 
 ### Ubuntu 22.04 LTS amd64
 `sudo sh -c 'echo "deb https://online-amateur-radio-club-m0ouk.github.io/oarc-packages jammy main" >> /etc/apt/sources.list'`

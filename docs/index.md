@@ -1,6 +1,7 @@
 # Welcome to Hibby's Packet Radio Guide
 
-Hi, welcome - thanks for coming by!
+Hi, welcome - thanks for coming by! I'm Hibby and this is a collection of
+everything I know about packet radio, and is being assembled bit by bit!
 
 !!! warning
 
@@ -37,5 +38,3 @@ Have a look to see if you have a [proven radio](equipment/radios.md) and install
 I'd recommend trying 1200bd on VHF or UHF first, but slower modes on HF are perfectly do-able as well if you're on an island or stuck in a ditch.
 
 Take a look at the [beginner's guide](beginners-guide.md) to see more detail about how to get started.
-
-

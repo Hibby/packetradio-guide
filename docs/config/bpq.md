@@ -78,7 +78,7 @@ Mail configuration isn't easy to get your head round! I'm still not clear on it
 all, and I think many others are in the same boat. It's done through the browser
 instead of on the command line, which makes it slightly more approachable.
 
-Navigate to `http://localhost:8008`, assuming your HTTPPORT is set to 8008. This
+Navigate to [http://localhost:8008](http://localhost:8008), assuming your HTTPPORT is set to 8008 and you're on the same machine. This
 will present you with the below view:
 
 ![BPQ Node Main page](../static/img/node-main.png)

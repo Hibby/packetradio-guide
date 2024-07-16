@@ -86,11 +86,11 @@ The key modulations we use are:
 
 **AFSK**
 
-Audio Frequncy Shift Keying - Multiple audible tones. This is commonly found on VHF, FM 1200bd links. Classic bleeps and bloops that have been heard on our frequencies for decades. Tune to 144.800MHz to get a flavour from the APRS network.
+Audio Frequency Shift Keying - Multiple audible tones. This is commonly found on VHF, FM 1200bd links. Classic bleeps and bloops that have been heard on our frequencies for decades. Tune to 144.800MHz to get a flavour from the APRS network.
 
 **FSK**
 
-Frequency Shift Keying - Multiple tones, not necessarily audible. Commonly found on UHF, FM 9600bd links. This sounds quite like white noise and can be difficut to differentiate from unsquelched audio.
+Frequency Shift Keying - Multiple tones, not necessarily audible. Commonly found on UHF, FM 9600bd links. This sounds quite like white noise and can be difficult to differentiate from unsquelched audio.
 
 **PSK**
 
@@ -102,7 +102,7 @@ A key component of the systems I'll be discussing in this guide is Linux. If you
 
 There's a lot to take in, and it can seem overwhelming at first, but feel free to read, ask for help and keep in mind that it's easy to feel lost when you approach anything new - there are just so many things to grasp.
 
-A simple starting point is a [Raspberry Pi](https://raspberrypi.org) - it will be a dedicated computer for just packet exploration, and if everything is broken you can easily start again without losing any importnt data - you just rewrite the SD card and start again.
+A simple starting point is a [Raspberry Pi](https://raspberrypi.org) - it will be a dedicated computer for just packet exploration, and if everything is broken you can easily start again without losing any important data - you just rewrite the SD card and start again.
 
 ## Radio Set Up
 
@@ -124,7 +124,7 @@ Once you have done that you can install the prerequisites - QTTermTCP.
 
 If you're a new user, I recommend using a graphical 'app store' - see how [here](linux.md/#graphical-app-store-frontend).
 
-If you're more linux aware? `apt install soundmodem` in your terminal of choice!
+If you're more Linux aware? `apt install soundmodem` in your terminal of choice!
 
 ### Configure QtTermTCP
 
@@ -148,7 +148,7 @@ Decoded data shall look like:
 
 ## Connect
 
-Press Connect, then 'Kiss Connect' in the dropdown menu. You'll see something aking to the below - selection session, enter the callsign & SSID you are trying to connect to, for example GB7HIB-7 if you're connecting to my node. Ignore digipeters for the moment - they can be a future challenge.
+Press Connect, then 'Kiss Connect' in the dropdown menu. You'll see something asking to the below - selection session, enter the callsign & SSID you are trying to connect to, for example GB7HIB-7 if you're connecting to my node. Ignore digipeters for the moment - they can be a future challenge.
 
 ![Connect window](static/img/qttcp_connect.png)
 
@@ -163,7 +163,10 @@ Not seeing anything in the monitor pane? Time to get debugging!
 
 ## Debugging
 
-This is where most of my time is spent when setting up packet radio stuff. In my opinion, it's where the real learning happens - you need to get your hands dirty with your radio, with your modem, with linux and try to retain your sanity at the same time. 
+This is where most of my time is spent when setting up packet radio stuff. In my
+opinion, it's where the real learning happens - you need to get your hands dirty
+with your radio, with your modem, with Linux and try to retain your sanity at
+the same time. 
 
 Don't worry - there is always something you've forgotten to do, or think you've looked at and haven't. We all have that feeling. Sometimes I keep a note of what I've done and what I've looked at to avoid replication of work, or so I can note what I *have* changed and what I might need to replicate.
 

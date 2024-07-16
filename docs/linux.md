@@ -25,31 +25,49 @@ There are hundreds, if not thousands, of Linux Distributions all with different 
 
 ## Desktops and Terminals
 
-There's a common misconception that Linux is for command line users only, or that you need to be proficient in the command line to be able to drive it. This is no more true in Linux than it is for MacOS and Windows - there are a number of tasks that some may find more efficient to do via the command line interface (CLI), but there are usually multiple ways to skin the cat. 
+There's a common misconception that Linux is for command line users only, or
+that you need to be proficient in the command line to be able to drive it. This
+is no more true in Linux than it is for MacOS and Windows - there are a number
+of tasks that some may find more efficient to do via the command line interface
+(CLI), but there are usually multiple ways to skin the cat. 
 
-Much of my advice will take the form of things to run in the command line, as this is often the way I interact with my computers, but I am endeavouring to diversify so things are more approachable. 
+Much of my advice will take the form of things to run in the command line, as
+this is often the way I interact with my computers, but I am endeavouring to
+diversify so things are more approachable. 
 
-If you're running the Raspberry Pi, it's most likely you have [Raspberry Pi OS](https://www.raspberrypi.com/software/) with a desktop - there'll be a background, a menu in the top left etc. It might not look familiar, but to a keen explorer it should look approachable at the very least.
+If you're running the Raspberry Pi, it's most likely you have [Raspberry Pi
+OS](https://www.raspberrypi.com/software/) with a desktop - there'll be a
+background, a menu in the top left etc. It might not look familiar, but to a
+keen explorer it should look approachable at the very least.
 
-<<<<<<< Updated upstream
-If you're running Debian, during install we'll ask you what graphical desktop environment you want to install, if any. This is the desktop you boot in to - unlike Windows, there are multiples available for Linux. As a beginner, I strongly recommend [KDE](https://kde.org) - it is most Windows like and is pretty full featured. If you're running Ubuntu, typically you install an Ubuntu derivative focussed on a specific desktop environment - perhaps [Kubuntu](https://kubuntu.org) for KDE.
-=======
 If you're running Debian, during install we'll ask you what graphical desktop
-environment you want to install, if any. As a beginner, I strongly recommend
-[KDE](https://kde.org) - it is most Windows like and is pretty full featured. If
-you're running Ubuntu, typically you install an Ubuntu derivative focussed on a
-specific desktop environment - perhaps [Kubuntu](https://kubuntu.org) for KDE.
-For older hardware, I'm a big fan of [LXDE](https://lxde.org) - it's simple and
-fast.
->>>>>>> Stashed changes
+environment you want to install, if any. This is the desktop you boot in to -
+unlike Windows, there are multiples available for Linux. As a beginner, I
+strongly recommend [KDE](https://kde.org) - it is most Windows like and is
+pretty full featured. If you're running Ubuntu, typically you install an Ubuntu
+derivative focussed on a specific desktop environment - perhaps
+[Kubuntu](https://kubuntu.org) for KDE.
 
 ## Applications and Repositories
 
-Most Linux distributions are not only just the system and the desktop, but they are shipped with a vast catalogue of applications too. They might not be installed, and you'll need to use some sort of app store tool to install, remove etc applications. It's just like every modern mobile phone - they stole the idea from us!
+Most Linux distributions are not only just the system and the desktop, but they
+are shipped with a vast catalogue of applications too. They might not be
+installed, and you'll need to use some sort of app store tool to install, remove
+etc applications. It's just like every modern mobile phone - they stole the idea
+from us!
 
-We call this tool a package manager (we often call applications 'packages'), and a collection of applications is known as a repository, or repo. The Debian family use a program called `apt` as its package manager, and it ships with quite a large repository of apps you can choose from. Most guides, mine included, don't focus on showing you a usable app-store, just a method of installing from a repository.
+We call this tool a package manager (we often call applications 'packages'), and
+a collection of applications is known as a repository, or repo. The Debian
+family use a program called `apt` as its package manager, and it ships with
+quite a large repository of apps you can choose from. Most guides, mine
+included, don't focus on showing you a usable app-store, just a method of
+installing from a repository.
 
-You might want to add another repository if to get access to additional software, new software that isn't shipped by the distribution's maintainers or some other reason. I keep more up to date versions of software in my repository than Raspberry Pi OS offers, and I have additional software that isn't offered by RasPi OS too.
+You might want to add another repository if to get access to additional
+software, new software that isn't shipped by the distribution's maintainers or
+some other reason. I keep more up to date versions of software in my repository
+than Raspberry Pi OS offers, and I have additional software that isn't offered
+by RasPi OS too.
 
 ### Install from the Command Line
 
@@ -89,7 +107,10 @@ In Linux we follow a different filesystem hierarchy, starting at the 'root' of t
 
 Paths always start with a `/`, and if it's a folder it will end with a `/` to indicate there is more depth below.
 
-Devices, as they present, are often named by the class of device and a number starting at 0 to indicate which number it is. You'll commonly see references to `eth0`, showing the first ethernet device or `wlan0` showing the first wireless internet adaptor. A second would be `wlan1` etc. 
+Devices, as they present, are often named by the class of device and a number
+starting at 0 to indicate which number it is. You'll commonly see references to
+`eth0`, showing the first Ethernet device or `wlan0` showing the first wireless
+internet adaptor. A second would be `wlan1` etc. 
 
 If I look at my root filesystem, I see the following folders:
 
@@ -176,7 +197,7 @@ Every Debian system ships with a text editor called `nano` which is relatively a
 
 You open your file directly, so to edit the BPQ config file, run `sudo nano /etc/bpq32.cfg`. This translates to: `As root user, open nano to edit /etc/bpq32.cfg`
 
-Navigation is with arrow keys (no mouse, sorry!). There are a list of commands at the bottom of the screen - they use ^ as a shortcut to indicate you must press control at the same time as those letters. Similarly, M is an idication of 'meta' key, which will likely be the alt key. This is quite similar to keyboard shortcuts in Microsoft Word (ctrl&s for save, alt-f4 for exit).
+Navigation is with arrow keys (no mouse, sorry!). There are a list of commands at the bottom of the screen - they use ^ as a shortcut to indicate you must press control at the same time as those letters. Similarly, M is an indication of 'meta' key, which will likely be the alt key. This is quite similar to keyboard shortcuts in Microsoft Word (ctrl&s for save, alt-f4 for exit).
 
 Some helpful commands to know:
 
