@@ -119,4 +119,4 @@ This will tell the system you want to start the `linbpq` service. Navigate to
 [http://127.0.0.1:8008](http://127.0.0.1:8008) if you are on the systme you've
 performed the install on and you should see a webpage like below:
 
-![bpq welcome page](../static/img/bpq_login.png))
+![bpq welcome page](../static/img/node-main.png)

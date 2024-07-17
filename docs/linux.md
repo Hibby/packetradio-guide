@@ -231,6 +231,18 @@ This effectively translates to 'add <username> to <groupname>. Get rid of the
 brackets and add the user and group you're trying for! See [Permissions and
 Groups](#Permissions-and-Groups) for an example. 
 
+### Running Command Line Programs as Root
+
+We prefix a command with `sudo` if we want it to be run as root and we know
+we're in the right group!
+
+!!! note "Terminal Command"
+	`nano /etc/bpq32.cfg`
+	
+	becomes
+	
+	`sudo nano /etc/bpq32.cfg`
+
 ### Editing text as root
 
 The path of least resistance for many is to use the command line - if you know

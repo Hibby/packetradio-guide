@@ -2,7 +2,14 @@
 
 For Debian-alikes, see [installation instructions](../install/linux.md).
 
-Each of the below components are required to make the complete node, but they are (generally) not all interdependent, and most of the unique components will work to make a stripped down version.
+Each of the below components are required to make the complete node, but they
+are (generally) not all interdependent, and most of the unique components will
+work to make a stripped down version.
+
+!!! warning 
+	It can be assumed that most of this is not for the Linux newbie, and
+	that commands here are to be run as
+	[root](../linux.md/#users-permissions-and-sudo), exercise good judgement!
 
 ## axports
 
@@ -10,13 +17,16 @@ Setting up basic AX.25 on Debian is relatively simple - the key file to edit her
 
 GB7HIB currently runs the following below config. Each port has been given an internal reference, I like to detail what connection they are providing. Other people map them out by number or other methods, but I find having a pretty consistent set of references to the radio/interface I'm using keeps my brain in check. 
 
-The callsign&SSID is, in this case, the physical address for the port, akin to a MAC address on ethernet. It shows under `ifconfig` as a mac address for the link.
+The callsign&SSID is, in this case, the physical address for the port, akin to a MAC address on Ethernet. It shows under `ifconfig` as a mac address for the link.
 
 Speed is the speed of the serial port on the interface. In the case of the NinoTNC, this is 57600.
 
 Paclen is the packet length - for V/UHF links, 255 bytes is a nice length. For HF, 60-80 is more common. It means for shorter packets that aren't as likely to be impacted by changes in propagation.
 
-Window is the number of packets that can be sent in one burst. The more reliable the link,the higher the number. This is limited by the version of ax25 you're running - 2.0 has a lower window than 2.0. If you're running Linux, at the moment you're on ax25 2.0.
+Window is the number of packets that can be sent in one burst. The more reliable
+the link,the higher the number. This is limited by the version of ax25 you're
+running - 2.0 has a lower window than 2.2. If you're running Linux, at the
+moment you're on ax25 2.0.
 
 ```
 hibby@raspberrypi:~ $ cat /etc/ax25/axports
@@ -35,7 +45,8 @@ ip	GB7HIB-11	115200	255	7	IP
 `kissattach` binds the axport to a physical kiss device.
 
 I attach my UHF port to my NinoTNC with:
-`kissattach /dev/ttyACM0 uhf`
+!!! note "Terminal Command"
+	`kissattach /dev/ttyACM0 uhf`
 
 
 ### axcall
@@ -61,9 +72,11 @@ We create a virtual modem with `ax25ipd`, a virtual pipe with `socat` that lets 
 I create a socket pair to connect `ax25ipd` and `kissattach` to connect the `ip` ax25 port to the axudp tunnel.
 
 The command I run for this is:
-```socat -d -d -ly pty,raw,echo=0,link=/var/ax25/pty/axip1 pty,raw,echo=0,link=/var/ax25/pty/axip2```
+!!! note "Terminal Command"
+	`socat -d -d -ly pty,raw,echo=0,link=/var/ax25/pty/axip1 pty,raw,echo=0,link=/var/ax25/pty/axip2`
 
-If you are copying this, you might need to make the `/var/ax25/pty` - `mkdir -p /var/ax25/pty`
+!!! tip
+	If you are copying this, you might need to make the `/var/ax25/pty` - `mkdir -p /var/ax25/pty`
 
 This is brought up at boottime by systemd:
 
@@ -107,29 +120,29 @@ route MM3NDH 10.13.37.2 bd
 ### Running ax25ipd
 
 This is run from the command line as follows:
-
-`ax25ipd`
+!!! note "Terminal Command"
+	`ax25ipd`
 
 ### kissattach
 
 We need to attach the axip port to the virtual modem we've created with ax25ipd once it's running, and this is a simple case of:
-
-`kissattach /var/ax25/pty/axip2 axip`
+!!! note Terminal Command
+	`kissattach /var/ax25/pty/axip2 axip`
 
 ## NET/ROM
 
 NET/ROM covers functionality analogous to OSI layer3/layer 4.
 
 What it means in reality is that my node has a knowledge of its neighbours and what their neighbours are, and automates routing calls. To use the earlier example, I can call directly to gm0cqv and my machine will know the best path - 
-
-`axcall nrnod GM0CQV-7`
+!!! note "Terminal Command"
+	`axcall nrnod GM0CQV-7`
 
 Each NET/ROM sends a 'NODES' broadcast periodically. This details what systems it can hear, what the gateway to the remote nodes is and a 'quality' value.
-Nodes on the network can have an alias too - GM0CQV's node on -7 above is PTRNOD, so I can do the following -
+Nodes on the network can have an alias too - GM0CQV's node on -7 above is
+PTRNOD, so I can do the following to end up at the same location -
 
-`axcall nrnod PTRNOD`
-
-and end up at the same location.
+!!! note "Terminal Command"
+	`axcall nrnod PTRNOD`
 
 NET/ROM ports are largely independent of ax25 ports in that a user can call any given nrport without going through a specific axport. You can essentially define per-application nrports, and as many as you wish (assuming you have free unique SSIDs to offer them as mac addresses).
 
@@ -151,15 +164,21 @@ nrnod   GB7HIB-1  HIBNOD        235     Netrom node Port
 nrbbs   GB7HIB-2  HIBBBS        235     Netrom BBS Port
 ```
 
-I have a port for my service, the callsign and port, and an up to 6 letter alias for the service. The packet length is 20 bytes shorter than the ax25 packet to account for overheads, and then there's a wee description. 
+I have a port for my service, the callsign and port, and an up to 6 letter alias
+for the service. The packet length is 20 bytes shorter than the ax25 packet to
+account for overheads, and then there's a wee description. 
 
 ### nrbroadcast
 
-`/etc/ax25/nrbroadcast` defines how often `netromd` sends a NODES broadcast and what port it sends them over.
+`/etc/ax25/nrbroadcast` defines how often `netromd` sends a NODES broadcast and
+what port it sends them over.
 
-It also defines the default quality of stations received directly over that port, the worst quality it will broadcast, how long without hearing a nodes broadcast the station will remain in your routing table. 
+It also defines the default quality of stations received directly over that
+port, the worst quality it will broadcast, how long without hearing a nodes
+broadcast the station will remain in your routing table. 
 
-I have set some sensible defaults, things that come over the ip link are quite high, but I limit the worst quality so that my NODES table isn't too big.
+I have set some sensible defaults, things that come over the ip link are quite
+high, but I limit the worst quality so that my NODES table isn't too big.
 
 ```
 hibby@raspberrypi:~ $ cat /etc/ax25/nrbroadcast
@@ -178,8 +197,8 @@ ip      3       200     130     1
 Like AX.25, we need to attach the port to a device - our tool for this is `nrattach`.
 
 `nrattach` is simple - you nrattach a port and that's it. 
-
-`nrattach nrnod`  
+!!! note "Terminal Command"
+	`nrattach nrnod`  
 
 ### netromd
 
@@ -187,23 +206,39 @@ Like AX.25, we need to attach the port to a device - our tool for this is `nratt
 
 I should really make this systemd unit come up after nrattach.
 
-I run it as `netromd -i -l -d -t 30`, which broadcasts almost immidiately, creates debug logs and broadcasts every 30 minutes.
+I run it as below:
+
+!!! note "Terminal Command"
+	`netromd -i -l -d -t 30` 
+
+This broadcasts almost immediately, creates debug logs and broadcasts every 30 minutes.
 
 ## ax25d
 
-ax25d is the Daemon that routes incoming connection requests and spins up a process for the caller.
+ax25d is the Daemon that routes incoming connection requests and spins up a
+process for the caller.
 
-Interestingly, it isn't tied to the incoming port that the call is coming through, so you can have any port or interface handle calls to any callsign, alias or other word. 
+Interestingly, it isn't tied to the incoming port that the call is coming
+through, so you can have any port or interface handle calls to any callsign,
+alias or other word. 
 
-`/etc/ax25/ax25d.conf` is the config file that controls this, and it handles ax25 ports and netrom ports slightly differently. The default config we ship with debian is full of great examples, see online [here](https://salsa.debian.org/debian-hamradio-team/ax25-tools/-/blob/master/ax25/ax25d.conf.in?ref_type=heads) - mine is configured as below. 
+`/etc/ax25/ax25d.conf` is the config file that controls this, and it handles
+ax25 ports and netrom ports slightly differently. The default config we ship
+with debian is full of great examples, see online
+[here](https://salsa.debian.org/debian-hamradio-team/ax25-tools/-/blob/master/ax25/ax25d.conf.in?ref_type=heads)
+- mine is configured as below. 
 
-Reading it, you can see that GB7HIB is in [] and nrnod is in <>. They define the type of port. 
-This means if you connect to GB7HIB over ax25, you get uronode.
+Reading it, you can see that GB7HIB is in [] and nrnod is in <>. They define the
+type of port.  This means if you connect to GB7HIB over ax25, you get uronode.
 If you connect to HIBNOD, or GB7HIB-1 over netrom, you get uronode! 
 
-I am really interested in exploring some other applications, including `axspawn`, which lets you spawn a bash (or other) shell and effectively gives shell access over ax25/netrom to a user.
+I am really interested in exploring some other applications, including
+`axspawn`, which lets you spawn a bash (or other) shell and effectively gives
+shell access over ax25/netrom to a user.
 
-There's lots of options here, and it's an incredibly flexible piece of software and is the core of why the Linux stack is so interesting to me. You can present any binary on your system to a connecting user!
+There's lots of options here, and it's an incredibly flexible piece of software
+and is the core of why the Linux stack is so interesting to me. You can present
+any binary on your system to a connecting user!
 
 ```
 hibby@raspberrypi:~ $ cat /etc/ax25/ax25d.conf
@@ -231,20 +266,26 @@ default * * * * * *  -  root  /usr/sbin/uronode uronode
 ### Running ax25d
 
 This is an easy one to start - 
-
-`ax25d`
+!!! note "Terminal Command"
+	`ax25d`
 
 ## Uronode Frontend
 
-I use uronode both as a frontend for users connecting and for me connecting to the node and to neighbouring stations, essentially over telnet. When someone connects to my system, Uronode generates the menu that they see.
+I use uronode both as a frontend for users connecting and for me connecting to
+the node and to neighbouring stations, essentially over telnet. When someone
+connects to my system, Uronode generates the menu that they see.
 
-I also have it configured as my local client - i can run `uronode` in a terminal and be presented with a helpful control interface.
+I also have it configured as my local client - i can run `uronode` in a terminal
+and be presented with a helpful control interface.
 
 ### uronode.conf
 
-This is the core config file for uronode that details what uronode can do. I'm running mine very stripped back, and have cut a lot of the defaults out:
+This is the core config file for uronode that details what uronode can do. I'm
+running mine very stripped back, and have cut a lot of the defaults out:
 
-You can see the BBS command is just a uronode call out to GB7HIB-2 over netrom, and there are external commands for netstat and the 'nodesearch' program I quite like. 
+You can see the BBS command is just a uronode call out to GB7HIB-2 over netrom,
+and there are external commands for netstat and the 'nodesearch' program I quite
+like. 
 
 The rest is pretty much default.
 
@@ -336,16 +377,22 @@ This defines shell access for me as a sysop. I've never actually spawned a shell
 
 ### Uronode as a local interface
 
-I use uronode as my local packet radio terminal - instead of turning on and typing `axcall nrnod salbbs` to get to gm0nrt, I log in, type uronode, feed it my callsign and I am met with the uronode command interface, from which I can type `c salbbs`. It's a much nicer place to be!
+I use uronode as my local packet radio terminal - instead of turning on and
+typing `axcall nrnod salbbs` to get to gm0nrt, I log in, type uronode, feed it
+my callsign and I am met with the uronode command interface, from which I can
+type `c salbbs`. It's a much nicer place to be!
 
-This required `xinetd` for me to set up easily.
+This required `xinetd` for me to set up easily - you'll need to install it.
 
 #### xinetd config
-I think the below two config files are the only things required to make uronode listen on port 3964 - 
+I think the below two config files are the only things required to make uronode
+listen on port 3964 . `xinetd` must be enabled and started by systemd to be listening 
 
-`xinetd` must be enabled and started by systemd to be listening (`systemctl enable xinetd`, `systemctl start xinetd`)
+!!! note "Terminal Command"
+	`systemctl enable xinetd`, `systemctl start xinetd`
 
-There is probably a systemd native way of doing this, but I couldn't see that in the docs.
+There is probably a systemd native way of doing this, but I couldn't see that in
+the docs.
 
 ```
 hibby@raspberrypi:~ $ cat /etc/xinetd.d/uronode
@@ -368,15 +415,22 @@ uronode         3694/tcp                        # Uronode
 
 ## FBB BBS
 
-`fbb` is my BBS software of choice! It is an oddity in that it binds directly to the ports you tell it exist, so it's listening on my ax25 and netrom ports without an entry in `ax25d.conf`. This mostly seems like magic to me and I am happy to let it run this way!
+`fbb` is my BBS software of choice! It is an oddity in that it binds directly to
+the ports you tell it exist, so it's listening on my ax25 and netrom ports
+without an entry in `ax25d.conf`. This mostly seems like magic to me and I am
+happy to let it run this way!
 
-It has a few config files - fbb.conf, which is populated by the first run, `ports.sys` which defines the ports available and then `bbs.sys` and `forward.sys` which defines how you route to the outside world. 
+It has a few config files - fbb.conf, which is populated by the first run,
+`ports.sys` which defines the ports available and then `bbs.sys` and
+`forward.sys` which defines how you route to the outside world. 
 
 ### ports.sys
 
-My reference for this file was [this website](https://www.febo.com/packet/linux-ax25/fbb-config.html), which was a helpful resource!
+My reference for this file was [this website](https://www.febo.com/packet/linux-ax25/fbb-config.html), which was a
+helpful resource!
 
-I have incremented the number of TNCs where appropriate and added my ports as 1,2,3. I have left the COM 1 Interface 9 etc alone. 
+I have incremented the number of TNCs where appropriate and added my ports as
+1,2,3. I have left the COM 1 Interface 9 etc alone. 
 
 ``` 
 hibby@raspberrypi:~ $ cat /etc/ax25/fbb/port.sys
