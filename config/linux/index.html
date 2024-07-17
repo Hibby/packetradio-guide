@@ -1573,14 +1573,25 @@
 
 <h1 id="linux-native-ax25-stack">Linux Native AX.25 Stack<a class="headerlink" href="#linux-native-ax25-stack" title="Permanent link">&para;</a></h1>
 <p>For Debian-alikes, see <a href="../../install/linux/">installation instructions</a>.</p>
-<p>Each of the below components are required to make the complete node, but they are (generally) not all interdependent, and most of the unique components will work to make a stripped down version.</p>
+<p>Each of the below components are required to make the complete node, but they
+are (generally) not all interdependent, and most of the unique components will
+work to make a stripped down version.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It can be assumed that most of this is not for the Linux newbie, and
+that commands here are to be run as
+<a href="../../linux/#users-permissions-and-sudo">root</a>, exercise good judgement!</p>
+</div>
 <h2 id="axports">axports<a class="headerlink" href="#axports" title="Permanent link">&para;</a></h2>
 <p>Setting up basic AX.25 on Debian is relatively simple - the key file to edit here is <code>/etc/ax25/axports</code>. </p>
 <p>GB7HIB currently runs the following below config. Each port has been given an internal reference, I like to detail what connection they are providing. Other people map them out by number or other methods, but I find having a pretty consistent set of references to the radio/interface I'm using keeps my brain in check. </p>
-<p>The callsign&amp;SSID is, in this case, the physical address for the port, akin to a MAC address on ethernet. It shows under <code>ifconfig</code> as a mac address for the link.</p>
+<p>The callsign&amp;SSID is, in this case, the physical address for the port, akin to a MAC address on Ethernet. It shows under <code>ifconfig</code> as a mac address for the link.</p>
 <p>Speed is the speed of the serial port on the interface. In the case of the NinoTNC, this is 57600.</p>
 <p>Paclen is the packet length - for V/UHF links, 255 bytes is a nice length. For HF, 60-80 is more common. It means for shorter packets that aren't as likely to be impacted by changes in propagation.</p>
-<p>Window is the number of packets that can be sent in one burst. The more reliable the link,the higher the number. This is limited by the version of ax25 you're running - 2.0 has a lower window than 2.0. If you're running Linux, at the moment you're on ax25 2.0.</p>
+<p>Window is the number of packets that can be sent in one burst. The more reliable
+the link,the higher the number. This is limited by the version of ax25 you're
+running - 2.0 has a lower window than 2.2. If you're running Linux, at the
+moment you're on ax25 2.0.</p>
 <div class="highlight"><pre><span></span><code>hibby@raspberrypi:~ $ cat /etc/ax25/axports
 # /etc/ax25/axports
 #
@@ -1593,8 +1604,11 @@ ip  GB7HIB-11   115200  255 7   IP
 </code></pre></div>
 <h3 id="kissattach">kissattach<a class="headerlink" href="#kissattach" title="Permanent link">&para;</a></h3>
 <p><code>kissattach</code> binds the axport to a physical kiss device.</p>
-<p>I attach my UHF port to my NinoTNC with:
-<code>kissattach /dev/ttyACM0 uhf</code></p>
+<p>I attach my UHF port to my NinoTNC with:</p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
+<p><code>kissattach /dev/ttyACM0 uhf</code></p>
+</div>
 <h3 id="axcall">axcall<a class="headerlink" href="#axcall" title="Permanent link">&para;</a></h3>
 <p>With the basic port configured, you can use <code>axcall</code> to place a call. </p>
 <p><code>hibby@raspberrypi:~ $ axcall uhf gm0nrt-7</code> calls my neighbour bill over layer 2/ax.25 point to point.</p>
@@ -1606,9 +1620,15 @@ ip  GB7HIB-11   115200  255 7   IP
 <p>We create a virtual modem with <code>ax25ipd</code>, a virtual pipe with <code>socat</code> that lets us connect to it similar to a physically attached modem and then run <code>kissattach</code> to make that relationship.</p>
 <h3 id="socat">socat<a class="headerlink" href="#socat" title="Permanent link">&para;</a></h3>
 <p>I create a socket pair to connect <code>ax25ipd</code> and <code>kissattach</code> to connect the <code>ip</code> ax25 port to the axudp tunnel.</p>
-<p>The command I run for this is:
-<code>socat -d -d -ly pty,raw,echo=0,link=/var/ax25/pty/axip1 pty,raw,echo=0,link=/var/ax25/pty/axip2</code></p>
+<p>The command I run for this is:</p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
+<p><code>socat -d -d -ly pty,raw,echo=0,link=/var/ax25/pty/axip1 pty,raw,echo=0,link=/var/ax25/pty/axip2</code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>If you are copying this, you might need to make the <code>/var/ax25/pty</code> - <code>mkdir -p /var/ax25/pty</code></p>
+</div>
 <p>This is brought up at boottime by systemd:</p>
 <div class="highlight"><pre><span></span><code>hibby@raspberrypi:~ $ cat /etc/systemd/system/kiss-socat-axip.service
 [Unit]
@@ -1642,18 +1662,30 @@ route MM3NDH 10.13.37.2 bd
 </code></pre></div>
 <h3 id="running-ax25ipd">Running ax25ipd<a class="headerlink" href="#running-ax25ipd" title="Permanent link">&para;</a></h3>
 <p>This is run from the command line as follows:</p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
 <p><code>ax25ipd</code></p>
+</div>
 <h3 id="kissattach_1">kissattach<a class="headerlink" href="#kissattach_1" title="Permanent link">&para;</a></h3>
 <p>We need to attach the axip port to the virtual modem we've created with ax25ipd once it's running, and this is a simple case of:</p>
+<div class="admonition note terminal command">
+<p class="admonition-title">Note</p>
 <p><code>kissattach /var/ax25/pty/axip2 axip</code></p>
+</div>
 <h2 id="netrom">NET/ROM<a class="headerlink" href="#netrom" title="Permanent link">&para;</a></h2>
 <p>NET/ROM covers functionality analogous to OSI layer3/layer 4.</p>
 <p>What it means in reality is that my node has a knowledge of its neighbours and what their neighbours are, and automates routing calls. To use the earlier example, I can call directly to gm0cqv and my machine will know the best path - </p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
 <p><code>axcall nrnod GM0CQV-7</code></p>
+</div>
 <p>Each NET/ROM sends a 'NODES' broadcast periodically. This details what systems it can hear, what the gateway to the remote nodes is and a 'quality' value.
-Nodes on the network can have an alias too - GM0CQV's node on -7 above is PTRNOD, so I can do the following -</p>
+Nodes on the network can have an alias too - GM0CQV's node on -7 above is
+PTRNOD, so I can do the following to end up at the same location -</p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
 <p><code>axcall nrnod PTRNOD</code></p>
-<p>and end up at the same location.</p>
+</div>
 <p>NET/ROM ports are largely independent of ax25 ports in that a user can call any given nrport without going through a specific axport. You can essentially define per-application nrports, and as many as you wish (assuming you have free unique SSIDs to offer them as mac addresses).</p>
 <h3 id="nrports">nrports<a class="headerlink" href="#nrports" title="Permanent link">&para;</a></h3>
 <p><code>/etc/ax25/nrports</code>,similar to axports, defines the netrom ports the system has available. I expect primary incoming connections to be through netrom, so mine are lower numbered. </p>
@@ -1668,11 +1700,17 @@ Nodes on the network can have an alias too - GM0CQV's node on -7 above is PTRNOD
 nrnod   GB7HIB-1  HIBNOD        235     Netrom node Port
 nrbbs   GB7HIB-2  HIBBBS        235     Netrom BBS Port
 </code></pre></div>
-<p>I have a port for my service, the callsign and port, and an up to 6 letter alias for the service. The packet length is 20 bytes shorter than the ax25 packet to account for overheads, and then there's a wee description. </p>
+<p>I have a port for my service, the callsign and port, and an up to 6 letter alias
+for the service. The packet length is 20 bytes shorter than the ax25 packet to
+account for overheads, and then there's a wee description. </p>
 <h3 id="nrbroadcast">nrbroadcast<a class="headerlink" href="#nrbroadcast" title="Permanent link">&para;</a></h3>
-<p><code>/etc/ax25/nrbroadcast</code> defines how often <code>netromd</code> sends a NODES broadcast and what port it sends them over.</p>
-<p>It also defines the default quality of stations received directly over that port, the worst quality it will broadcast, how long without hearing a nodes broadcast the station will remain in your routing table. </p>
-<p>I have set some sensible defaults, things that come over the ip link are quite high, but I limit the worst quality so that my NODES table isn't too big.</p>
+<p><code>/etc/ax25/nrbroadcast</code> defines how often <code>netromd</code> sends a NODES broadcast and
+what port it sends them over.</p>
+<p>It also defines the default quality of stations received directly over that
+port, the worst quality it will broadcast, how long without hearing a nodes
+broadcast the station will remain in your routing table. </p>
+<p>I have set some sensible defaults, things that come over the ip link are quite
+high, but I limit the worst quality so that my NODES table isn't too big.</p>
 <div class="highlight"><pre><span></span><code>hibby@raspberrypi:~ $ cat /etc/ax25/nrbroadcast
 # /etc/ax25/nrbroadcast
 #
@@ -1686,20 +1724,39 @@ ip      3       200     130     1
 <h3 id="nrattach">nrattach<a class="headerlink" href="#nrattach" title="Permanent link">&para;</a></h3>
 <p>Like AX.25, we need to attach the port to a device - our tool for this is <code>nrattach</code>.</p>
 <p><code>nrattach</code> is simple - you nrattach a port and that's it. </p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
 <p><code>nrattach nrnod</code>  </p>
+</div>
 <h3 id="netromd">netromd<a class="headerlink" href="#netromd" title="Permanent link">&para;</a></h3>
 <p><code>netromd</code> handles incoming and outgoing broadcasts.</p>
 <p>I should really make this systemd unit come up after nrattach.</p>
-<p>I run it as <code>netromd -i -l -d -t 30</code>, which broadcasts almost immidiately, creates debug logs and broadcasts every 30 minutes.</p>
+<p>I run it as below:</p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
+<p><code>netromd -i -l -d -t 30</code> </p>
+</div>
+<p>This broadcasts almost immediately, creates debug logs and broadcasts every 30 minutes.</p>
 <h2 id="ax25d">ax25d<a class="headerlink" href="#ax25d" title="Permanent link">&para;</a></h2>
-<p>ax25d is the Daemon that routes incoming connection requests and spins up a process for the caller.</p>
-<p>Interestingly, it isn't tied to the incoming port that the call is coming through, so you can have any port or interface handle calls to any callsign, alias or other word. </p>
-<p><code>/etc/ax25/ax25d.conf</code> is the config file that controls this, and it handles ax25 ports and netrom ports slightly differently. The default config we ship with debian is full of great examples, see online <a href="https://salsa.debian.org/debian-hamradio-team/ax25-tools/-/blob/master/ax25/ax25d.conf.in?ref_type=heads">here</a> - mine is configured as below. </p>
-<p>Reading it, you can see that GB7HIB is in [] and nrnod is in &lt;&gt;. They define the type of port. 
-This means if you connect to GB7HIB over ax25, you get uronode.
+<p>ax25d is the Daemon that routes incoming connection requests and spins up a
+process for the caller.</p>
+<p>Interestingly, it isn't tied to the incoming port that the call is coming
+through, so you can have any port or interface handle calls to any callsign,
+alias or other word. </p>
+<p><code>/etc/ax25/ax25d.conf</code> is the config file that controls this, and it handles
+ax25 ports and netrom ports slightly differently. The default config we ship
+with debian is full of great examples, see online
+<a href="https://salsa.debian.org/debian-hamradio-team/ax25-tools/-/blob/master/ax25/ax25d.conf.in?ref_type=heads">here</a>
+- mine is configured as below. </p>
+<p>Reading it, you can see that GB7HIB is in [] and nrnod is in &lt;&gt;. They define the
+type of port.  This means if you connect to GB7HIB over ax25, you get uronode.
 If you connect to HIBNOD, or GB7HIB-1 over netrom, you get uronode! </p>
-<p>I am really interested in exploring some other applications, including <code>axspawn</code>, which lets you spawn a bash (or other) shell and effectively gives shell access over ax25/netrom to a user.</p>
-<p>There's lots of options here, and it's an incredibly flexible piece of software and is the core of why the Linux stack is so interesting to me. You can present any binary on your system to a connecting user!</p>
+<p>I am really interested in exploring some other applications, including
+<code>axspawn</code>, which lets you spawn a bash (or other) shell and effectively gives
+shell access over ax25/netrom to a user.</p>
+<p>There's lots of options here, and it's an incredibly flexible piece of software
+and is the core of why the Linux stack is so interesting to me. You can present
+any binary on your system to a connecting user!</p>
 <div class="highlight"><pre><span></span><code>hibby@raspberrypi:~ $ cat /etc/ax25/ax25d.conf
 # /etc/ax25/ax25d.conf
 #
@@ -1724,13 +1781,22 @@ default * * * * * *  -  root  /usr/sbin/uronode uronode
 </code></pre></div>
 <h3 id="running-ax25d">Running ax25d<a class="headerlink" href="#running-ax25d" title="Permanent link">&para;</a></h3>
 <p>This is an easy one to start - </p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
 <p><code>ax25d</code></p>
+</div>
 <h2 id="uronode-frontend">Uronode Frontend<a class="headerlink" href="#uronode-frontend" title="Permanent link">&para;</a></h2>
-<p>I use uronode both as a frontend for users connecting and for me connecting to the node and to neighbouring stations, essentially over telnet. When someone connects to my system, Uronode generates the menu that they see.</p>
-<p>I also have it configured as my local client - i can run <code>uronode</code> in a terminal and be presented with a helpful control interface.</p>
+<p>I use uronode both as a frontend for users connecting and for me connecting to
+the node and to neighbouring stations, essentially over telnet. When someone
+connects to my system, Uronode generates the menu that they see.</p>
+<p>I also have it configured as my local client - i can run <code>uronode</code> in a terminal
+and be presented with a helpful control interface.</p>
 <h3 id="uronodeconf">uronode.conf<a class="headerlink" href="#uronodeconf" title="Permanent link">&para;</a></h3>
-<p>This is the core config file for uronode that details what uronode can do. I'm running mine very stripped back, and have cut a lot of the defaults out:</p>
-<p>You can see the BBS command is just a uronode call out to GB7HIB-2 over netrom, and there are external commands for netstat and the 'nodesearch' program I quite like. </p>
+<p>This is the core config file for uronode that details what uronode can do. I'm
+running mine very stripped back, and have cut a lot of the defaults out:</p>
+<p>You can see the BBS command is just a uronode call out to GB7HIB-2 over netrom,
+and there are external commands for netstat and the 'nodesearch' program I quite
+like. </p>
 <p>The rest is pretty much default.</p>
 <div class="highlight"><pre><span></span><code>hibby@raspberrypi:~ $ cat /etc/ax25/uronode.conf
 # /etc/ax25/uronode.conf - URONode example configuration file
@@ -1804,12 +1870,20 @@ EscapeChar      ^T
 <h4 id="uronodeusers">uronode.users<a class="headerlink" href="#uronodeusers" title="Permanent link">&para;</a></h4>
 <p>This defines shell access for me as a sysop. I've never actually spawned a shell from uronode, but apparently it's possible?!</p>
 <h3 id="uronode-as-a-local-interface">Uronode as a local interface<a class="headerlink" href="#uronode-as-a-local-interface" title="Permanent link">&para;</a></h3>
-<p>I use uronode as my local packet radio terminal - instead of turning on and typing <code>axcall nrnod salbbs</code> to get to gm0nrt, I log in, type uronode, feed it my callsign and I am met with the uronode command interface, from which I can type <code>c salbbs</code>. It's a much nicer place to be!</p>
-<p>This required <code>xinetd</code> for me to set up easily.</p>
+<p>I use uronode as my local packet radio terminal - instead of turning on and
+typing <code>axcall nrnod salbbs</code> to get to gm0nrt, I log in, type uronode, feed it
+my callsign and I am met with the uronode command interface, from which I can
+type <code>c salbbs</code>. It's a much nicer place to be!</p>
+<p>This required <code>xinetd</code> for me to set up easily - you'll need to install it.</p>
 <h4 id="xinetd-config">xinetd config<a class="headerlink" href="#xinetd-config" title="Permanent link">&para;</a></h4>
-<p>I think the below two config files are the only things required to make uronode listen on port 3964 - </p>
-<p><code>xinetd</code> must be enabled and started by systemd to be listening (<code>systemctl enable xinetd</code>, <code>systemctl start xinetd</code>)</p>
-<p>There is probably a systemd native way of doing this, but I couldn't see that in the docs.</p>
+<p>I think the below two config files are the only things required to make uronode
+listen on port 3964 . <code>xinetd</code> must be enabled and started by systemd to be listening </p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
+<p><code>systemctl enable xinetd</code>, <code>systemctl start xinetd</code></p>
+</div>
+<p>There is probably a systemd native way of doing this, but I couldn't see that in
+the docs.</p>
 <div class="highlight"><pre><span></span><code>hibby@raspberrypi:~ $ cat /etc/xinetd.d/uronode
 service uronode
 {
@@ -1826,11 +1900,18 @@ service uronode
 uronode         3694/tcp                        # Uronode
 </code></pre></div>
 <h2 id="fbb-bbs">FBB BBS<a class="headerlink" href="#fbb-bbs" title="Permanent link">&para;</a></h2>
-<p><code>fbb</code> is my BBS software of choice! It is an oddity in that it binds directly to the ports you tell it exist, so it's listening on my ax25 and netrom ports without an entry in <code>ax25d.conf</code>. This mostly seems like magic to me and I am happy to let it run this way!</p>
-<p>It has a few config files - fbb.conf, which is populated by the first run, <code>ports.sys</code> which defines the ports available and then <code>bbs.sys</code> and <code>forward.sys</code> which defines how you route to the outside world. </p>
+<p><code>fbb</code> is my BBS software of choice! It is an oddity in that it binds directly to
+the ports you tell it exist, so it's listening on my ax25 and netrom ports
+without an entry in <code>ax25d.conf</code>. This mostly seems like magic to me and I am
+happy to let it run this way!</p>
+<p>It has a few config files - fbb.conf, which is populated by the first run,
+<code>ports.sys</code> which defines the ports available and then <code>bbs.sys</code> and
+<code>forward.sys</code> which defines how you route to the outside world. </p>
 <h3 id="portssys">ports.sys<a class="headerlink" href="#portssys" title="Permanent link">&para;</a></h3>
-<p>My reference for this file was <a href="https://www.febo.com/packet/linux-ax25/fbb-config.html">this website</a>, which was a helpful resource!</p>
-<p>I have incremented the number of TNCs where appropriate and added my ports as 1,2,3. I have left the COM 1 Interface 9 etc alone. </p>
+<p>My reference for this file was <a href="https://www.febo.com/packet/linux-ax25/fbb-config.html">this website</a>, which was a
+helpful resource!</p>
+<p>I have incremented the number of TNCs where appropriate and added my ports as
+1,2,3. I have left the COM 1 Interface 9 etc alone. </p>
 <div class="highlight"><pre><span></span><code>hibby@raspberrypi:~ $ cat /etc/ax25/fbb/port.sys
 # FBB7.0.11
 #

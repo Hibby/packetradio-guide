@@ -958,6 +958,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#running-command-line-programs-as-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Command Line Programs as Root
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#editing-text-as-root" class="md-nav__link">
     <span class="md-ellipsis">
       Editing text as root
@@ -1186,6 +1195,15 @@
   <a href="#how-do-i-know-if-i-can-run-programs-as-root" class="md-nav__link">
     <span class="md-ellipsis">
       How do I know if I can run programs as root?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-command-line-programs-as-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Command Line Programs as Root
     </span>
   </a>
   
@@ -1439,6 +1457,15 @@ a little more paranoid so we don't grant it by default. </p>
 <p>This effectively translates to 'add <username> to <groupname>. Get rid of the
 brackets and add the user and group you're trying for! See <a href="#Permissions-and-Groups">Permissions and
 Groups</a> for an example. </p>
+<h3 id="running-command-line-programs-as-root">Running Command Line Programs as Root<a class="headerlink" href="#running-command-line-programs-as-root" title="Permanent link">&para;</a></h3>
+<p>We prefix a command with <code>sudo</code> if we want it to be run as root and we know
+we're in the right group!</p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Command</p>
+<p><code>nano /etc/bpq32.cfg</code></p>
+<p>becomes</p>
+<p><code>sudo nano /etc/bpq32.cfg</code></p>
+</div>
 <h3 id="editing-text-as-root">Editing text as root<a class="headerlink" href="#editing-text-as-root" title="Permanent link">&para;</a></h3>
 <p>The path of least resistance for many is to use the command line - if you know
 what file you need to edit, you can do that quickly and directly using a
