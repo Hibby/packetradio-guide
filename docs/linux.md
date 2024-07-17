@@ -98,9 +98,10 @@ by RasPi OS too.
 
 ### Install from the Command Line
 
-To install from the command line, the standard command would be: 
-!!! note "Terminal Command
-`apt install x`
+To install from the command line, the standard command would be:
+
+!!! note "Terminal Command"
+	`apt install x`
 
 Where x is any application you're looking for. This is often prefixed with
 `sudo`, see below in [Users, Permissions and sudo](linux.md/#users-permissions-and-sudo) to learn more about why.
@@ -123,7 +124,8 @@ app catalogue, application store, package list or similar. If nothing is there,
 then you might need to look to install something. In KDE this is called 'Discover'.
 
 One I recommend is 'Synaptic' - you might have it installed already, or you
-might have to quickly run the below to get it 
+might have to quickly run the below to get it.
+
 !!! note "Terminal Command"
 	`apt install synaptic`
 
